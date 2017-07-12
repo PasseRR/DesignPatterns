@@ -1,0 +1,10 @@
+group 'com.gome'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: "groovy"
+
+dependencies {
+    compileOnly "org.projectlombok:lombok:1.16.8"
+    testCompile "org.spockframework:spock-core:1.1-groovy-2.4-rc-4"
+}
