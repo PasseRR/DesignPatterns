@@ -9,7 +9,7 @@ public class CarFactory {
     public Car create(Class<? extends Car> clazz){
         try {
             return clazz.newInstance();
-        } catch (InstantiationException |IllegalAccessException e) {
+        } catch (InstantiationException | IllegalAccessException e) {
             return null;
         }
     }
