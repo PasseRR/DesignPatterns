@@ -10,7 +10,7 @@ import spock.lang.Specification
  * @Copyright ( c ) gome inc Gome Co.,LTD
  */
 class CarFactorySpec extends Specification {
-    def "create"(){
+    def create(){
         given:
         def carFactory = new CarFactory()
         def benz = carFactory.create(BenzCar.class)

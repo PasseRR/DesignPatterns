@@ -17,15 +17,16 @@ class DeepCopySpec extends Specification {
             copyType: new CopyType(type: "deep")
         )
         def copy = (DeepCopy) source.clone()
-
         expect:
         copy != null
         copy.name != null
         copy.copyType != null
         copy.name == source.name
         copy.copyType.type == source.copyType.type
-        copy.copyType != source.copyType
-        copy != source
+        // is同java==
+        // ==同java equals
+        !copy.copyType.is(source.copyType)
+        !copy.is(source)
 
         when:
         copy.name = "Jack Chen"
@@ -34,7 +35,7 @@ class DeepCopySpec extends Specification {
         then:
         source.name != copy.name
         source.copyType.type != copy.copyType.type
-        source.copyType != copy.copyType
-        source != copy
+        !source.copyType.is(copy.copyType)
+        !source.is(copy)
     }
 }

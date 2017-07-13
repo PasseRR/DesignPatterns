@@ -21,9 +21,11 @@ class ShallowCopySpec extends Specification {
         copy.name != null
         copy.copyType != null
         copy.name == source.name
+        copy.name.is(source.name)
         copy.copyType.type == source.copyType.type
         copy.copyType == source.copyType
-        source != copy
+        copy.copyType.is(source.copyType)
+        !source.is(copy)
 
         when:
         copy.name = "Jack Chen"
@@ -31,8 +33,10 @@ class ShallowCopySpec extends Specification {
 
         then:
         source.name != copy.name
+        !source.name.is(copy.name)
         source.copyType.type == copy.copyType.type
         source.copyType == copy.copyType
-        source != copy
+        source.copyType.is(copy.copyType)
+        !source.is(copy)
     }
 }
