@@ -10,7 +10,6 @@ import java.io.Serializable;
  * @Copyright(c) gome inc Gome Co.,LTD
  */
 @Data
-//@AllArgsConstructor
 public class StudentVo implements Serializable {
     private String no;
     private String name;

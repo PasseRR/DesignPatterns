@@ -14,6 +14,7 @@ class LinkedListSpec extends Specification {
         expect:
         list != null
         list.size() == 0
+        list.isEmpty()
 
         when:
         list.add(1)
