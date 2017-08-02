@@ -8,4 +8,4 @@
  * @date 2017/07/14 14:40
  * @Copyright(c) gome inc Gome Co.,LTD
  */
-package passerr.github.io.behavioural.facade;
+package passerr.github.io.structural.facade;

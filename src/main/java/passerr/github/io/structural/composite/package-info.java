@@ -8,4 +8,4 @@
  * @date 2017/07/13 18:11
  * @Copyright(c) gome inc Gome Co.,LTD
  */
-package passerr.github.io.behavioural.composite;
+package passerr.github.io.structural.composite;

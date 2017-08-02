@@ -1,4 +1,4 @@
-package passerr.github.io.behavioural.bridge
+package passerr.github.io.structural.bridge
 
 import spock.lang.Specification
 import spock.lang.Unroll

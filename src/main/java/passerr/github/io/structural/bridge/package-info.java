@@ -5,4 +5,4 @@
  * @date 2017/07/13 13:28
  * @Copyright(c) gome inc Gome Co.,LTD
  */
-package passerr.github.io.behavioural.bridge;
+package passerr.github.io.structural.bridge;

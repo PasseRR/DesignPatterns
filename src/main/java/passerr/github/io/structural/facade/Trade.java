@@ -1,4 +1,4 @@
-package passerr.github.io.behavioural.facade;
+package passerr.github.io.structural.facade;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,13 +1,13 @@
-package passerr.github.io.behavioural.bridge;
+package passerr.github.io.structural.bridge;
 
 /**
  * @author xiehai1
  * @date 2017/07/13 17:51
  * @Copyright(c) gome inc Gome Co.,LTD
  */
-public class Qicq extends Communicator {
+public class Email extends Communicator {
     @Override
     public String send() {
-        return "qicq send " + super.message.getMsg();
+        return "email send " + super.message.getMsg();
     }
 }

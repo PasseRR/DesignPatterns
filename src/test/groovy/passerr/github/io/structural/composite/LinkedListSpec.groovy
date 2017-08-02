@@ -1,4 +1,4 @@
-package passerr.github.io.behavioural.composite
+package passerr.github.io.structural.composite
 
 import spock.lang.Specification
 /**
