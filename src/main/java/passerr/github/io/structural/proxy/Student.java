@@ -1,4 +1,4 @@
-package passerr.github.io.structural.proxy.statical;
+package passerr.github.io.structural.proxy;
 
 /**
  * @author xiehai1

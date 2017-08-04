@@ -1,5 +1,7 @@
 package passerr.github.io.structural.proxy.statical
 
+import passerr.github.io.structural.proxy.Realtor
+import passerr.github.io.structural.proxy.Student
 import spock.lang.Specification
 
 
