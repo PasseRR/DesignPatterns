@@ -10,4 +10,7 @@ public class Student implements Renting {
     public String rent() {
         return "student rent";
     }
+    public String name(){
+        return "student";
+    }
 }
