@@ -1,4 +1,6 @@
-package passerr.github.io.structural.proxy;
+package passerr.github.io.structural.proxy.statical;
+
+import passerr.github.io.structural.proxy.Renting;
 
 /**
  * 房屋中介

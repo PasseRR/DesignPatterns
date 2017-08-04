@@ -1,6 +1,4 @@
-package passerr.github.io.structural.proxy.statical;
-
-import passerr.github.io.structural.proxy.Renting;
+package passerr.github.io.structural.proxy;
 
 /**
  * @author xiehai1
