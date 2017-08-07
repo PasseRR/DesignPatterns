@@ -13,8 +13,8 @@ repositories {
 }
 
 dependencies {
+    compile "cglib:cglib:3.2.5"
     compileOnly "org.projectlombok:lombok:1.16.8"
-    compileOnly "cglib:cglib:3.2.5"
     testCompile "org.spockframework:spock-core:1.1-groovy-2.4-rc-4"
 }
 
