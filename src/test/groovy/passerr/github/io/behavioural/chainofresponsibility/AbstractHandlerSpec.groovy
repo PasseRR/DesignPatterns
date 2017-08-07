@@ -34,11 +34,11 @@ class AbstractHandlerSpec extends Specification {
         handleResult.getResult() == resultMessage
 
         where:
-        activityCapital       || activityTheme || fromPosition || resultMessage || isOk
-        new BigDecimal("100") || "团建"          || "leader"     || "团建 ok"       || Boolean.TRUE
-        new BigDecimal("101")  | "ktv"         || "manager"    || "ktv ok"      || Boolean.TRUE
-        new BigDecimal("499")  | "乒乓球"         || "manager"    || "乒乓球 ok"      || Boolean.TRUE
-        new BigDecimal("501")  | "室内篮球"        || "manager"    || "室内篮球 reject" || Boolean.FALSE
+        activityCapital       | activityTheme || fromPosition || resultMessage || isOk
+        new BigDecimal("100") | "团建"          || "leader"     || "团建 ok"       || Boolean.TRUE
+        new BigDecimal("101") | "ktv"         || "manager"    || "ktv ok"      || Boolean.TRUE
+        new BigDecimal("499") | "乒乓球"         || "manager"    || "乒乓球 ok"      || Boolean.TRUE
+        new BigDecimal("501") | "室内篮球"        || "manager"    || "室内篮球 reject" || Boolean.FALSE
     }
 
     def boss() {
@@ -53,8 +53,8 @@ class AbstractHandlerSpec extends Specification {
         handleResult.getResult() == resultMessage
 
         where:
-        activityCapital       || activityTheme || fromPosition || resultMessage || isOk
-        new BigDecimal("100") || "团建"          || "leader"     || "团建 ok"       || Boolean.TRUE
+        activityCapital        | activityTheme || fromPosition || resultMessage || isOk
+        new BigDecimal("100")  | "团建"          || "leader"     || "团建 ok"       || Boolean.TRUE
         new BigDecimal("101")  | "ktv"         || "manager"    || "ktv ok"      || Boolean.TRUE
         new BigDecimal("499")  | "乒乓球"         || "manager"    || "乒乓球 ok"      || Boolean.TRUE
         new BigDecimal("501")  | "室内篮球"        || "boss"       || "室内篮球 ok"     || Boolean.TRUE
