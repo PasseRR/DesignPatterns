@@ -1,0 +1,408 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.1、单例模式 · 设计模式</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="passerr">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../css/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="prototype.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    0、什么是设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../principle.html">
+            
+                <a href="../../principle.html">
+            
+                    
+                    1、设计模式六大原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    2、创建型模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="singleton.html">
+            
+                <a href="singleton.html">
+            
+                    
+                    2.1、单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="prototype.html">
+            
+                <a href="prototype.html">
+            
+                    
+                    2.2、原型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="abstract_factory.html">
+            
+                <a href="abstract_factory.html">
+            
+                    
+                    2.3、抽象工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../structural/">
+            
+                <a href="../structural/">
+            
+                    
+                    3、结构型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../behavioural/">
+            
+                <a href="../behavioural/">
+            
+                    
+                    4、行为型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >2.1、单例模式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x5355;&#x4F8B;&#x6A21;&#x5F0F;">&#x5355;&#x4F8B;&#x6A21;&#x5F0F;</h2>
+<p>&#x4FDD;&#x8BC1;&#x4E00;&#x4E2A;&#x7C7B;&#x4EC5;&#x6709;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x8BBF;&#x95EE;&#x5B83;&#x7684;&#x5168;&#x5C40;&#x8BBF;&#x95EE;&#x70B9;&#x3002;</p>
+<h3 id="jdk&#x4E2D;&#x7684;&#x4F7F;&#x7528;">JDK&#x4E2D;&#x7684;&#x4F7F;&#x7528;</h3>
+<ul>
+<li>java.lang.Runtime#getRuntime()</li>
+<li>java.awt.Desktop#getDesktop()</li>
+<li>java.lang.System#getSecurityManager()</li>
+</ul>
+<h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
+<ol>
+<li><p>&#x61D2;&#x6C49;&#x5F0F;<br>&#x5B9E;&#x4F8B;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x521D;&#x59CB;&#x5316;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LazySingleton</span> </span>{
+ <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> LazySingleton instance;
+ <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">LazySingleton</span><span class="hljs-params">()</span></span>{
+
+ }
+
+ <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">synchronized</span> LazySingleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>{
+     <span class="hljs-keyword">if</span>(<span class="hljs-keyword">null</span> == instance){
+         instance = <span class="hljs-keyword">new</span> LazySingleton();
+     }
+
+     <span class="hljs-keyword">return</span> instance;
+ }
+}
+</code></pre>
+</li>
+<li><p>&#x53CC;&#x91CD;&#x9501;&#x5B9E;&#x73B0;<br>&#x61D2;&#x6C49;&#x5F0F;&#x5728;&#x591A;&#x7EBF;&#x7A0B;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x5931;&#x6548; &#x7531;&#x6B64;&#x8FDB;&#x5316;&#x800C;&#x6765;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DoubleLockSingleton</span> </span>{
+ <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">volatile</span> DoubleLockSingleton instance;
+ <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">DoubleLockSingleton</span><span class="hljs-params">()</span></span>{
+
+ }
+
+ <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> DoubleLockSingleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>{
+     <span class="hljs-keyword">if</span>(<span class="hljs-keyword">null</span> == instance){
+         <span class="hljs-keyword">synchronized</span> (DoubleLockSingleton.class){
+             <span class="hljs-keyword">if</span>(<span class="hljs-keyword">null</span> == instance){
+                 instance = <span class="hljs-keyword">new</span> DoubleLockSingleton();
+             }
+         }
+     }
+
+     <span class="hljs-keyword">return</span> instance;
+ }
+}
+</code></pre>
+</li>
+<li><p>&#x997F;&#x6C49;&#x5F0F;<br>&#x5B9E;&#x4F8B;&#x5728;&#x7C7B;&#x52A0;&#x8F7D;&#x7684;&#x65F6;&#x5019;&#x521D;&#x59CB;&#x5316;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HungrySingleton</span> </span>{
+ <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">HungrySingleton</span><span class="hljs-params">()</span></span>{
+
+ }
+
+ <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> HungrySingleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>{
+     <span class="hljs-keyword">return</span> SingletonHolder.INSTANCE;
+ }
+
+ <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SingletonHolder</span></span>{
+     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> HungrySingleton INSTANCE = <span class="hljs-keyword">new</span> HungrySingleton();
+ }
+}
+</code></pre>
+</li>
+<li>&#x679A;&#x4E3E;&#x5B9E;&#x73B0;<br>&#x76EE;&#x524D;&#x6700;&#x4E3A;&#x5B89;&#x5168;&#x7684;&#x5B9E;&#x73B0;&#x5355;&#x4F8B;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x901A;&#x8FC7;&#x5185;&#x90E8;&#x9759;&#x6001;enum&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x56E0;&#x4E3A;JVM&#x4F1A;&#x4FDD;&#x8BC1;enum&#x4E0D;&#x80FD;&#x88AB;&#x53CD;&#x5C04;&#x5E76;&#x4E14;&#x6784;&#x9020;&#x5668;&#x65B9;&#x6CD5;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> EnumSingleton {
+ INSTANCE
+}
+</code></pre>
+</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 2、创建型模式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="prototype.html" class="navigation navigation-next " aria-label="Next page: 2.2、原型模式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.1、单例模式","level":"1.3.1","depth":2,"next":{"title":"2.2、原型模式","level":"1.3.2","depth":2,"path":"content/creational/prototype.md","ref":"content/creational/prototype.md","articles":[]},"previous":{"title":"2、创建型模式","level":"1.3","depth":1,"path":"content/creational/README.md","ref":"content/creational/README.md","articles":[{"title":"2.1、单例模式","level":"1.3.1","depth":2,"path":"content/creational/singleton.md","ref":"content/creational/singleton.md","articles":[]},{"title":"2.2、原型模式","level":"1.3.2","depth":2,"path":"content/creational/prototype.md","ref":"content/creational/prototype.md","articles":[]},{"title":"2.3、抽象工厂模式","level":"1.3.3","depth":2,"path":"content/creational/abstract_factory.md","ref":"content/creational/abstract_factory.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","toggle-chapters","sharing","github"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR/DesignPatternsBook"},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","is_expand_all":true,"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/creational/singleton.md","mtime":"2017-09-20T12:22:37.461Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-20T13:03:02.780Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
