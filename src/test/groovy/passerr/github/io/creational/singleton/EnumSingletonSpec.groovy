@@ -18,5 +18,6 @@ class EnumSingletonSpec extends Specification{
         instance != null
         anotherInstance != null
         instance == anotherInstance
+        instance.is(anotherInstance)
     }
 }
