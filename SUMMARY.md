@@ -7,5 +7,6 @@
   * [2.2、原型模式](content/creational/prototype.md)
   * [2.3、抽象工厂模式](content/creational/abstract_factory.md)
   * [2.4、工厂方法模式](content/creational/factory_method.md)
+  * [2.5、构造器模式](content/creational/builder.md)
 * [3、结构型模式](content/structural/README.md)
 * [4、行为型模式](content/behavioural/README.md)
