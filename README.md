@@ -7,6 +7,7 @@
 ![设计模式图片描述](/images/design_patterns.jpg)
   
 ## 其他
+- 源代码见[Github](https://github.com/PasseRR/DesignPatterns)
 - Java使用了[Lombok](http://www.projectlombok.org/)生成getter、setter等
 - 单元测试使用的[Spock](http://spockframework.org/) 
 - 关于[Groovy](http://www.groovy-lang.org/)
