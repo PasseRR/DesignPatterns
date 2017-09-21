@@ -16,3 +16,5 @@ _book
 *.pdf
 *.log
 .idea/
+
+gitbook/gitbook-plugin-livereload/
