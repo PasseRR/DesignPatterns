@@ -1,5 +1,3 @@
-# Summary
-
 * [0、什么是设计模式](README.md)
 * [1、设计模式六大原则](principle.md)
 * [2、创建型模式](content/creational/README.md)
@@ -9,4 +7,5 @@
   * [2.4、工厂方法模式](content/creational/factory_method.md)
   * [2.5、构造器模式](content/creational/builder.md)
 * [3、结构型模式](content/structural/README.md)
+  * [3.1、组合模式](content/structural/composite.md)
 * [4、行为型模式](content/behavioural/README.md)

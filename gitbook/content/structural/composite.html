@@ -1,0 +1,526 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.1、组合模式 · 设计模式</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="passerr">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-collapsible-chapters/collapsible-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../css/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../behavioural/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    0、什么是设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../principle.html">
+            
+                <a href="../../principle.html">
+            
+                    
+                    1、设计模式六大原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../creational/">
+            
+                <a href="../creational/">
+            
+                    
+                    2、创建型模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../creational/singleton.html">
+            
+                <a href="../creational/singleton.html">
+            
+                    
+                    2.1、单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../creational/prototype.html">
+            
+                <a href="../creational/prototype.html">
+            
+                    
+                    2.2、原型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../creational/abstract_factory.html">
+            
+                <a href="../creational/abstract_factory.html">
+            
+                    
+                    2.3、抽象工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../creational/factory_method.html">
+            
+                <a href="../creational/factory_method.html">
+            
+                    
+                    2.4、工厂方法模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../creational/builder.html">
+            
+                <a href="../creational/builder.html">
+            
+                    
+                    2.5、构造器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    3、结构型模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="composite.html">
+            
+                <a href="composite.html">
+            
+                    
+                    3.1、组合模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../behavioural/">
+            
+                <a href="../behavioural/">
+            
+                    
+                    4、行为型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >3.1、组合模式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x7EC4;&#x5408;&#x6A21;&#x5F0F;">&#x7EC4;&#x5408;&#x6A21;&#x5F0F;</h2>
+<p>&#x5C06;&#x5BF9;&#x8C61;&#x7EC4;&#x5408;&#x6210;&#x6811;&#x5F62;&#x7ED3;&#x6784;&#x4EE5;&#x8868;&#x793A;&#x201C;&#x90E8;&#x5206;-&#x6574;&#x4F53;&#x201D;&#x7684;&#x5C42;&#x6B21;&#x7ED3;&#x6784;&#x3002;Composite&#x4F7F;&#x5F97;&#x7528;&#x6237;&#x5BF9;&#x5355;&#x4E2A;&#x5BF9;&#x8C61;&#x548C;&#x7EC4;&#x5408;&#x5BF9;&#x8C61;&#x7684;&#x4F7F;&#x7528;&#x5177;&#x6709;&#x4E00;&#x81F4;&#x6027;&#x3002;</p>
+<h3 id="jdk&#x4E2D;&#x7684;&#x4F7F;&#x7528;">JDK&#x4E2D;&#x7684;&#x4F7F;&#x7528;</h3>
+<ul>
+<li>java.util.Map#putAll(java.util.Map)</li>
+<li>java.util.List#addAll(java.util.Collection)</li>
+<li>java.util.Set#addAll(java.util.Collection)</li>
+</ul>
+<h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
+<p>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;LinkedList  </p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+    <span class="hljs-keyword">protected</span> Node&lt;T&gt; previous;
+    <span class="hljs-keyword">protected</span> T data;
+    <span class="hljs-keyword">protected</span> Node&lt;T&gt; next;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node</span><span class="hljs-params">(Node&lt;T&gt; previous, T data, Node&lt;T&gt; next)</span></span>{
+        <span class="hljs-keyword">this</span>.previous = previous;
+        <span class="hljs-keyword">this</span>.data = data;
+        <span class="hljs-keyword">this</span>.next = next;
+    }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LinkedList</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+    <span class="hljs-keyword">private</span> Node&lt;T&gt; head;
+    <span class="hljs-keyword">private</span> Node&lt;T&gt; tail;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> size = <span class="hljs-number">0</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">add</span><span class="hljs-params">(T data)</span> </span>{
+        <span class="hljs-keyword">final</span> Node&lt;T&gt; last = <span class="hljs-keyword">this</span>.tail;
+        <span class="hljs-keyword">final</span> Node&lt;T&gt; current = <span class="hljs-keyword">new</span> Node&lt;&gt;(last, data, <span class="hljs-keyword">null</span>);
+        <span class="hljs-keyword">this</span>.tail = current;
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.head == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">this</span>.head = current;
+        } <span class="hljs-keyword">else</span> {
+            last.next = current;
+        }
+        <span class="hljs-keyword">this</span>.size++;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index)</span></span>{
+        <span class="hljs-keyword">if</span>(index &lt; <span class="hljs-number">0</span> || index &gt;= <span class="hljs-keyword">this</span>.size){
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IndexOutOfBoundsException();
+        }
+        Node&lt;T&gt; node = head;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; index; i ++){
+            node = node.next;
+        }
+
+        <span class="hljs-keyword">return</span> node.data;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">remove</span><span class="hljs-params">(T data)</span> </span>{
+        <span class="hljs-keyword">for</span> (Node&lt;T&gt; i = <span class="hljs-keyword">this</span>.head; i != <span class="hljs-keyword">null</span>; i = i.next) {
+            <span class="hljs-keyword">if</span> ((data == <span class="hljs-keyword">null</span> &amp;&amp; i.data == <span class="hljs-keyword">null</span>)
+                || (data != <span class="hljs-keyword">null</span> &amp;&amp; data.equals(i.data))) {
+                <span class="hljs-keyword">final</span> Node&lt;T&gt; previous = i.previous;
+                <span class="hljs-keyword">final</span> Node&lt;T&gt; next = i.next;
+                <span class="hljs-keyword">if</span>(previous == <span class="hljs-keyword">null</span>){
+                    <span class="hljs-keyword">this</span>.head = next;
+                }<span class="hljs-keyword">else</span>{
+                    previous.next = next;
+                    i.previous = <span class="hljs-keyword">null</span>;
+                }
+
+                <span class="hljs-keyword">if</span>(next == <span class="hljs-keyword">null</span>){
+                    <span class="hljs-keyword">this</span>.tail = previous;
+                }<span class="hljs-keyword">else</span>{
+                    next.previous = previous;
+                    i.next = <span class="hljs-keyword">null</span>;
+                }
+                i.data = <span class="hljs-keyword">null</span>;
+                <span class="hljs-keyword">this</span>.size --;
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            }
+        }
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">size</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.size;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isEmpty</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.size == <span class="hljs-number">0</span>;
+    }
+}
+</code></pre>
+<h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
+<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LinkedListSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
+    <span class="hljs-keyword">def</span> <span class="hljs-string">&quot;linked list&quot;</span>() {
+<span class="hljs-symbol">        given:</span>
+        <span class="hljs-keyword">def</span> list = <span class="hljs-keyword">new</span> LinkedList()
+<span class="hljs-symbol">        expect:</span>
+        list != <span class="hljs-literal">null</span>
+        list.size() == <span class="hljs-number">0</span>
+        list.isEmpty()
+<span class="hljs-symbol">
+        when:</span>
+        list.add(<span class="hljs-number">1</span>)
+<span class="hljs-symbol">        then:</span>
+        <span class="hljs-number">1</span> == list.size()
+        <span class="hljs-number">1</span> == list.get(<span class="hljs-number">0</span>)
+<span class="hljs-symbol">
+        when:</span>
+        list.add(<span class="hljs-number">2</span>)
+<span class="hljs-symbol">        then:</span>
+        <span class="hljs-number">2</span> == list.size()
+        <span class="hljs-number">2</span> == list.get(<span class="hljs-number">1</span>)
+<span class="hljs-symbol">
+        when:</span>
+        list.add(<span class="hljs-literal">null</span>)
+<span class="hljs-symbol">        then:</span>
+        <span class="hljs-number">3</span> == list.size()
+        <span class="hljs-literal">null</span> == list.get(<span class="hljs-number">2</span>)
+<span class="hljs-symbol">
+        when:</span>
+        <span class="hljs-keyword">def</span> remove = list.remove(<span class="hljs-number">1</span>)
+<span class="hljs-symbol">        then:</span>
+        remove
+        <span class="hljs-number">2</span> == list.size()
+<span class="hljs-symbol">
+        when:</span>
+        remove = list.remove(<span class="hljs-number">332</span>)
+<span class="hljs-symbol">        then:</span>
+        !remove
+        <span class="hljs-number">2</span> == list.size()
+<span class="hljs-symbol">
+        when:</span>
+        remove = list.remove(<span class="hljs-literal">null</span>)
+<span class="hljs-symbol">        then:</span>
+        remove
+        <span class="hljs-number">1</span> == list.size()
+<span class="hljs-symbol">
+        when:</span>
+        remove = list.remove(<span class="hljs-number">2</span>)
+<span class="hljs-symbol">        then:</span>
+        remove
+        <span class="hljs-number">0</span> == list.size()
+        list.isEmpty()
+    }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 3、结构型模式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../behavioural/" class="navigation navigation-next " aria-label="Next page: 4、行为型模式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.1、组合模式","level":"1.4.1","depth":2,"next":{"title":"4、行为型模式","level":"1.5","depth":1,"path":"content/behavioural/README.md","ref":"content/behavioural/README.md","articles":[]},"previous":{"title":"3、结构型模式","level":"1.4","depth":1,"path":"content/structural/README.md","ref":"content/structural/README.md","articles":[{"title":"3.1、组合模式","level":"1.4.1","depth":2,"path":"content/structural/composite.md","ref":"content/structural/composite.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/structural/composite.md","mtime":"2017-09-21T10:08:28.356Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-21T10:09:01.634Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-chapters/collapsible-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
