@@ -71,3 +71,21 @@ public enum EnumSingleton {
     INSTANCE
 }
 ```
+
+### 单元测试
+以DoubleLockSingleton为例  
+```groovy
+class DoubleLockSingletonSpec extends Specification{
+    def "is DoubleLockSingleton singleton"(){
+        given:
+        def instance = DoubleLockSingleton.getInstance()
+        def anotherInstance = DoubleLockSingleton.getInstance()
+
+        expect:
+        instance != null
+        anotherInstance != null
+        instance == anotherInstance
+        instance.is(anotherInstance)
+    }
+}
+```

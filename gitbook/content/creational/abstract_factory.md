@@ -61,7 +61,7 @@ public class SonyTvFactory implements TvFactory {
     }
 }
 ```
-在使用的时候我们无需指定具体类就可以获得想要的电视  
+### 单元测试 
 ```groovy
 class HaierTvFactorySpec extends Specification {
     def "create 21 inch haier tv"(){

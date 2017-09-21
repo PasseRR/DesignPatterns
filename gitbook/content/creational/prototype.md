@@ -51,3 +51,69 @@ public class DeepCopy implements Serializable {
     }
 }
 ```
+
+### 单元测试
+```groovy
+class ShallowCopySpec extends Specification {
+    def "is same by shallow copy"(){
+        given:
+        def source = new ShallowCopy(
+            name: "Jack",
+            copyType: new CopyType(type: "shallow")
+        )
+        def copy = (ShallowCopy) source.clone()
+
+        expect:
+        copy != null
+        copy.name != null
+        copy.copyType != null
+        copy.name == source.name
+        copy.name.is(source.name)
+        copy.copyType.type == source.copyType.type
+        copy.copyType == source.copyType
+        copy.copyType.is(source.copyType)
+        !source.is(copy)
+
+        when:
+        copy.name = "Jack Chen"
+        copy.copyType.type = "just shallow"
+
+        then:
+        source.name != copy.name
+        !source.name.is(copy.name)
+        source.copyType.type == copy.copyType.type
+        source.copyType == copy.copyType
+        source.copyType.is(copy.copyType)
+        !source.is(copy)
+    }
+}
+
+class DeepCopySpec extends Specification {
+    def "is same by deep copy"(){
+        given:
+        def source = new DeepCopy(
+            name: "Jack",
+            copyType: new CopyType(type: "deep")
+        )
+        def copy = (DeepCopy) source.clone()
+        expect:
+        copy != null
+        copy.name != null
+        copy.copyType != null
+        copy.name == source.name
+        copy.copyType.type == source.copyType.type
+        !copy.copyType.is(source.copyType)
+        !copy.is(source)
+
+        when:
+        copy.name = "Jack Chen"
+        copy.copyType.type = "just deep"
+
+        then:
+        source.name != copy.name
+        source.copyType.type != copy.copyType.type
+        !source.copyType.is(copy.copyType)
+        !source.is(copy)
+    }
+}
+```
