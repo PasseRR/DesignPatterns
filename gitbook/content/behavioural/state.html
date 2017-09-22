@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>3.6、备忘录模式 · 设计模式</title>
+        <title>3.8、状态模式 · 设计模式</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -61,10 +61,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="observer.html" />
     
-    
-    <link rel="prev" href="mediator.html" />
+    <link rel="prev" href="observer.html" />
     
 
     </head>
@@ -379,7 +377,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.6" data-path="memento.html">
+        <li class="chapter " data-level="1.4.6" data-path="memento.html">
             
                 <a href="memento.html">
             
@@ -405,7 +403,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8" data-path="state.html">
+        <li class="chapter active" data-level="1.4.8" data-path="state.html">
             
                 <a href="state.html">
             
@@ -453,7 +451,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >3.6、备忘录模式</a>
+        <a href="../.." >3.8、状态模式</a>
     </h1>
 </div>
 
@@ -468,93 +466,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x5907;&#x5FD8;&#x5F55;&#x6A21;&#x5F0F;">&#x5907;&#x5FD8;&#x5F55;&#x6A21;&#x5F0F;</h2>
-<p>&#x5907;&#x5FD8;&#x5F55;&#x6A21;&#x5F0F;&#x53C8;&#x53EB;&#x505A;&#x5FEB;&#x7167;&#x6A21;&#x5F0F;(Snapshot Pattern)&#x6216;Token&#x6A21;&#x5F0F;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x5B58;&#x50A8;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5185;&#x90E8;&#x72B6;&#x6001;&#x7684;&#x5FEB;&#x7167;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5907;&#x5FD8;&#x5F55;&#x6A21;&#x5F0F;&#x7684;&#x7528;&#x610F;&#x662F;&#x5728;&#x4E0D;&#x7834;&#x574F;&#x5C01;&#x88C5;&#x7684;&#x6761;&#x4EF6;&#x4E0B;&#xFF0C;&#x5C06;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x72B6;&#x6001;&#x6355;&#x6349;(Capture)&#x4F4F;&#xFF0C;&#x5E76;&#x5916;&#x90E8;&#x5316;&#xFF0C;&#x5B58;&#x50A8;&#x8D77;&#x6765;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x5728;&#x5C06;&#x6765;&#x5408;&#x9002;&#x7684;&#x65F6;&#x5019;&#x628A;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x8FD8;&#x539F;&#x5230;&#x5B58;&#x50A8;&#x8D77;&#x6765;&#x7684;&#x72B6;&#x6001;&#x3002;&#x5907;&#x5FD8;&#x5F55;&#x6A21;&#x5F0F;&#x5E38;&#x5E38;&#x4E0E;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x548C;&#x8FED;&#x4EE3;&#x5B50;&#x6A21;&#x5F0F;&#x4E00;&#x540C;&#x4F7F;&#x7528;&#x3002;  </p>
-<h3 id="jdk&#x4E2D;&#x7684;&#x4F7F;&#x7528;">JDK&#x4E2D;&#x7684;&#x4F7F;&#x7528;</h3>
-<ul>
-<li>java.util.Date Date&#x5BF9;&#x8C61;&#x901A;&#x8FC7;&#x81EA;&#x8EAB;&#x5185;&#x90E8;&#x7684;&#x4E00;&#x4E2A;long&#x503C;&#x6765;&#x5B9E;&#x73B0;&#x5907;&#x5FD8;&#x5F55;&#x6A21;&#x5F0F;</li>
-<li>&#x6240;&#x6709;&#x5B9E;&#x73B0;java.io.Serializable&#x63A5;&#x53E3;&#x7684;&#x7C7B;</li>
-</ul>
-<h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
-<p>&#x4E00;&#x4E2A;jar&#x5305;&#x7684;groupId&#x3001;artifactId&#x3001;version&#x5728;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x5907;&#x4EFD; &#x53EF;&#x4EE5;&#x968F;&#x65F6;&#x8FD8;&#x539F;&#x5230;&#x4E0A;&#x4E00;&#x4E2A;&#x7248;&#x672C;  </p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Undoable</span> </span>{
-    <span class="hljs-comment">/**
-     * &#x4FDD;&#x5B58;&#x5FEB;&#x7167;
-     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">save</span><span class="hljs-params">()</span></span>;
-    <span class="hljs-comment">/**
-     * &#x8FD8;&#x539F;&#x5230;&#x6700;&#x8FD1;&#x4E00;&#x6B21;&#x5FEB;&#x7167;
-     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">undo</span><span class="hljs-params">()</span></span>;
-}
-
-<span class="hljs-meta">@Data</span>
-<span class="hljs-meta">@ToString</span>(exclude = <span class="hljs-string">&quot;snapshot&quot;</span>)
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jar</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Undoable</span> </span>{
-    <span class="hljs-keyword">private</span> String groupId;
-    <span class="hljs-keyword">private</span> String artifactId;
-    <span class="hljs-keyword">private</span> String version;
-    <span class="hljs-comment">/**
-     * &#x5907;&#x4EFD;&#x7684;&#x5FEB;&#x7167;
-     */</span>
-    <span class="hljs-meta">@Setter</span>(AccessLevel.PRIVATE)
-    <span class="hljs-meta">@Getter</span>(AccessLevel.PRIVATE)
-    <span class="hljs-keyword">private</span> Jar snapshot;
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">save</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">null</span> == <span class="hljs-keyword">this</span>.snapshot){
-            <span class="hljs-keyword">this</span>.snapshot = <span class="hljs-keyword">new</span> Jar();
-        }
-        <span class="hljs-keyword">this</span>.snapshot.setGroupId(<span class="hljs-keyword">this</span>.getGroupId());
-        <span class="hljs-keyword">this</span>.snapshot.setArtifactId(<span class="hljs-keyword">this</span>.getArtifactId());
-        <span class="hljs-keyword">this</span>.snapshot.setVersion(<span class="hljs-keyword">this</span>.getVersion());
-    }
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">undo</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">null</span> != <span class="hljs-keyword">this</span>.snapshot) {
-            <span class="hljs-keyword">this</span>.setGroupId(<span class="hljs-keyword">this</span>.snapshot.getGroupId());
-            <span class="hljs-keyword">this</span>.setArtifactId(<span class="hljs-keyword">this</span>.snapshot.getArtifactId());
-            <span class="hljs-keyword">this</span>.setVersion(<span class="hljs-keyword">this</span>.snapshot.getVersion());
-        }
-    }
-}
-</code></pre>
-<h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JarSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> jar(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> jar = <span class="hljs-keyword">new</span> Jar(<span class="hljs-string">groupId:</span> <span class="hljs-string">&quot;com.gome&quot;</span>, <span class="hljs-string">artifactId:</span> <span class="hljs-string">&quot;pattern&quot;</span>, <span class="hljs-string">version:</span> <span class="hljs-string">&quot;1.0.0&quot;</span>)
-        jar.save()
-        jar.setVersion(<span class="hljs-string">&quot;1.0.1&quot;</span>)
-<span class="hljs-symbol">        expect:</span>
-        jar != <span class="hljs-literal">null</span>
-        jar.groupId == <span class="hljs-string">&quot;com.gome&quot;</span>
-        jar.artifactId == <span class="hljs-string">&quot;pattern&quot;</span>
-        jar.version == <span class="hljs-string">&quot;1.0.1&quot;</span>
-<span class="hljs-symbol">
-        when:</span>
-        jar.undo()
-<span class="hljs-symbol">        then:</span>
-        jar.groupId == <span class="hljs-string">&quot;com.gome&quot;</span>
-        jar.artifactId == <span class="hljs-string">&quot;pattern&quot;</span>
-        jar.version == <span class="hljs-string">&quot;1.0.0&quot;</span>
-<span class="hljs-symbol">
-        when:</span>
-        jar.setGroupId(<span class="hljs-string">&quot;org.apache&quot;</span>)
-        jar.save()
-        jar.setGroupId(<span class="hljs-string">&quot;com.gome&quot;</span>)
-        jar.setVersion(<span class="hljs-string">&quot;1.2.1&quot;</span>)
-        jar.undo()
-<span class="hljs-symbol">        then:</span>
-        jar.groupId == <span class="hljs-string">&quot;org.apache&quot;</span>
-        jar.artifactId == <span class="hljs-string">&quot;pattern&quot;</span>
-        jar.version == <span class="hljs-string">&quot;1.0.0&quot;</span>
-    }
-}
-</code></pre>
-
+                                
                                 
                                 </section>
                             
@@ -581,14 +493,10 @@
 
             
                 
-                <a href="mediator.html" class="navigation navigation-prev " aria-label="Previous page: 3.5、中介者模式">
+                <a href="observer.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 3.7、观察者模式">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="observer.html" class="navigation navigation-next " aria-label="Next page: 3.7、观察者模式">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -597,7 +505,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.6、备忘录模式","level":"1.4.6","depth":2,"next":{"title":"3.7、观察者模式","level":"1.4.7","depth":2,"path":"content/behavioural/observer.md","ref":"content/behavioural/observer.md","articles":[]},"previous":{"title":"3.5、中介者模式","level":"1.4.5","depth":2,"path":"content/behavioural/mediator.md","ref":"content/behavioural/mediator.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/memento.md","mtime":"2017-09-22T04:31:59.429Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:05:17.422Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.8、状态模式","level":"1.4.8","depth":2,"previous":{"title":"3.7、观察者模式","level":"1.4.7","depth":2,"path":"content/behavioural/observer.md","ref":"content/behavioural/observer.md","articles":[]},"dir":"neutral"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/state.md","mtime":"2017-09-22T05:02:56.778Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:05:17.422Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
