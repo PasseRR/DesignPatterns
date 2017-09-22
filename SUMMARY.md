@@ -11,4 +11,5 @@
   * [3.2、外观模式](content/structural/facade.md)
   * [3.3、适配器模式](content/structural/adapter.md)
   * [3.4、桥接模式](content/structural/bridge.md)
+  * [3.5、装饰器模式](content/structural/decorator.md)
 * [4、行为型模式](content/behavioural/README.md)
