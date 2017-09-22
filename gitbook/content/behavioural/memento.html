@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -516,82 +516,82 @@
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
 <p>&#x4E00;&#x4E2A;jar&#x5305;&#x7684;groupId&#x3001;artifactId&#x3001;version&#x5728;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x5907;&#x4EFD; &#x53EF;&#x4EE5;&#x968F;&#x65F6;&#x8FD8;&#x539F;&#x5230;&#x4E0A;&#x4E00;&#x4E2A;&#x7248;&#x672C;  </p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Undoable</span> </span>{
-    <span class="hljs-comment">/**
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Undoable</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/**
      * &#x4FDD;&#x5B58;&#x5FEB;&#x7167;
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">save</span><span class="hljs-params">()</span></span>;
-    <span class="hljs-comment">/**
+    <span class="token keyword">void</span> <span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">/**
      * &#x8FD8;&#x539F;&#x5230;&#x6700;&#x8FD1;&#x4E00;&#x6B21;&#x5FEB;&#x7167;
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">undo</span><span class="hljs-params">()</span></span>;
-}
+    <span class="token keyword">void</span> <span class="token function">undo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-meta">@Data</span>
-<span class="hljs-meta">@ToString</span>(exclude = <span class="hljs-string">&quot;snapshot&quot;</span>)
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jar</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Undoable</span> </span>{
-    <span class="hljs-keyword">private</span> String groupId;
-    <span class="hljs-keyword">private</span> String artifactId;
-    <span class="hljs-keyword">private</span> String version;
-    <span class="hljs-comment">/**
+<span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@ToString</span><span class="token punctuation">(</span>exclude <span class="token operator">=</span> <span class="token string">&quot;snapshot&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Jar</span> <span class="token keyword">implements</span> <span class="token class-name">Undoable</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> String groupId<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String artifactId<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String version<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">/**
      * &#x5907;&#x4EFD;&#x7684;&#x5FEB;&#x7167;
      */</span>
-    <span class="hljs-meta">@Setter</span>(AccessLevel.PRIVATE)
-    <span class="hljs-meta">@Getter</span>(AccessLevel.PRIVATE)
-    <span class="hljs-keyword">private</span> Jar snapshot;
+    <span class="token annotation punctuation">@Setter</span><span class="token punctuation">(</span>AccessLevel<span class="token punctuation">.</span>PRIVATE<span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@Getter</span><span class="token punctuation">(</span>AccessLevel<span class="token punctuation">.</span>PRIVATE<span class="token punctuation">)</span>
+    <span class="token keyword">private</span> Jar snapshot<span class="token punctuation">;</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">save</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">null</span> == <span class="hljs-keyword">this</span>.snapshot){
-            <span class="hljs-keyword">this</span>.snapshot = <span class="hljs-keyword">new</span> Jar();
-        }
-        <span class="hljs-keyword">this</span>.snapshot.setGroupId(<span class="hljs-keyword">this</span>.getGroupId());
-        <span class="hljs-keyword">this</span>.snapshot.setArtifactId(<span class="hljs-keyword">this</span>.getArtifactId());
-        <span class="hljs-keyword">this</span>.snapshot.setVersion(<span class="hljs-keyword">this</span>.getVersion());
-    }
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>null <span class="token operator">==</span> <span class="token keyword">this</span><span class="token punctuation">.</span>snapshot<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>snapshot <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Jar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>snapshot<span class="token punctuation">.</span><span class="token function">setGroupId</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getGroupId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>snapshot<span class="token punctuation">.</span><span class="token function">setArtifactId</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getArtifactId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>snapshot<span class="token punctuation">.</span><span class="token function">setVersion</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getVersion</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">undo</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">null</span> != <span class="hljs-keyword">this</span>.snapshot) {
-            <span class="hljs-keyword">this</span>.setGroupId(<span class="hljs-keyword">this</span>.snapshot.getGroupId());
-            <span class="hljs-keyword">this</span>.setArtifactId(<span class="hljs-keyword">this</span>.snapshot.getArtifactId());
-            <span class="hljs-keyword">this</span>.setVersion(<span class="hljs-keyword">this</span>.snapshot.getVersion());
-        }
-    }
-}
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">undo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>null <span class="token operator">!=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>snapshot<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setGroupId</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>snapshot<span class="token punctuation">.</span><span class="token function">getGroupId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setArtifactId</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>snapshot<span class="token punctuation">.</span><span class="token function">getArtifactId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setVersion</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>snapshot<span class="token punctuation">.</span><span class="token function">getVersion</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JarSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> jar(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> jar = <span class="hljs-keyword">new</span> Jar(<span class="hljs-string">groupId:</span> <span class="hljs-string">&quot;com.gome&quot;</span>, <span class="hljs-string">artifactId:</span> <span class="hljs-string">&quot;pattern&quot;</span>, <span class="hljs-string">version:</span> <span class="hljs-string">&quot;1.0.0&quot;</span>)
-        jar.save()
-        jar.setVersion(<span class="hljs-string">&quot;1.0.1&quot;</span>)
-<span class="hljs-symbol">        expect:</span>
-        jar != <span class="hljs-literal">null</span>
-        jar.groupId == <span class="hljs-string">&quot;com.gome&quot;</span>
-        jar.artifactId == <span class="hljs-string">&quot;pattern&quot;</span>
-        jar.version == <span class="hljs-string">&quot;1.0.1&quot;</span>
-<span class="hljs-symbol">
-        when:</span>
-        jar.undo()
-<span class="hljs-symbol">        then:</span>
-        jar.groupId == <span class="hljs-string">&quot;com.gome&quot;</span>
-        jar.artifactId == <span class="hljs-string">&quot;pattern&quot;</span>
-        jar.version == <span class="hljs-string">&quot;1.0.0&quot;</span>
-<span class="hljs-symbol">
-        when:</span>
-        jar.setGroupId(<span class="hljs-string">&quot;org.apache&quot;</span>)
-        jar.save()
-        jar.setGroupId(<span class="hljs-string">&quot;com.gome&quot;</span>)
-        jar.setVersion(<span class="hljs-string">&quot;1.2.1&quot;</span>)
-        jar.undo()
-<span class="hljs-symbol">        then:</span>
-        jar.groupId == <span class="hljs-string">&quot;org.apache&quot;</span>
-        jar.artifactId == <span class="hljs-string">&quot;pattern&quot;</span>
-        jar.version == <span class="hljs-string">&quot;1.0.0&quot;</span>
-    }
-}
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">JarSpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token function">jar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> jar <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Jar</span><span class="token punctuation">(</span>groupId<span class="token punctuation">:</span> <span class="token string">&quot;com.gome&quot;</span><span class="token punctuation">,</span> artifactId<span class="token punctuation">:</span> <span class="token string">&quot;pattern&quot;</span><span class="token punctuation">,</span> version<span class="token punctuation">:</span> <span class="token string">&quot;1.0.0&quot;</span><span class="token punctuation">)</span>
+        jar<span class="token operator">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        jar<span class="token operator">.</span><span class="token function">setVersion</span><span class="token punctuation">(</span><span class="token string">&quot;1.0.1&quot;</span><span class="token punctuation">)</span>
+        <span class="token spock-block">expect:</span>
+        jar <span class="token operator">!=</span> null
+        jar<span class="token operator">.</span>groupId <span class="token operator">==</span> <span class="token string">&quot;com.gome&quot;</span>
+        jar<span class="token operator">.</span>artifactId <span class="token operator">==</span> <span class="token string">&quot;pattern&quot;</span>
+        jar<span class="token operator">.</span>version <span class="token operator">==</span> <span class="token string">&quot;1.0.1&quot;</span>
+
+        <span class="token spock-block">when:</span>
+        jar<span class="token operator">.</span><span class="token function">undo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        jar<span class="token operator">.</span>groupId <span class="token operator">==</span> <span class="token string">&quot;com.gome&quot;</span>
+        jar<span class="token operator">.</span>artifactId <span class="token operator">==</span> <span class="token string">&quot;pattern&quot;</span>
+        jar<span class="token operator">.</span>version <span class="token operator">==</span> <span class="token string">&quot;1.0.0&quot;</span>
+
+        <span class="token spock-block">when:</span>
+        jar<span class="token operator">.</span><span class="token function">setGroupId</span><span class="token punctuation">(</span><span class="token string">&quot;org.apache&quot;</span><span class="token punctuation">)</span>
+        jar<span class="token operator">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        jar<span class="token operator">.</span><span class="token function">setGroupId</span><span class="token punctuation">(</span><span class="token string">&quot;com.gome&quot;</span><span class="token punctuation">)</span>
+        jar<span class="token operator">.</span><span class="token function">setVersion</span><span class="token punctuation">(</span><span class="token string">&quot;1.2.1&quot;</span><span class="token punctuation">)</span>
+        jar<span class="token operator">.</span><span class="token function">undo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        jar<span class="token operator">.</span>groupId <span class="token operator">==</span> <span class="token string">&quot;org.apache&quot;</span>
+        jar<span class="token operator">.</span>artifactId <span class="token operator">==</span> <span class="token string">&quot;pattern&quot;</span>
+        jar<span class="token operator">.</span>version <span class="token operator">==</span> <span class="token string">&quot;1.0.0&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -636,7 +636,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.6、备忘录模式","level":"1.4.6","depth":2,"next":{"title":"3.7、观察者模式","level":"1.4.7","depth":2,"path":"content/behavioural/observer.md","ref":"content/behavioural/observer.md","articles":[]},"previous":{"title":"3.5、中介者模式","level":"1.4.5","depth":2,"path":"content/behavioural/mediator.md","ref":"content/behavioural/mediator.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/memento.md","mtime":"2017-09-22T04:31:59.429Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.6、备忘录模式","level":"1.4.6","depth":2,"next":{"title":"3.7、观察者模式","level":"1.4.7","depth":2,"path":"content/behavioural/observer.md","ref":"content/behavioural/observer.md","articles":[]},"previous":{"title":"3.5、中介者模式","level":"1.4.5","depth":2,"path":"content/behavioural/mediator.md","ref":"content/behavioural/mediator.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/memento.md","mtime":"2017-09-22T04:31:59.429Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

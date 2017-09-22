@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -518,73 +518,73 @@
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
 <p>&#x90AE;&#x4EF6;&#x3001;&#x5FAE;&#x4FE1;&#x3001;QQ&#x90FD;&#x53EF;&#x4EE5;&#x53D1;&#x9001;&#x6587;&#x5B57;&#x3001;&#x56FE;&#x7247;&#x3001;&#x58F0;&#x97F3;&#x6D88;&#x606F; &#x5F53;&#x90AE;&#x4EF6;&#x3001;&#x5FAE;&#x4FE1;&#x3001;QQ&#x53D1;&#x9001;&#x6D88;&#x606F;&#x65F6; &#x53EA;&#x6709;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x5185;&#x5BB9;&#x6539;&#x53D8; &#x5176;&#x4ED6;&#x4E0D;&#x4F1A;&#x53D8;</p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Message</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> String <span class="hljs-title">getMsg</span><span class="hljs-params">()</span></span>;
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Text</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Message</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">getMsg</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;text&quot;</span>;
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Picture</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Message</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">getMsg</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;picture&quot;</span>;
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Voice</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Message</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">getMsg</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;voice&quot;</span>;
-    }
-}
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Message</span> <span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token keyword">abstract</span> String <span class="token function">getMsg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Text</span> <span class="token keyword">extends</span> <span class="token class-name">Message</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> String <span class="token function">getMsg</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;text&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Picture</span> <span class="token keyword">extends</span> <span class="token class-name">Message</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> String <span class="token function">getMsg</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;picture&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Voice</span> <span class="token keyword">extends</span> <span class="token class-name">Message</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> String <span class="token function">getMsg</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;voice&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>&#x6D88;&#x606F;&#x53D1;&#x9001;  </p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Communicator</span> </span>{
-    Message message;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> String <span class="hljs-title">send</span><span class="hljs-params">()</span></span>;
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Communicator</span> <span class="token punctuation">{</span>
+    Message message<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">abstract</span> String <span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setMessage</span><span class="hljs-params">(Message message)</span></span>{
-        <span class="hljs-keyword">this</span>.message = message;
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Email</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Communicator</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">send</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;email send &quot;</span> + <span class="hljs-keyword">super</span>.message.getMsg();
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Qicq</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Communicator</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">send</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;qicq send &quot;</span> + <span class="hljs-keyword">super</span>.message.getMsg();
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Wechat</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Communicator</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">send</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;wechat send &quot;</span> + <span class="hljs-keyword">super</span>.message.getMsg();
-    }
-}
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setMessage</span><span class="token punctuation">(</span>Message message<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>message <span class="token operator">=</span> message<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Email</span> <span class="token keyword">extends</span> <span class="token class-name">Communicator</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;email send &quot;</span> <span class="token operator">+</span> <span class="token keyword">super</span><span class="token punctuation">.</span>message<span class="token punctuation">.</span><span class="token function">getMsg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Qicq</span> <span class="token keyword">extends</span> <span class="token class-name">Communicator</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;qicq send &quot;</span> <span class="token operator">+</span> <span class="token keyword">super</span><span class="token punctuation">.</span>message<span class="token punctuation">.</span><span class="token function">getMsg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Wechat</span> <span class="token keyword">extends</span> <span class="token class-name">Communicator</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;wechat send &quot;</span> <span class="token operator">+</span> <span class="token keyword">super</span><span class="token punctuation">.</span>message<span class="token punctuation">.</span><span class="token function">getMsg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
 <p>&#x4EE5;&#x5FAE;&#x4FE1;&#x4E3A;&#x4F8B; &#x5176;&#x4ED6;&#x4E24;&#x4E2A;&#x7C7B;&#x4F3C;  </p>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WechatSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-meta">@Unroll</span>
-    <span class="hljs-keyword">def</span> <span class="hljs-string">&quot;#result&quot;</span>() {
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> wechat = <span class="hljs-keyword">new</span> Wechat()
-        wechat.setMessage(message)
-<span class="hljs-symbol">        expect:</span>
-        wechat.send() == result
-<span class="hljs-symbol">        where:</span>
-        message       || result
-        <span class="hljs-keyword">new</span> Picture() || <span class="hljs-string">&quot;wechat send picture&quot;</span>
-        <span class="hljs-keyword">new</span> Text()    || <span class="hljs-string">&quot;wechat send text&quot;</span>
-        <span class="hljs-keyword">new</span> Voice()   || <span class="hljs-string">&quot;wechat send voice&quot;</span>
-    }
-}
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">WechatSpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Unroll</span>
+    <span class="token keyword">def</span> <span class="token string">&quot;#result&quot;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> wechat <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Wechat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        wechat<span class="token operator">.</span><span class="token function">setMessage</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+        <span class="token spock-block">expect:</span>
+        wechat<span class="token operator">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> result
+        <span class="token spock-block">where:</span>
+        message       <span class="token operator">||</span> result
+        <span class="token keyword">new</span> <span class="token class-name">Picture</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token string">&quot;wechat send picture&quot;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token operator">||</span> <span class="token string">&quot;wechat send text&quot;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Voice</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token operator">||</span> <span class="token string">&quot;wechat send voice&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -629,7 +629,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.4、桥接模式","level":"1.3.4","depth":2,"next":{"title":"2.5、装饰器模式","level":"1.3.5","depth":2,"path":"content/structural/decorator.md","ref":"content/structural/decorator.md","articles":[]},"previous":{"title":"2.3、适配器模式","level":"1.3.3","depth":2,"path":"content/structural/adapter.md","ref":"content/structural/adapter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/structural/bridge.md","mtime":"2017-09-22T02:16:57.605Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.4、桥接模式","level":"1.3.4","depth":2,"next":{"title":"2.5、装饰器模式","level":"1.3.5","depth":2,"path":"content/structural/decorator.md","ref":"content/structural/decorator.md","articles":[]},"previous":{"title":"2.3、适配器模式","level":"1.3.3","depth":2,"path":"content/structural/adapter.md","ref":"content/structural/adapter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/structural/bridge.md","mtime":"2017-09-22T02:16:57.605Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

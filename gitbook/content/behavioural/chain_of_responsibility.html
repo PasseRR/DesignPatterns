@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -517,197 +517,197 @@
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
 <p>&#x5728;&#x516C;&#x53F8;&#x7533;&#x8BF7;&#x7ECF;&#x8D39;&#x5728;&#x4E00;&#x5B9A;&#x91D1;&#x989D;&#x9650;&#x5236;&#x4E0B;&#x5206;&#x522B;&#x53EF;&#x4EE5;&#x7531;leader&#x3001;manager&#x3001;boss&#x540C;&#x610F;  </p>
-<pre><code class="lang-java"><span class="hljs-comment">// &#x7533;&#x8BF7;&#x8BF7;&#x6C42;</span>
-<span class="hljs-meta">@Data</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HandleRequest</span> </span>{
-    <span class="hljs-comment">/**
+<pre class="language-"><code class="lang-java"><span class="token comment" spellcheck="true">// &#x7533;&#x8BF7;&#x8BF7;&#x6C42;</span>
+<span class="token annotation punctuation">@Data</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HandleRequest</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/**
      * &#x6D3B;&#x52A8;&#x4E3B;&#x4F53;
      */</span>
-    <span class="hljs-keyword">private</span> String activityTheme;
-    <span class="hljs-comment">/**
+    <span class="token keyword">private</span> String activityTheme<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">/**
      * &#x7533;&#x8BF7;&#x6D3B;&#x52A8;&#x8D44;&#x91D1;
      */</span>
-    <span class="hljs-keyword">private</span> BigDecimal activityCapital;
-}
-<span class="hljs-comment">// &#x7533;&#x8BF7;&#x7ED3;&#x679C;</span>
-<span class="hljs-meta">@Data</span>
-<span class="hljs-meta">@Builder</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HandleResult</span> </span>{
-    <span class="hljs-keyword">private</span> Boolean isOk;
-    <span class="hljs-keyword">private</span> String from;
-    <span class="hljs-keyword">private</span> String result;
+    <span class="token keyword">private</span> BigDecimal activityCapital<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// &#x7533;&#x8BF7;&#x7ED3;&#x679C;</span>
+<span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@Builder</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HandleResult</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> Boolean isOk<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String from<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String result<span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> HandleResult <span class="hljs-title">ok</span><span class="hljs-params">(String from, String result)</span></span>{
-        <span class="hljs-keyword">return</span> HandleResult.builder()
-            .isOk(Boolean.TRUE)
-            .from(from)
-            .result(result)
-            .build();
-    }
+    <span class="token keyword">public</span> <span class="token keyword">static</span> HandleResult <span class="token function">ok</span><span class="token punctuation">(</span>String from<span class="token punctuation">,</span> String result<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> HandleResult<span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">isOk</span><span class="token punctuation">(</span>Boolean<span class="token punctuation">.</span>TRUE<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>from<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">result</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> HandleResult <span class="hljs-title">reject</span><span class="hljs-params">(String from, String result)</span></span>{
-        <span class="hljs-keyword">return</span> HandleResult.builder()
-            .isOk(Boolean.FALSE)
-            .from(from)
-            .result(result)
-            .build();
-    }
-}
+    <span class="token keyword">public</span> <span class="token keyword">static</span> HandleResult <span class="token function">reject</span><span class="token punctuation">(</span>String from<span class="token punctuation">,</span> String result<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> HandleResult<span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">isOk</span><span class="token punctuation">(</span>Boolean<span class="token punctuation">.</span>FALSE<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>from<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">result</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Handler</span> </span>{
-    <span class="hljs-function">HandleResult <span class="hljs-title">handle</span><span class="hljs-params">(HandleRequest request)</span></span>;
-}
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstractHandler</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Handler</span> </span>{
-    <span class="hljs-meta">@Getter</span>
-    <span class="hljs-keyword">private</span> Handler superior;
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
+    HandleResult <span class="token function">handle</span><span class="token punctuation">(</span>HandleRequest request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">AbstractHandler</span> <span class="token keyword">implements</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Getter</span>
+    <span class="token keyword">private</span> Handler superior<span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AbstractHandler</span><span class="hljs-params">()</span> </span>{
+    <span class="token keyword">public</span> <span class="token function">AbstractHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-    }
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AbstractHandler</span><span class="hljs-params">(Handler superior)</span> </span>{
-        <span class="hljs-keyword">this</span>.superior = superior;
-    }
+    <span class="token keyword">public</span> <span class="token function">AbstractHandler</span><span class="token punctuation">(</span>Handler superior<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>superior <span class="token operator">=</span> superior<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment" spellcheck="true">/**
      * &#x804C;&#x4F4D;&#x540D;&#x79F0;
-     * <span class="hljs-doctag">@return</span> &#x804C;&#x4F4D;&#x540D;&#x79F0;
+     * @return &#x804C;&#x4F4D;&#x540D;&#x79F0;
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> String <span class="hljs-title">getPosition</span><span class="hljs-params">()</span></span>;
+    <span class="token keyword">protected</span> <span class="token keyword">abstract</span> String <span class="token function">getPosition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment" spellcheck="true">/**
      * &#x5F53;&#x524D;&#x662F;&#x5426;&#x80FD;&#x5BA1;&#x6279;
-     * <span class="hljs-doctag">@param</span> request &#x8BF7;&#x6C42;
-     * <span class="hljs-doctag">@return</span> true/&#x80FD; false/&#x4E0D;&#x80FD;
+     * @param request &#x8BF7;&#x6C42;
+     * @return true/&#x80FD; false/&#x4E0D;&#x80FD;
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canApprove</span><span class="hljs-params">(HandleRequest request)</span></span>;
+    <span class="token keyword">protected</span> <span class="token keyword">abstract</span> <span class="token keyword">boolean</span> <span class="token function">canApprove</span><span class="token punctuation">(</span>HandleRequest request<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> HandleResult <span class="hljs-title">handle</span><span class="hljs-params">(HandleRequest request)</span> </span>{
-        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.canApprove(request)) {
-            <span class="hljs-keyword">return</span> HandleResult.ok(<span class="hljs-keyword">this</span>.getPosition(), request.getActivityTheme() + <span class="hljs-string">&quot; ok&quot;</span>);
-        }
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> HandleResult <span class="token function">handle</span><span class="token punctuation">(</span>HandleRequest request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">canApprove</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> HandleResult<span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getPosition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> request<span class="token punctuation">.</span><span class="token function">getActivityTheme</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot; ok&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.superior != <span class="hljs-keyword">null</span>
-            ? <span class="hljs-keyword">this</span>.superior.handle(request)
-            : HandleResult.reject(<span class="hljs-keyword">this</span>.getPosition(), request.getActivityTheme() + <span class="hljs-string">&quot; reject&quot;</span>);
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Leader</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractHandler</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Leader</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">super</span>();
-    }
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>superior <span class="token operator">!=</span> null
+            <span class="token operator">?</span> <span class="token keyword">this</span><span class="token punctuation">.</span>superior<span class="token punctuation">.</span><span class="token function">handle</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span>
+            <span class="token operator">:</span> HandleResult<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getPosition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> request<span class="token punctuation">.</span><span class="token function">getActivityTheme</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot; reject&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Leader</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractHandler</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token function">Leader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Leader</span><span class="hljs-params">(Handler handler)</span></span>{
-        <span class="hljs-keyword">super</span>(handler);
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">getPosition</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;leader&quot;</span>;
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canApprove</span><span class="hljs-params">(HandleRequest request)</span> </span>{
-        <span class="hljs-comment">// leader&#x53EA;&#x80FD;&#x5BA1;&#x6279;100&#x5143;&#x53CA;&#x4EE5;&#x4E0B;&#x7684;&#x91D1;&#x989D;</span>
-        <span class="hljs-keyword">return</span> request.getActivityCapital().compareTo(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;100&quot;</span>)) &lt;= <span class="hljs-number">0</span>;
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Manager</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractHandler</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Manager</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">super</span>();
-    }
+    <span class="token keyword">public</span> <span class="token function">Leader</span><span class="token punctuation">(</span>Handler handler<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> String <span class="token function">getPosition</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;leader&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">boolean</span> <span class="token function">canApprove</span><span class="token punctuation">(</span>HandleRequest request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// leader&#x53EA;&#x80FD;&#x5BA1;&#x6279;100&#x5143;&#x53CA;&#x4EE5;&#x4E0B;&#x7684;&#x91D1;&#x989D;</span>
+        <span class="token keyword">return</span> request<span class="token punctuation">.</span><span class="token function">getActivityCapital</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;100&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Manager</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractHandler</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token function">Manager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Manager</span><span class="hljs-params">(Handler handler)</span></span>{
-        <span class="hljs-keyword">super</span>(handler);
-    }
+    <span class="token keyword">public</span> <span class="token function">Manager</span><span class="token punctuation">(</span>Handler handler<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">getPosition</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;manager&quot;</span>;
-    }
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> String <span class="token function">getPosition</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;manager&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canApprove</span><span class="hljs-params">(HandleRequest request)</span> </span>{
-        <span class="hljs-comment">// manager&#x53EA;&#x80FD;&#x5BA1;&#x6279;500&#x5143;&#x53CA;&#x4EE5;&#x4E0B;&#x7684;&#x91D1;&#x989D;</span>
-        <span class="hljs-keyword">return</span> request.getActivityCapital().compareTo(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;500&quot;</span>)) &lt;= <span class="hljs-number">0</span>;
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Boss</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractHandler</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Boss</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">super</span>();
-    }
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">boolean</span> <span class="token function">canApprove</span><span class="token punctuation">(</span>HandleRequest request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// manager&#x53EA;&#x80FD;&#x5BA1;&#x6279;500&#x5143;&#x53CA;&#x4EE5;&#x4E0B;&#x7684;&#x91D1;&#x989D;</span>
+        <span class="token keyword">return</span> request<span class="token punctuation">.</span><span class="token function">getActivityCapital</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;500&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Boss</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractHandler</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token function">Boss</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Boss</span><span class="hljs-params">(Handler handler)</span></span>{
-        <span class="hljs-keyword">super</span>(handler);
-    }
+    <span class="token keyword">public</span> <span class="token function">Boss</span><span class="token punctuation">(</span>Handler handler<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">getPosition</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;boss&quot;</span>;
-    }
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> String <span class="token function">getPosition</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;boss&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canApprove</span><span class="hljs-params">(HandleRequest request)</span> </span>{
-        <span class="hljs-comment">// boss&#x53EA;&#x540C;&#x610F;1000&#x5143;&#x53CA;&#x4EE5;&#x4E0B;&#x91D1;&#x989D;</span>
-        <span class="hljs-keyword">return</span> request.getActivityCapital().compareTo(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;1000&quot;</span>)) &lt;= <span class="hljs-number">0</span>;
-    }
-}
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">boolean</span> <span class="token function">canApprove</span><span class="token punctuation">(</span>HandleRequest request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// boss&#x53EA;&#x540C;&#x610F;1000&#x5143;&#x53CA;&#x4EE5;&#x4E0B;&#x91D1;&#x989D;</span>
+        <span class="token keyword">return</span> request<span class="token punctuation">.</span><span class="token function">getActivityCapital</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;1000&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstractHandlerSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> leader() {
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> leader = <span class="hljs-keyword">new</span> Leader()
-        <span class="hljs-keyword">def</span> handleResult = leader.handle(<span class="hljs-keyword">new</span> HandleRequest(<span class="hljs-string">activityTheme:</span> activityTheme, <span class="hljs-string">activityCapital:</span> activityCapital))
-<span class="hljs-symbol">        expect:</span>
-        handleResult.getIsOk() == isOk
-        handleResult.getFrom() == fromPosition
-        handleResult.getResult() == resultMessage
-<span class="hljs-symbol">
-        where:</span>
-        activityCapital       | activityTheme || fromPosition || resultMessage || isOk
-        <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;100&quot;</span>) | <span class="hljs-string">&quot;&#x56E2;&#x5EFA;&quot;</span>          || <span class="hljs-string">&quot;leader&quot;</span>     || <span class="hljs-string">&quot;&#x56E2;&#x5EFA; ok&quot;</span>       || Boolean.TRUE
-        <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;101&quot;</span>) | <span class="hljs-string">&quot;ktv&quot;</span>         || <span class="hljs-string">&quot;leader&quot;</span>     || <span class="hljs-string">&quot;ktv reject&quot;</span>  || Boolean.FALSE
-    }
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">AbstractHandlerSpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token function">leader</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> leader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Leader</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> handleResult <span class="token operator">=</span> leader<span class="token operator">.</span><span class="token function">handle</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">HandleRequest</span><span class="token punctuation">(</span>activityTheme<span class="token punctuation">:</span> activityTheme<span class="token punctuation">,</span> activityCapital<span class="token punctuation">:</span> activityCapital<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token spock-block">expect:</span>
+        handleResult<span class="token operator">.</span><span class="token function">getIsOk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> isOk
+        handleResult<span class="token operator">.</span><span class="token function">getFrom</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> fromPosition
+        handleResult<span class="token operator">.</span><span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> resultMessage
 
-    <span class="hljs-keyword">def</span> manager() {
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> manager = <span class="hljs-keyword">new</span> Manager()
-        <span class="hljs-keyword">def</span> leader = <span class="hljs-keyword">new</span> Leader(manager)
-        <span class="hljs-keyword">def</span> handleResult = leader.handle(<span class="hljs-keyword">new</span> HandleRequest(<span class="hljs-string">activityTheme:</span> activityTheme, <span class="hljs-string">activityCapital:</span> activityCapital))
-<span class="hljs-symbol">        expect:</span>
-        handleResult.getIsOk() == isOk
-        handleResult.getFrom() == fromPosition
-        handleResult.getResult() == resultMessage
-<span class="hljs-symbol">
-        where:</span>
-        activityCapital       | activityTheme || fromPosition || resultMessage || isOk
-        <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;100&quot;</span>) | <span class="hljs-string">&quot;&#x56E2;&#x5EFA;&quot;</span>          || <span class="hljs-string">&quot;leader&quot;</span>     || <span class="hljs-string">&quot;&#x56E2;&#x5EFA; ok&quot;</span>       || Boolean.TRUE
-        <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;101&quot;</span>) | <span class="hljs-string">&quot;ktv&quot;</span>         || <span class="hljs-string">&quot;manager&quot;</span>    || <span class="hljs-string">&quot;ktv ok&quot;</span>      || Boolean.TRUE
-        <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;499&quot;</span>) | <span class="hljs-string">&quot;&#x4E52;&#x4E53;&#x7403;&quot;</span>         || <span class="hljs-string">&quot;manager&quot;</span>    || <span class="hljs-string">&quot;&#x4E52;&#x4E53;&#x7403; ok&quot;</span>      || Boolean.TRUE
-        <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;501&quot;</span>) | <span class="hljs-string">&quot;&#x5BA4;&#x5185;&#x7BEE;&#x7403;&quot;</span>        || <span class="hljs-string">&quot;manager&quot;</span>    || <span class="hljs-string">&quot;&#x5BA4;&#x5185;&#x7BEE;&#x7403; reject&quot;</span> || Boolean.FALSE
-    }
+        <span class="token spock-block">where:</span>
+        activityCapital       <span class="token operator">|</span> activityTheme <span class="token operator">||</span> fromPosition <span class="token operator">||</span> resultMessage <span class="token operator">||</span> isOk
+        <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;100&quot;</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token string">&quot;&#x56E2;&#x5EFA;&quot;</span>          <span class="token operator">||</span> <span class="token string">&quot;leader&quot;</span>     <span class="token operator">||</span> <span class="token string">&quot;&#x56E2;&#x5EFA; ok&quot;</span>       <span class="token operator">||</span> Boolean<span class="token operator">.</span>TRUE
+        <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;101&quot;</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token string">&quot;ktv&quot;</span>         <span class="token operator">||</span> <span class="token string">&quot;leader&quot;</span>     <span class="token operator">||</span> <span class="token string">&quot;ktv reject&quot;</span>  <span class="token operator">||</span> Boolean<span class="token operator">.</span>FALSE
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-keyword">def</span> boss() {
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> boss = <span class="hljs-keyword">new</span> Boss()
-        <span class="hljs-keyword">def</span> manager = <span class="hljs-keyword">new</span> Manager(boss)
-        <span class="hljs-keyword">def</span> leader = <span class="hljs-keyword">new</span> Leader(manager)
-        <span class="hljs-keyword">def</span> handleResult = leader.handle(<span class="hljs-keyword">new</span> HandleRequest(<span class="hljs-string">activityTheme:</span> activityTheme, <span class="hljs-string">activityCapital:</span> activityCapital))
-<span class="hljs-symbol">        expect:</span>
-        handleResult.getIsOk() == isOk
-        handleResult.getFrom() == fromPosition
-        handleResult.getResult() == resultMessage
-<span class="hljs-symbol">
-        where:</span>
-        activityCapital        | activityTheme || fromPosition || resultMessage || isOk
-        <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;100&quot;</span>)  | <span class="hljs-string">&quot;&#x56E2;&#x5EFA;&quot;</span>          || <span class="hljs-string">&quot;leader&quot;</span>     || <span class="hljs-string">&quot;&#x56E2;&#x5EFA; ok&quot;</span>       || Boolean.TRUE
-        <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;101&quot;</span>)  | <span class="hljs-string">&quot;ktv&quot;</span>         || <span class="hljs-string">&quot;manager&quot;</span>    || <span class="hljs-string">&quot;ktv ok&quot;</span>      || Boolean.TRUE
-        <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;499&quot;</span>)  | <span class="hljs-string">&quot;&#x4E52;&#x4E53;&#x7403;&quot;</span>         || <span class="hljs-string">&quot;manager&quot;</span>    || <span class="hljs-string">&quot;&#x4E52;&#x4E53;&#x7403; ok&quot;</span>      || Boolean.TRUE
-        <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;501&quot;</span>)  | <span class="hljs-string">&quot;&#x5BA4;&#x5185;&#x7BEE;&#x7403;&quot;</span>        || <span class="hljs-string">&quot;boss&quot;</span>       || <span class="hljs-string">&quot;&#x5BA4;&#x5185;&#x7BEE;&#x7403; ok&quot;</span>     || Boolean.TRUE
-        <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;1000&quot;</span>) | <span class="hljs-string">&quot;&#x65C5;&#x6E38;&quot;</span>          || <span class="hljs-string">&quot;boss&quot;</span>       || <span class="hljs-string">&quot;&#x65C5;&#x6E38; ok&quot;</span>       || Boolean.TRUE
-        <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;1001&quot;</span>) | <span class="hljs-string">&quot;&#x663E;&#x5361;&quot;</span>          || <span class="hljs-string">&quot;boss&quot;</span>       || <span class="hljs-string">&quot;&#x663E;&#x5361; reject&quot;</span>   || Boolean.FALSE
-    }
-}
+    <span class="token keyword">def</span> <span class="token function">manager</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> manager <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Manager</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> leader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Leader</span><span class="token punctuation">(</span>manager<span class="token punctuation">)</span>
+        <span class="token keyword">def</span> handleResult <span class="token operator">=</span> leader<span class="token operator">.</span><span class="token function">handle</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">HandleRequest</span><span class="token punctuation">(</span>activityTheme<span class="token punctuation">:</span> activityTheme<span class="token punctuation">,</span> activityCapital<span class="token punctuation">:</span> activityCapital<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token spock-block">expect:</span>
+        handleResult<span class="token operator">.</span><span class="token function">getIsOk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> isOk
+        handleResult<span class="token operator">.</span><span class="token function">getFrom</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> fromPosition
+        handleResult<span class="token operator">.</span><span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> resultMessage
+
+        <span class="token spock-block">where:</span>
+        activityCapital       <span class="token operator">|</span> activityTheme <span class="token operator">||</span> fromPosition <span class="token operator">||</span> resultMessage <span class="token operator">||</span> isOk
+        <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;100&quot;</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token string">&quot;&#x56E2;&#x5EFA;&quot;</span>          <span class="token operator">||</span> <span class="token string">&quot;leader&quot;</span>     <span class="token operator">||</span> <span class="token string">&quot;&#x56E2;&#x5EFA; ok&quot;</span>       <span class="token operator">||</span> Boolean<span class="token operator">.</span>TRUE
+        <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;101&quot;</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token string">&quot;ktv&quot;</span>         <span class="token operator">||</span> <span class="token string">&quot;manager&quot;</span>    <span class="token operator">||</span> <span class="token string">&quot;ktv ok&quot;</span>      <span class="token operator">||</span> Boolean<span class="token operator">.</span>TRUE
+        <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;499&quot;</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token string">&quot;&#x4E52;&#x4E53;&#x7403;&quot;</span>         <span class="token operator">||</span> <span class="token string">&quot;manager&quot;</span>    <span class="token operator">||</span> <span class="token string">&quot;&#x4E52;&#x4E53;&#x7403; ok&quot;</span>      <span class="token operator">||</span> Boolean<span class="token operator">.</span>TRUE
+        <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;501&quot;</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token string">&quot;&#x5BA4;&#x5185;&#x7BEE;&#x7403;&quot;</span>        <span class="token operator">||</span> <span class="token string">&quot;manager&quot;</span>    <span class="token operator">||</span> <span class="token string">&quot;&#x5BA4;&#x5185;&#x7BEE;&#x7403; reject&quot;</span> <span class="token operator">||</span> Boolean<span class="token operator">.</span>FALSE
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">def</span> <span class="token function">boss</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> boss <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Boss</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> manager <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Manager</span><span class="token punctuation">(</span>boss<span class="token punctuation">)</span>
+        <span class="token keyword">def</span> leader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Leader</span><span class="token punctuation">(</span>manager<span class="token punctuation">)</span>
+        <span class="token keyword">def</span> handleResult <span class="token operator">=</span> leader<span class="token operator">.</span><span class="token function">handle</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">HandleRequest</span><span class="token punctuation">(</span>activityTheme<span class="token punctuation">:</span> activityTheme<span class="token punctuation">,</span> activityCapital<span class="token punctuation">:</span> activityCapital<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token spock-block">expect:</span>
+        handleResult<span class="token operator">.</span><span class="token function">getIsOk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> isOk
+        handleResult<span class="token operator">.</span><span class="token function">getFrom</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> fromPosition
+        handleResult<span class="token operator">.</span><span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> resultMessage
+
+        <span class="token spock-block">where:</span>
+        activityCapital        <span class="token operator">|</span> activityTheme <span class="token operator">||</span> fromPosition <span class="token operator">||</span> resultMessage <span class="token operator">||</span> isOk
+        <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;100&quot;</span><span class="token punctuation">)</span>  <span class="token operator">|</span> <span class="token string">&quot;&#x56E2;&#x5EFA;&quot;</span>          <span class="token operator">||</span> <span class="token string">&quot;leader&quot;</span>     <span class="token operator">||</span> <span class="token string">&quot;&#x56E2;&#x5EFA; ok&quot;</span>       <span class="token operator">||</span> Boolean<span class="token operator">.</span>TRUE
+        <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;101&quot;</span><span class="token punctuation">)</span>  <span class="token operator">|</span> <span class="token string">&quot;ktv&quot;</span>         <span class="token operator">||</span> <span class="token string">&quot;manager&quot;</span>    <span class="token operator">||</span> <span class="token string">&quot;ktv ok&quot;</span>      <span class="token operator">||</span> Boolean<span class="token operator">.</span>TRUE
+        <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;499&quot;</span><span class="token punctuation">)</span>  <span class="token operator">|</span> <span class="token string">&quot;&#x4E52;&#x4E53;&#x7403;&quot;</span>         <span class="token operator">||</span> <span class="token string">&quot;manager&quot;</span>    <span class="token operator">||</span> <span class="token string">&quot;&#x4E52;&#x4E53;&#x7403; ok&quot;</span>      <span class="token operator">||</span> Boolean<span class="token operator">.</span>TRUE
+        <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;501&quot;</span><span class="token punctuation">)</span>  <span class="token operator">|</span> <span class="token string">&quot;&#x5BA4;&#x5185;&#x7BEE;&#x7403;&quot;</span>        <span class="token operator">||</span> <span class="token string">&quot;boss&quot;</span>       <span class="token operator">||</span> <span class="token string">&quot;&#x5BA4;&#x5185;&#x7BEE;&#x7403; ok&quot;</span>     <span class="token operator">||</span> Boolean<span class="token operator">.</span>TRUE
+        <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;1000&quot;</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token string">&quot;&#x65C5;&#x6E38;&quot;</span>          <span class="token operator">||</span> <span class="token string">&quot;boss&quot;</span>       <span class="token operator">||</span> <span class="token string">&quot;&#x65C5;&#x6E38; ok&quot;</span>       <span class="token operator">||</span> Boolean<span class="token operator">.</span>TRUE
+        <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;1001&quot;</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token string">&quot;&#x663E;&#x5361;&quot;</span>          <span class="token operator">||</span> <span class="token string">&quot;boss&quot;</span>       <span class="token operator">||</span> <span class="token string">&quot;&#x663E;&#x5361; reject&quot;</span>   <span class="token operator">||</span> Boolean<span class="token operator">.</span>FALSE
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -752,7 +752,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.1、责任链模式","level":"1.4.1","depth":2,"next":{"title":"3.2、命令模式","level":"1.4.2","depth":2,"path":"content/behavioural/command.md","ref":"content/behavioural/command.md","articles":[]},"previous":{"title":"3、行为型模式","level":"1.4","depth":1,"path":"content/behavioural/README.md","ref":"content/behavioural/README.md","articles":[{"title":"3.1、责任链模式","level":"1.4.1","depth":2,"path":"content/behavioural/chain_of_responsibility.md","ref":"content/behavioural/chain_of_responsibility.md","articles":[]},{"title":"3.2、命令模式","level":"1.4.2","depth":2,"path":"content/behavioural/command.md","ref":"content/behavioural/command.md","articles":[]},{"title":"3.3、解释器模式","level":"1.4.3","depth":2,"path":"content/behavioural/interpreter.md","ref":"content/behavioural/interpreter.md","articles":[]},{"title":"3.4、迭代器模式","level":"1.4.4","depth":2,"path":"content/behavioural/iterator.md","ref":"content/behavioural/iterator.md","articles":[]},{"title":"3.5、中介者模式","level":"1.4.5","depth":2,"path":"content/behavioural/mediator.md","ref":"content/behavioural/mediator.md","articles":[]},{"title":"3.6、备忘录模式","level":"1.4.6","depth":2,"path":"content/behavioural/memento.md","ref":"content/behavioural/memento.md","articles":[]},{"title":"3.7、观察者模式","level":"1.4.7","depth":2,"path":"content/behavioural/observer.md","ref":"content/behavioural/observer.md","articles":[]},{"title":"3.8、状态模式","level":"1.4.8","depth":2,"path":"content/behavioural/state.md","ref":"content/behavioural/state.md","articles":[]},{"title":"3.9、策略模式","level":"1.4.9","depth":2,"path":"content/behavioural/strategy.md","ref":"content/behavioural/strategy.md","articles":[]},{"title":"3.10、模版方法模式","level":"1.4.10","depth":2,"path":"content/behavioural/template_method.md","ref":"content/behavioural/template_method.md","articles":[]},{"title":"3.11、访问者模式","level":"1.4.11","depth":2,"path":"content/behavioural/visitor.md","ref":"content/behavioural/visitor.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/chain_of_responsibility.md","mtime":"2017-09-22T03:23:25.715Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.1、责任链模式","level":"1.4.1","depth":2,"next":{"title":"3.2、命令模式","level":"1.4.2","depth":2,"path":"content/behavioural/command.md","ref":"content/behavioural/command.md","articles":[]},"previous":{"title":"3、行为型模式","level":"1.4","depth":1,"path":"content/behavioural/README.md","ref":"content/behavioural/README.md","articles":[{"title":"3.1、责任链模式","level":"1.4.1","depth":2,"path":"content/behavioural/chain_of_responsibility.md","ref":"content/behavioural/chain_of_responsibility.md","articles":[]},{"title":"3.2、命令模式","level":"1.4.2","depth":2,"path":"content/behavioural/command.md","ref":"content/behavioural/command.md","articles":[]},{"title":"3.3、解释器模式","level":"1.4.3","depth":2,"path":"content/behavioural/interpreter.md","ref":"content/behavioural/interpreter.md","articles":[]},{"title":"3.4、迭代器模式","level":"1.4.4","depth":2,"path":"content/behavioural/iterator.md","ref":"content/behavioural/iterator.md","articles":[]},{"title":"3.5、中介者模式","level":"1.4.5","depth":2,"path":"content/behavioural/mediator.md","ref":"content/behavioural/mediator.md","articles":[]},{"title":"3.6、备忘录模式","level":"1.4.6","depth":2,"path":"content/behavioural/memento.md","ref":"content/behavioural/memento.md","articles":[]},{"title":"3.7、观察者模式","level":"1.4.7","depth":2,"path":"content/behavioural/observer.md","ref":"content/behavioural/observer.md","articles":[]},{"title":"3.8、状态模式","level":"1.4.8","depth":2,"path":"content/behavioural/state.md","ref":"content/behavioural/state.md","articles":[]},{"title":"3.9、策略模式","level":"1.4.9","depth":2,"path":"content/behavioural/strategy.md","ref":"content/behavioural/strategy.md","articles":[]},{"title":"3.10、模版方法模式","level":"1.4.10","depth":2,"path":"content/behavioural/template_method.md","ref":"content/behavioural/template_method.md","articles":[]},{"title":"3.11、访问者模式","level":"1.4.11","depth":2,"path":"content/behavioural/visitor.md","ref":"content/behavioural/visitor.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/chain_of_responsibility.md","mtime":"2017-09-22T03:23:25.715Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -515,112 +515,112 @@
 <li>java.lang.Object#clone()</li>
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
-<pre><code class="lang-java"><span class="hljs-meta">@Data</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CopyType</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>{
-    <span class="hljs-keyword">private</span> String type;
-}
+<pre class="language-"><code class="lang-java"><span class="token annotation punctuation">@Data</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CopyType</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> String type<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <ol>
-<li>&#x6D45;&#x62F7;&#x8D1D;<br>&#x88AB;&#x62F7;&#x8D1D;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x53D8;&#x91CF;&#x90FD;&#x542B;&#x6709;&#x4E0E;&#x539F;&#x6765;&#x7684;&#x5BF9;&#x8C61;&#x76F8;&#x540C;&#x7684;&#x503C;&#xFF0C;&#x800C;&#x6240;&#x6709;&#x7684;&#x5BF9;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x4ECD;&#x7136;&#x6307;&#x5411;&#x539F;&#x6765;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x6362;&#x8A00;&#x4E4B;&#xFF0C;&#x6D45;&#x62F7;&#x8D1D;&#x4EC5;&#x4EC5;&#x62F7;&#x8D1D;&#x6240;&#x8003;&#x8651;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x4E0D;&#x62F7;&#x8D1D;&#x5B83;&#x6240;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#x3002;<pre><code class="lang-java"><span class="hljs-meta">@Data</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ShallowCopy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Cloneable</span> </span>{
- <span class="hljs-keyword">private</span> String name;
- <span class="hljs-keyword">private</span> CopyType copyType;
- <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">clone</span><span class="hljs-params">()</span></span>{
-     <span class="hljs-keyword">try</span> {
-         <span class="hljs-keyword">return</span> <span class="hljs-keyword">super</span>.clone();
-     } <span class="hljs-keyword">catch</span> (CloneNotSupportedException e) {
-         <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
-     }
- }
-}
+<li>&#x6D45;&#x62F7;&#x8D1D;<br>&#x88AB;&#x62F7;&#x8D1D;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x53D8;&#x91CF;&#x90FD;&#x542B;&#x6709;&#x4E0E;&#x539F;&#x6765;&#x7684;&#x5BF9;&#x8C61;&#x76F8;&#x540C;&#x7684;&#x503C;&#xFF0C;&#x800C;&#x6240;&#x6709;&#x7684;&#x5BF9;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x4ECD;&#x7136;&#x6307;&#x5411;&#x539F;&#x6765;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x6362;&#x8A00;&#x4E4B;&#xFF0C;&#x6D45;&#x62F7;&#x8D1D;&#x4EC5;&#x4EC5;&#x62F7;&#x8D1D;&#x6240;&#x8003;&#x8651;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x4E0D;&#x62F7;&#x8D1D;&#x5B83;&#x6240;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#x3002;<pre class="language-"><code class="lang-java"><span class="token annotation punctuation">@Data</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ShallowCopy</span> <span class="token keyword">implements</span> <span class="token class-name">Cloneable</span> <span class="token punctuation">{</span>
+ <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+ <span class="token keyword">private</span> CopyType copyType<span class="token punctuation">;</span>
+ <span class="token keyword">public</span> Object <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token keyword">try</span> <span class="token punctuation">{</span>
+         <span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">CloneNotSupportedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
 <li><p>&#x6DF1;&#x62F7;&#x8D1D;<br>&#x88AB;&#x62F7;&#x8D1D;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x53D8;&#x91CF;&#x90FD;&#x542B;&#x6709;&#x4E0E;&#x539F;&#x6765;&#x7684;&#x5BF9;&#x8C61;&#x76F8;&#x540C;&#x7684;&#x503C;&#xFF0C;&#x9664;&#x53BB;&#x90A3;&#x4E9B;&#x5F15;&#x7528;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x7684;&#x53D8;&#x91CF;&#x3002;&#x90A3;&#x4E9B;&#x5F15;&#x7528;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x7684;&#x53D8;&#x91CF;&#x5C06;&#x6307;&#x5411;&#x88AB;&#x62F7;&#x8D1D;&#x8FC7;&#x7684;&#x65B0;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x4E0D;&#x518D;&#x662F;&#x539F;&#x6709;&#x7684;&#x90A3;&#x4E9B;&#x88AB;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x6362;&#x8A00;&#x4E4B;&#xFF0C;&#x6DF1;&#x62F7;&#x8D1D;&#x628A;&#x8981;&#x62F7;&#x8D1D;&#x7684;&#x5BF9;&#x8C61;&#x6240;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x62F7;&#x8D1D;&#x4E86;&#x4E00;&#x904D;&#x3002;</p>
-<pre><code class="lang-java"><span class="hljs-meta">@Data</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DeepCopy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>{
- <span class="hljs-keyword">private</span> String name;
- <span class="hljs-keyword">private</span> CopyType copyType;
- <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">clone</span><span class="hljs-params">()</span></span>{
-     <span class="hljs-keyword">try</span> {
-         ByteArrayOutputStream byteArrayOutputStream = <span class="hljs-keyword">new</span> ByteArrayOutputStream();
-         ObjectOutputStream objectOutputStream = <span class="hljs-keyword">new</span> ObjectOutputStream(byteArrayOutputStream);
-         objectOutputStream.writeObject(<span class="hljs-keyword">this</span>);
+<pre class="language-"><code class="lang-java"><span class="token annotation punctuation">@Data</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DeepCopy</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
+ <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+ <span class="token keyword">private</span> CopyType copyType<span class="token punctuation">;</span>
+ <span class="token keyword">public</span> Object <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token keyword">try</span> <span class="token punctuation">{</span>
+         ByteArrayOutputStream byteArrayOutputStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ByteArrayOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         ObjectOutputStream objectOutputStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectOutputStream</span><span class="token punctuation">(</span>byteArrayOutputStream<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         objectOutputStream<span class="token punctuation">.</span><span class="token function">writeObject</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-         ByteArrayInputStream byteArrayInputStream = <span class="hljs-keyword">new</span> ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-         ObjectInputStream objectInputStream = <span class="hljs-keyword">new</span> ObjectInputStream(byteArrayInputStream);
+         ByteArrayInputStream byteArrayInputStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ByteArrayInputStream</span><span class="token punctuation">(</span>byteArrayOutputStream<span class="token punctuation">.</span><span class="token function">toByteArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         ObjectInputStream objectInputStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectInputStream</span><span class="token punctuation">(</span>byteArrayInputStream<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-         <span class="hljs-keyword">return</span> objectInputStream.readObject();
-     } <span class="hljs-keyword">catch</span> (IOException | ClassNotFoundException e) {
-         <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
-     }
- }
-}
+         <span class="token keyword">return</span> objectInputStream<span class="token punctuation">.</span><span class="token function">readObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> <span class="token operator">|</span> ClassNotFoundException e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
 </ol>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ShallowCopySpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> <span class="hljs-string">&quot;is same by shallow copy&quot;</span>(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> source = <span class="hljs-keyword">new</span> ShallowCopy(
-<span class="hljs-symbol">            name:</span> <span class="hljs-string">&quot;Jack&quot;</span>,
-<span class="hljs-symbol">            copyType:</span> <span class="hljs-keyword">new</span> CopyType(<span class="hljs-string">type:</span> <span class="hljs-string">&quot;shallow&quot;</span>)
-        )
-        <span class="hljs-keyword">def</span> copy = (ShallowCopy) source.clone()
-<span class="hljs-symbol">
-        expect:</span>
-        copy != <span class="hljs-literal">null</span>
-        copy.name != <span class="hljs-literal">null</span>
-        copy.copyType != <span class="hljs-literal">null</span>
-        copy.name == source.name
-        copy.name.is(source.name)
-        copy.copyType.type == source.copyType.type
-        copy.copyType == source.copyType
-        copy.copyType.is(source.copyType)
-        !source.is(copy)
-<span class="hljs-symbol">
-        when:</span>
-        copy.name = <span class="hljs-string">&quot;Jack Chen&quot;</span>
-        copy.copyType.type = <span class="hljs-string">&quot;just shallow&quot;</span>
-<span class="hljs-symbol">
-        then:</span>
-        source.name != copy.name
-        !source.name.is(copy.name)
-        source.copyType.type == copy.copyType.type
-        source.copyType == copy.copyType
-        source.copyType.is(copy.copyType)
-        !source.is(copy)
-    }
-}
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">ShallowCopySpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token string">&quot;is same by shallow copy&quot;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> source <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ShallowCopy</span><span class="token punctuation">(</span>
+            name<span class="token punctuation">:</span> <span class="token string">&quot;Jack&quot;</span><span class="token punctuation">,</span>
+            copyType<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">CopyType</span><span class="token punctuation">(</span>type<span class="token punctuation">:</span> <span class="token string">&quot;shallow&quot;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        <span class="token keyword">def</span> copy <span class="token operator">=</span> <span class="token punctuation">(</span>ShallowCopy<span class="token punctuation">)</span> source<span class="token operator">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DeepCopySpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> <span class="hljs-string">&quot;is same by deep copy&quot;</span>(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> source = <span class="hljs-keyword">new</span> DeepCopy(
-<span class="hljs-symbol">            name:</span> <span class="hljs-string">&quot;Jack&quot;</span>,
-<span class="hljs-symbol">            copyType:</span> <span class="hljs-keyword">new</span> CopyType(<span class="hljs-string">type:</span> <span class="hljs-string">&quot;deep&quot;</span>)
-        )
-        <span class="hljs-keyword">def</span> copy = (DeepCopy) source.clone()
-<span class="hljs-symbol">        expect:</span>
-        copy != <span class="hljs-literal">null</span>
-        copy.name != <span class="hljs-literal">null</span>
-        copy.copyType != <span class="hljs-literal">null</span>
-        copy.name == source.name
-        copy.copyType.type == source.copyType.type
-        !copy.copyType.is(source.copyType)
-        !copy.is(source)
-<span class="hljs-symbol">
-        when:</span>
-        copy.name = <span class="hljs-string">&quot;Jack Chen&quot;</span>
-        copy.copyType.type = <span class="hljs-string">&quot;just deep&quot;</span>
-<span class="hljs-symbol">
-        then:</span>
-        source.name != copy.name
-        source.copyType.type != copy.copyType.type
-        !source.copyType.is(copy.copyType)
-        !source.is(copy)
-    }
-}
+        <span class="token spock-block">expect:</span>
+        copy <span class="token operator">!=</span> null
+        copy<span class="token operator">.</span>name <span class="token operator">!=</span> null
+        copy<span class="token operator">.</span>copyType <span class="token operator">!=</span> null
+        copy<span class="token operator">.</span>name <span class="token operator">==</span> source<span class="token operator">.</span>name
+        copy<span class="token operator">.</span>name<span class="token operator">.</span><span class="token function">is</span><span class="token punctuation">(</span>source<span class="token operator">.</span>name<span class="token punctuation">)</span>
+        copy<span class="token operator">.</span>copyType<span class="token operator">.</span>type <span class="token operator">==</span> source<span class="token operator">.</span>copyType<span class="token operator">.</span>type
+        copy<span class="token operator">.</span>copyType <span class="token operator">==</span> source<span class="token operator">.</span>copyType
+        copy<span class="token operator">.</span>copyType<span class="token operator">.</span><span class="token function">is</span><span class="token punctuation">(</span>source<span class="token operator">.</span>copyType<span class="token punctuation">)</span>
+        <span class="token operator">!</span>source<span class="token operator">.</span><span class="token function">is</span><span class="token punctuation">(</span>copy<span class="token punctuation">)</span>
+
+        <span class="token spock-block">when:</span>
+        copy<span class="token operator">.</span>name <span class="token operator">=</span> <span class="token string">&quot;Jack Chen&quot;</span>
+        copy<span class="token operator">.</span>copyType<span class="token operator">.</span>type <span class="token operator">=</span> <span class="token string">&quot;just shallow&quot;</span>
+
+        <span class="token spock-block">then:</span>
+        source<span class="token operator">.</span>name <span class="token operator">!=</span> copy<span class="token operator">.</span>name
+        <span class="token operator">!</span>source<span class="token operator">.</span>name<span class="token operator">.</span><span class="token function">is</span><span class="token punctuation">(</span>copy<span class="token operator">.</span>name<span class="token punctuation">)</span>
+        source<span class="token operator">.</span>copyType<span class="token operator">.</span>type <span class="token operator">==</span> copy<span class="token operator">.</span>copyType<span class="token operator">.</span>type
+        source<span class="token operator">.</span>copyType <span class="token operator">==</span> copy<span class="token operator">.</span>copyType
+        source<span class="token operator">.</span>copyType<span class="token operator">.</span><span class="token function">is</span><span class="token punctuation">(</span>copy<span class="token operator">.</span>copyType<span class="token punctuation">)</span>
+        <span class="token operator">!</span>source<span class="token operator">.</span><span class="token function">is</span><span class="token punctuation">(</span>copy<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">DeepCopySpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token string">&quot;is same by deep copy&quot;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> source <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DeepCopy</span><span class="token punctuation">(</span>
+            name<span class="token punctuation">:</span> <span class="token string">&quot;Jack&quot;</span><span class="token punctuation">,</span>
+            copyType<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">CopyType</span><span class="token punctuation">(</span>type<span class="token punctuation">:</span> <span class="token string">&quot;deep&quot;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        <span class="token keyword">def</span> copy <span class="token operator">=</span> <span class="token punctuation">(</span>DeepCopy<span class="token punctuation">)</span> source<span class="token operator">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">expect:</span>
+        copy <span class="token operator">!=</span> null
+        copy<span class="token operator">.</span>name <span class="token operator">!=</span> null
+        copy<span class="token operator">.</span>copyType <span class="token operator">!=</span> null
+        copy<span class="token operator">.</span>name <span class="token operator">==</span> source<span class="token operator">.</span>name
+        copy<span class="token operator">.</span>copyType<span class="token operator">.</span>type <span class="token operator">==</span> source<span class="token operator">.</span>copyType<span class="token operator">.</span>type
+        <span class="token operator">!</span>copy<span class="token operator">.</span>copyType<span class="token operator">.</span><span class="token function">is</span><span class="token punctuation">(</span>source<span class="token operator">.</span>copyType<span class="token punctuation">)</span>
+        <span class="token operator">!</span>copy<span class="token operator">.</span><span class="token function">is</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span>
+
+        <span class="token spock-block">when:</span>
+        copy<span class="token operator">.</span>name <span class="token operator">=</span> <span class="token string">&quot;Jack Chen&quot;</span>
+        copy<span class="token operator">.</span>copyType<span class="token operator">.</span>type <span class="token operator">=</span> <span class="token string">&quot;just deep&quot;</span>
+
+        <span class="token spock-block">then:</span>
+        source<span class="token operator">.</span>name <span class="token operator">!=</span> copy<span class="token operator">.</span>name
+        source<span class="token operator">.</span>copyType<span class="token operator">.</span>type <span class="token operator">!=</span> copy<span class="token operator">.</span>copyType<span class="token operator">.</span>type
+        <span class="token operator">!</span>source<span class="token operator">.</span>copyType<span class="token operator">.</span><span class="token function">is</span><span class="token punctuation">(</span>copy<span class="token operator">.</span>copyType<span class="token punctuation">)</span>
+        <span class="token operator">!</span>source<span class="token operator">.</span><span class="token function">is</span><span class="token punctuation">(</span>copy<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -665,7 +665,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.2、原型模式","level":"1.2.2","depth":2,"next":{"title":"1.3、抽象工厂模式","level":"1.2.3","depth":2,"path":"content/creational/abstract_factory.md","ref":"content/creational/abstract_factory.md","articles":[]},"previous":{"title":"1.1、单例模式","level":"1.2.1","depth":2,"path":"content/creational/singleton.md","ref":"content/creational/singleton.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/creational/prototype.md","mtime":"2017-09-21T09:38:22.376Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.2、原型模式","level":"1.2.2","depth":2,"next":{"title":"1.3、抽象工厂模式","level":"1.2.3","depth":2,"path":"content/creational/abstract_factory.md","ref":"content/creational/abstract_factory.md","articles":[]},"previous":{"title":"1.1、单例模式","level":"1.2.1","depth":2,"path":"content/creational/singleton.md","ref":"content/creational/singleton.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/creational/prototype.md","mtime":"2017-09-21T09:38:22.376Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

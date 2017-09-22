@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -516,68 +516,68 @@
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
 <p>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;List&#x7684;&#x8FED;&#x4EE3;&#x5668;  </p>
-<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyIterator</span>&lt;<span class="hljs-title">T</span>&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
-    <span class="hljs-keyword">private</span> LinkedList&lt;T&gt; list;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> index;
+<pre class="language-"><code class="lang-java"><span class="token keyword">class</span> <span class="token class-name">MyIterator</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token keyword">implements</span> <span class="token class-name">Iterator</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> LinkedList<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> list<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> index<span class="token punctuation">;</span>
 
-    MyIterator(LinkedList&lt;T&gt; list) {
-        <span class="hljs-keyword">this</span>.list = list;
-        <span class="hljs-keyword">this</span>.index = <span class="hljs-number">0</span>;
-    }
+    <span class="token function">MyIterator</span><span class="token punctuation">(</span>LinkedList<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> list<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>list <span class="token operator">=</span> list<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.index &lt; <span class="hljs-keyword">this</span>.list.size();
-    }
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>index <span class="token operator">&lt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.list.get(<span class="hljs-keyword">this</span>.index ++);
-    }
-}
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> T <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>index <span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">// LinkedList&#x89C1;&#x7EC4;&#x5408;&#x6A21;&#x5F0F;</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyList</span>&lt;<span class="hljs-title">T</span>&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title">LinkedList</span>&lt;<span class="hljs-title">T</span>&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterable</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Iterator&lt;T&gt; <span class="hljs-title">iterator</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MyIterator&lt;&gt;(<span class="hljs-keyword">this</span>);
-    }
-}
+<span class="token comment" spellcheck="true">// LinkedList&#x89C1;&#x7EC4;&#x5408;&#x6A21;&#x5F0F;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyList</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token keyword">extends</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token keyword">implements</span> <span class="token class-name">Iterable</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Iterator<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">MyIterator</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyListSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> myList(){
-        <span class="hljs-keyword">def</span> data
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> list = <span class="hljs-keyword">new</span> MyList()
-        list.add(<span class="hljs-string">&quot;hello&quot;</span>)
-        list.add(<span class="hljs-string">&quot;world&quot;</span>)
-        list.add(<span class="hljs-string">&quot;!&quot;</span>)
-        <span class="hljs-keyword">def</span> iterator = list.iterator()
-<span class="hljs-symbol">
-        expect:</span>
-        iterator != <span class="hljs-literal">null</span>
-        iterator.hasNext()
-<span class="hljs-symbol">
-        when:</span>
-        data = iterator.next()
-<span class="hljs-symbol">        then:</span>
-        data == <span class="hljs-string">&quot;hello&quot;</span>
-        iterator.hasNext()
-<span class="hljs-symbol">
-        when:</span>
-        data = iterator.next()
-<span class="hljs-symbol">        then:</span>
-        data == <span class="hljs-string">&quot;world&quot;</span>
-        iterator.hasNext()
-<span class="hljs-symbol">
-        when:</span>
-        data = iterator.next()
-<span class="hljs-symbol">        then:</span>
-        data == <span class="hljs-string">&quot;!&quot;</span>
-        !iterator.hasNext()
-    }
-}
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">MyListSpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token function">myList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">def</span> data
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        list<span class="token operator">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;hello&quot;</span><span class="token punctuation">)</span>
+        list<span class="token operator">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;world&quot;</span><span class="token punctuation">)</span>
+        list<span class="token operator">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;!&quot;</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> iterator <span class="token operator">=</span> list<span class="token operator">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token spock-block">expect:</span>
+        iterator <span class="token operator">!=</span> null
+        iterator<span class="token operator">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token spock-block">when:</span>
+        data <span class="token operator">=</span> iterator<span class="token operator">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        data <span class="token operator">==</span> <span class="token string">&quot;hello&quot;</span>
+        iterator<span class="token operator">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token spock-block">when:</span>
+        data <span class="token operator">=</span> iterator<span class="token operator">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        data <span class="token operator">==</span> <span class="token string">&quot;world&quot;</span>
+        iterator<span class="token operator">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token spock-block">when:</span>
+        data <span class="token operator">=</span> iterator<span class="token operator">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        data <span class="token operator">==</span> <span class="token string">&quot;!&quot;</span>
+        <span class="token operator">!</span>iterator<span class="token operator">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -622,7 +622,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.4、迭代器模式","level":"1.4.4","depth":2,"next":{"title":"3.5、中介者模式","level":"1.4.5","depth":2,"path":"content/behavioural/mediator.md","ref":"content/behavioural/mediator.md","articles":[]},"previous":{"title":"3.3、解释器模式","level":"1.4.3","depth":2,"path":"content/behavioural/interpreter.md","ref":"content/behavioural/interpreter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/iterator.md","mtime":"2017-09-22T04:10:12.261Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.4、迭代器模式","level":"1.4.4","depth":2,"next":{"title":"3.5、中介者模式","level":"1.4.5","depth":2,"path":"content/behavioural/mediator.md","ref":"content/behavioural/mediator.md","articles":[]},"previous":{"title":"3.3、解释器模式","level":"1.4.3","depth":2,"path":"content/behavioural/interpreter.md","ref":"content/behavioural/interpreter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/iterator.md","mtime":"2017-09-22T04:10:12.261Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

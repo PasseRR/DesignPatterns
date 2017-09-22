@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -517,77 +517,77 @@
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
 <p>&#x7535;&#x89C6;&#x6709;&#x5F88;&#x591A;&#x54C1;&#x724C;&#xFF0C;&#x6BCF;&#x4E2A;&#x54C1;&#x724C;&#x52A0;&#x5DE5;&#x5382;&#x53EF;&#x4EE5;&#x751F;&#x4EA7;&#x4E0D;&#x540C;&#x5C3A;&#x5BF8;&#x7684;&#x7535;&#x89C6;&#xFF0C;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x786E;&#x5B9A;&#x6709;&#x591A;&#x5C11;&#x79CD;&#x5C3A;&#x5BF8;&#x7684;&#x7535;&#x89C6;&#xFF0C;&#x4E0D;&#x540C;&#x54C1;&#x724C;&#x7684;&#x5DE5;&#x5382;&#x53EF;&#x4EE5;&#x751F;&#x4EA7;&#x4E0D;&#x540C;&#x54C1;&#x724C;&#x7684;&#x7535;&#x89C6;</p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Tv</span> </span>{
-    <span class="hljs-function">String <span class="hljs-title">getName</span><span class="hljs-params">()</span></span>;
-}
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Tv</span> <span class="token punctuation">{</span>
+    String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>&#x5047;&#x8BBE;&#x5DE5;&#x5382;&#x53EA;&#x80FD;&#x751F;&#x4EA7;21&#x548C;50&#x82F1;&#x5BF8;&#x7684;&#x7535;&#x89C6; &#x4EE5;&#x6D77;&#x5C14;&#x4E3A;&#x4F8B;  </p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">TvFactory</span> </span>{
-    <span class="hljs-function">Tv <span class="hljs-title">create21InchTv</span><span class="hljs-params">()</span></span>;
-    <span class="hljs-function">Tv <span class="hljs-title">create50InchTv</span><span class="hljs-params">()</span></span>;
-}
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">TvFactory</span> <span class="token punctuation">{</span>
+    Tv <span class="token function">create21InchTv</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Tv <span class="token function">create50InchTv</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Haier21InchTv</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Tv</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Haier 21 inch&quot;</span>;
-    }
-}
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Haier21InchTv</span> <span class="token keyword">implements</span> <span class="token class-name">Tv</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Haier 21 inch&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Haier50InchTv</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Tv</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Haier 50 inch&quot;</span>;
-    }
-}
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Haier50InchTv</span> <span class="token keyword">implements</span> <span class="token class-name">Tv</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Haier 50 inch&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>&#x5982;&#x4E0B;&#x5206;&#x522B;&#x4E3A;&#x6D77;&#x5C14;&#x548C;&#x7D22;&#x5C3C;&#x7684;&#x7535;&#x89C6;&#x5DE5;&#x5382;  </p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HaierTvFactory</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">TvFactory</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Tv <span class="hljs-title">create21InchTv</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Haier21InchTv();
-    }
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HaierTvFactory</span> <span class="token keyword">implements</span> <span class="token class-name">TvFactory</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Tv <span class="token function">create21InchTv</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Haier21InchTv</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Tv <span class="hljs-title">create50InchTv</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Haier50InchTv();
-    }
-}
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Tv <span class="token function">create50InchTv</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Haier50InchTv</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SonyTvFactory</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">TvFactory</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Tv <span class="hljs-title">create21InchTv</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Sony21InchTv();
-    }
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SonyTvFactory</span> <span class="token keyword">implements</span> <span class="token class-name">TvFactory</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Tv <span class="token function">create21InchTv</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Sony21InchTv</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Tv <span class="hljs-title">create50InchTv</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Sony50InchTv();
-    }
-}
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Tv <span class="token function">create50InchTv</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Sony50InchTv</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HaierTvFactorySpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> <span class="hljs-string">&quot;create 21 inch haier tv&quot;</span>(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> factory = <span class="hljs-keyword">new</span> HaierTvFactory()
-        <span class="hljs-keyword">def</span> tv = factory.create21InchTv()
-<span class="hljs-symbol">
-        expect:</span>
-        tv != <span class="hljs-literal">null</span>
-        tv <span class="hljs-keyword">instanceof</span> Haier21InchTv
-    }
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">HaierTvFactorySpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token string">&quot;create 21 inch haier tv&quot;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> factory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HaierTvFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> tv <span class="token operator">=</span> factory<span class="token operator">.</span><span class="token function">create21InchTv</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    <span class="hljs-keyword">def</span> <span class="hljs-string">&quot;create 50 inch haier tv&quot;</span>(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> factory = <span class="hljs-keyword">new</span> HaierTvFactory()
-        <span class="hljs-keyword">def</span> tv = factory.create50InchTv()
-<span class="hljs-symbol">
-        expect:</span>
-        tv != <span class="hljs-literal">null</span>
-        tv <span class="hljs-keyword">instanceof</span> Haier50InchTv
-    }
-}
+        <span class="token spock-block">expect:</span>
+        tv <span class="token operator">!=</span> null
+        tv <span class="token keyword">instanceof</span> <span class="token class-name">Haier21InchTv</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">def</span> <span class="token string">&quot;create 50 inch haier tv&quot;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> factory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HaierTvFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> tv <span class="token operator">=</span> factory<span class="token operator">.</span><span class="token function">create50InchTv</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token spock-block">expect:</span>
+        tv <span class="token operator">!=</span> null
+        tv <span class="token keyword">instanceof</span> <span class="token class-name">Haier50InchTv</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -632,7 +632,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.3、抽象工厂模式","level":"1.2.3","depth":2,"next":{"title":"1.4、工厂方法模式","level":"1.2.4","depth":2,"path":"content/creational/factory_method.md","ref":"content/creational/factory_method.md","articles":[]},"previous":{"title":"1.2、原型模式","level":"1.2.2","depth":2,"path":"content/creational/prototype.md","ref":"content/creational/prototype.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/creational/abstract_factory.md","mtime":"2017-09-21T09:34:43.892Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.3、抽象工厂模式","level":"1.2.3","depth":2,"next":{"title":"1.4、工厂方法模式","level":"1.2.4","depth":2,"path":"content/creational/factory_method.md","ref":"content/creational/factory_method.md","articles":[]},"previous":{"title":"1.2、原型模式","level":"1.2.2","depth":2,"path":"content/creational/prototype.md","ref":"content/creational/prototype.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/creational/abstract_factory.md","mtime":"2017-09-21T09:34:43.892Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -517,90 +517,90 @@
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
 <p>&#x7528;&#x6237;&#x53D1;&#x8D77;&#x4E00;&#x7B14;&#x4EA4;&#x6613;&#xFF0C;&#x4F59;&#x989D;&#x51CF;&#x5C11;&#xFF0C;&#x79EF;&#x5206;&#x589E;&#x52A0;  </p>
-<pre><code class="lang-java"><span class="hljs-meta">@Data</span>
-<span class="hljs-meta">@Builder</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Trade</span> </span>{
-    <span class="hljs-keyword">private</span> BigInteger userId;
-    <span class="hljs-keyword">private</span> BigDecimal points;
-    <span class="hljs-keyword">private</span> BigDecimal cash;
-    <span class="hljs-keyword">private</span> BigDecimal consumeCash;
-    <span class="hljs-keyword">private</span> BigDecimal awardPoints;
-}
+<pre class="language-"><code class="lang-java"><span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@Builder</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Trade</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> BigInteger userId<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> BigDecimal points<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> BigDecimal cash<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> BigDecimal consumeCash<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> BigDecimal awardPoints<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CashDao</span> </span>{
-    <span class="hljs-comment">// &#x73B0;&#x91D1;/&#x4F59;&#x989D;&#x8BB0;&#x8D26;</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">accountCash</span><span class="hljs-params">(Trade trade)</span></span>{
-        BigDecimal currentCash = trade.getCash();
-        BigDecimal consumeCash = trade.getConsumeCash();
-        trade.setCash(currentCash.subtract(consumeCash));
-    }
-}
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CashDao</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// &#x73B0;&#x91D1;/&#x4F59;&#x989D;&#x8BB0;&#x8D26;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">accountCash</span><span class="token punctuation">(</span>Trade trade<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        BigDecimal currentCash <span class="token operator">=</span> trade<span class="token punctuation">.</span><span class="token function">getCash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        BigDecimal consumeCash <span class="token operator">=</span> trade<span class="token punctuation">.</span><span class="token function">getConsumeCash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        trade<span class="token punctuation">.</span><span class="token function">setCash</span><span class="token punctuation">(</span>currentCash<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span>consumeCash<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PointDao</span> </span>{
-    <span class="hljs-comment">// &#x79EF;&#x5206;&#x8BB0;&#x8D26;</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">accountPoint</span><span class="hljs-params">(Trade trade)</span></span>{
-        BigDecimal currentPoints = trade.getPoints();
-        BigDecimal awardPoints = trade.getAwardPoints();
-        trade.setPoints(currentPoints.add(awardPoints));
-    }
-}
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PointDao</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// &#x79EF;&#x5206;&#x8BB0;&#x8D26;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">accountPoint</span><span class="token punctuation">(</span>Trade trade<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        BigDecimal currentPoints <span class="token operator">=</span> trade<span class="token punctuation">.</span><span class="token function">getPoints</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        BigDecimal awardPoints <span class="token operator">=</span> trade<span class="token punctuation">.</span><span class="token function">getAwardPoints</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        trade<span class="token punctuation">.</span><span class="token function">setPoints</span><span class="token punctuation">(</span>currentPoints<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>awardPoints<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TradeService</span> </span>{
-    <span class="hljs-comment">// Spring inject</span>
-    <span class="hljs-keyword">private</span> CashDao cashDao = <span class="hljs-keyword">new</span> CashDao();
-    <span class="hljs-keyword">private</span> PointDao pointDao = <span class="hljs-keyword">new</span> PointDao();
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TradeService</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Spring inject</span>
+    <span class="token keyword">private</span> CashDao cashDao <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CashDao</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> PointDao pointDao <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PointDao</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">// &#x7528;&#x6237;&#x4F7F;&#x7528;&#x73B0;&#x91D1;&#x6D88;&#x8D39; &#x79EF;&#x5206;&#x589E;&#x52A0;</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">consume</span><span class="hljs-params">(Trade trade)</span></span>{
-        <span class="hljs-keyword">this</span>.cashDao.accountCash(trade);
-        <span class="hljs-keyword">this</span>.pointDao.accountPoint(trade);
-    }
-}
+    <span class="token comment" spellcheck="true">// &#x7528;&#x6237;&#x4F7F;&#x7528;&#x73B0;&#x91D1;&#x6D88;&#x8D39; &#x79EF;&#x5206;&#x589E;&#x52A0;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">consume</span><span class="token punctuation">(</span>Trade trade<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>cashDao<span class="token punctuation">.</span><span class="token function">accountCash</span><span class="token punctuation">(</span>trade<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>pointDao<span class="token punctuation">.</span><span class="token function">accountPoint</span><span class="token punctuation">(</span>trade<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>&#x5BF9;&#x4E8E;&#x5BA2;&#x6237;&#x7AEF;&#x6765;&#x8BF4;&#x53EA;&#x77E5;&#x9053;TradeService&#x5374;&#x611F;&#x77E5;&#x4E0D;&#x5230;CashDao&#x3001;PointDao  </p>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TradeServiceSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> <span class="hljs-string">&quot;facade&quot;</span>() {
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> trade = Trade.builder()
-            .userId(<span class="hljs-keyword">new</span> BigInteger(<span class="hljs-string">&quot;1&quot;</span>))
-            .cash(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;20&quot;</span>))
-            .points(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;100&quot;</span>))
-            .consumeCash(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;10&quot;</span>))
-            .awardPoints(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;100&quot;</span>))
-            .build()
-        <span class="hljs-keyword">def</span> tradeService = <span class="hljs-keyword">new</span> TradeService()
-<span class="hljs-symbol">
-        when:</span>
-        tradeService.consume(trade)
-<span class="hljs-symbol">        then:</span>
-        trade.getCash() == <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;10&quot;</span>)
-        trade.getPoints() == <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;200&quot;</span>)
-    }
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">TradeServiceSpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token string">&quot;facade&quot;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> trade <span class="token operator">=</span> Trade<span class="token operator">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">userId</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigInteger</span><span class="token punctuation">(</span><span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">cash</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;20&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">points</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;100&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">consumeCash</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;10&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">awardPoints</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;100&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> tradeService <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TradeService</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    <span class="hljs-keyword">def</span> <span class="hljs-string">&quot;not use facade&quot;</span>(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> trade = Trade.builder()
-            .userId(<span class="hljs-keyword">new</span> BigInteger(<span class="hljs-string">&quot;1&quot;</span>))
-            .cash(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;20&quot;</span>))
-            .points(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;100&quot;</span>))
-            .consumeCash(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;10&quot;</span>))
-            .awardPoints(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;100&quot;</span>))
-            .build()
-        <span class="hljs-keyword">def</span> cashDao = <span class="hljs-keyword">new</span> CashDao()
-        <span class="hljs-keyword">def</span> pointDao = <span class="hljs-keyword">new</span> PointDao()
-<span class="hljs-symbol">
-        when:</span>
-        cashDao.accountCash(trade)
-<span class="hljs-symbol">        then:</span>
-        trade.getCash() == <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;10&quot;</span>)
-<span class="hljs-symbol">
-        when:</span>
-        pointDao.accountPoint(trade)
-<span class="hljs-symbol">        then:</span>
-        trade.getPoints() == <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;200&quot;</span>)
-    }
-}
+        <span class="token spock-block">when:</span>
+        tradeService<span class="token operator">.</span><span class="token function">consume</span><span class="token punctuation">(</span>trade<span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        trade<span class="token operator">.</span><span class="token function">getCash</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;10&quot;</span><span class="token punctuation">)</span>
+        trade<span class="token operator">.</span><span class="token function">getPoints</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;200&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">def</span> <span class="token string">&quot;not use facade&quot;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> trade <span class="token operator">=</span> Trade<span class="token operator">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">userId</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigInteger</span><span class="token punctuation">(</span><span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">cash</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;20&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">points</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;100&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">consumeCash</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;10&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">awardPoints</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;100&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> cashDao <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CashDao</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> pointDao <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PointDao</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token spock-block">when:</span>
+        cashDao<span class="token operator">.</span><span class="token function">accountCash</span><span class="token punctuation">(</span>trade<span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        trade<span class="token operator">.</span><span class="token function">getCash</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;10&quot;</span><span class="token punctuation">)</span>
+
+        <span class="token spock-block">when:</span>
+        pointDao<span class="token operator">.</span><span class="token function">accountPoint</span><span class="token punctuation">(</span>trade<span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        trade<span class="token operator">.</span><span class="token function">getPoints</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;200&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -645,7 +645,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.2、外观模式","level":"1.3.2","depth":2,"next":{"title":"2.3、适配器模式","level":"1.3.3","depth":2,"path":"content/structural/adapter.md","ref":"content/structural/adapter.md","articles":[]},"previous":{"title":"2.1、组合模式","level":"1.3.1","depth":2,"path":"content/structural/composite.md","ref":"content/structural/composite.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/structural/facade.md","mtime":"2017-09-21T10:20:18.894Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.2、外观模式","level":"1.3.2","depth":2,"next":{"title":"2.3、适配器模式","level":"1.3.3","depth":2,"path":"content/structural/adapter.md","ref":"content/structural/adapter.md","articles":[]},"previous":{"title":"2.1、组合模式","level":"1.3.1","depth":2,"path":"content/structural/composite.md","ref":"content/structural/composite.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/structural/facade.md","mtime":"2017-09-21T10:20:18.894Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

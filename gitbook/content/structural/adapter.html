@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -519,81 +519,81 @@
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
 <p>&#x7F8E;&#x56FD;&#x4F7F;&#x7528;&#x7684;&#x4E09;&#x5B54;&#x63D2;&#x5EA7;&#x4E14;&#x9700;&#x8981;&#x7684;&#x7535;&#x538B;&#x662F;110V &#x4E2D;&#x56FD;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x4E24;&#x5B54;&#x63D2;&#x5EA7;&#x4E14;&#x4E14;&#x9700;&#x8981;&#x7535;&#x538B;&#x662F;220V &#x4E09;&#x5B54;&#x63D2;&#x5EA7;&#x62FF;&#x5230;&#x4E2D;&#x56FD;&#x9700;&#x8981;&#x8F6C;&#x6362;&#x4E3A;&#x4E24;&#x5B54;&#x63D2;&#x5EA7;&#x624D;&#x80FD;&#x4F7F;&#x7528;  </p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">TwoPinSoket</span> </span>{
-    <span class="hljs-function">String <span class="hljs-title">chargeWithTwoPin</span><span class="hljs-params">()</span></span>;
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">voltage</span><span class="hljs-params">()</span></span>;
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TwoPinSoketChina</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">TwoPinSoket</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">chargeWithTwoPin</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&#x4E24;&#x5B54;&#x63D2;&#x5EA7;&quot;</span>;
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">voltage</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-number">220</span>;
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ThreePinSoket</span> </span>{
-    <span class="hljs-function">String <span class="hljs-title">chargeWithThreePin</span><span class="hljs-params">()</span></span>;
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">voltage</span><span class="hljs-params">()</span></span>;
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreePinSoketAmerica</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ThreePinSoket</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">chargeWithThreePin</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&#x4E09;&#x5B54;&#x63D2;&#x5EA7;&quot;</span>;
-    }
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">TwoPinSoket</span> <span class="token punctuation">{</span>
+    String <span class="token function">chargeWithTwoPin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">voltage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TwoPinSoketChina</span> <span class="token keyword">implements</span> <span class="token class-name">TwoPinSoket</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">chargeWithTwoPin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;&#x4E24;&#x5B54;&#x63D2;&#x5EA7;&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">voltage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">220</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ThreePinSoket</span> <span class="token punctuation">{</span>
+    String <span class="token function">chargeWithThreePin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">voltage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreePinSoketAmerica</span> <span class="token keyword">implements</span> <span class="token class-name">ThreePinSoket</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">chargeWithThreePin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;&#x4E09;&#x5B54;&#x63D2;&#x5EA7;&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">voltage</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-number">110</span>;
-    }
-}
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">voltage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">110</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>&#x7F8E;&#x56FD;&#x63D2;&#x5EA7;&#x7684;&#x9002;&#x914D;&#x5668;  </p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AmericaAdapter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">TwoPinSoket</span> </span>{
-    <span class="hljs-keyword">private</span> ThreePinSoket threePinSoket;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AmericaAdapter</span><span class="hljs-params">(ThreePinSoket threePinSoket)</span></span>{
-        <span class="hljs-keyword">this</span>.threePinSoket = threePinSoket;
-    }
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AmericaAdapter</span> <span class="token keyword">implements</span> <span class="token class-name">TwoPinSoket</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> ThreePinSoket threePinSoket<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token function">AmericaAdapter</span><span class="token punctuation">(</span>ThreePinSoket threePinSoket<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>threePinSoket <span class="token operator">=</span> threePinSoket<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">chargeWithTwoPin</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.threePinSoket.chargeWithThreePin();
-    }
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">chargeWithTwoPin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>threePinSoket<span class="token punctuation">.</span><span class="token function">chargeWithThreePin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">voltage</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.threePinSoket.voltage() * <span class="hljs-number">2</span>;
-    }
-}
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">voltage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>threePinSoket<span class="token punctuation">.</span><span class="token function">voltage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AmericaAdapterSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> twoPinSoket(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> twoPinSoket = <span class="hljs-keyword">new</span> TwoPinSoketChina()
-<span class="hljs-symbol">        expect:</span>
-        twoPinSoket.chargeWithTwoPin() == <span class="hljs-string">&quot;&#x4E24;&#x5B54;&#x63D2;&#x5EA7;&quot;</span>
-        twoPinSoket.voltage() == <span class="hljs-number">220</span>
-    }
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">AmericaAdapterSpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token function">twoPinSoket</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> twoPinSoket <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TwoPinSoketChina</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">expect:</span>
+        twoPinSoket<span class="token operator">.</span><span class="token function">chargeWithTwoPin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">&quot;&#x4E24;&#x5B54;&#x63D2;&#x5EA7;&quot;</span>
+        twoPinSoket<span class="token operator">.</span><span class="token function">voltage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">220</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-keyword">def</span> threePinSoket(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> threePinSoket = <span class="hljs-keyword">new</span> ThreePinSoketAmerica()
-<span class="hljs-symbol">        expect:</span>
-        threePinSoket.chargeWithThreePin() == <span class="hljs-string">&quot;&#x4E09;&#x5B54;&#x63D2;&#x5EA7;&quot;</span>
-        threePinSoket.voltage() == <span class="hljs-number">110</span>
-    }
+    <span class="token keyword">def</span> <span class="token function">threePinSoket</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> threePinSoket <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreePinSoketAmerica</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">expect:</span>
+        threePinSoket<span class="token operator">.</span><span class="token function">chargeWithThreePin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">&quot;&#x4E09;&#x5B54;&#x63D2;&#x5EA7;&quot;</span>
+        threePinSoket<span class="token operator">.</span><span class="token function">voltage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">110</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-keyword">def</span> adapter(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> threePinSoket = <span class="hljs-keyword">new</span> ThreePinSoketAmerica()
-        <span class="hljs-keyword">def</span> twoPinSoket = <span class="hljs-keyword">new</span> AmericaAdapter(threePinSoket)
-<span class="hljs-symbol">        expect:</span>
-        twoPinSoket.chargeWithTwoPin() == <span class="hljs-string">&quot;&#x4E09;&#x5B54;&#x63D2;&#x5EA7;&quot;</span>
-        twoPinSoket.voltage() == <span class="hljs-number">220</span>
-    }
-}
+    <span class="token keyword">def</span> <span class="token function">adapter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> threePinSoket <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreePinSoketAmerica</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> twoPinSoket <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AmericaAdapter</span><span class="token punctuation">(</span>threePinSoket<span class="token punctuation">)</span>
+        <span class="token spock-block">expect:</span>
+        twoPinSoket<span class="token operator">.</span><span class="token function">chargeWithTwoPin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">&quot;&#x4E09;&#x5B54;&#x63D2;&#x5EA7;&quot;</span>
+        twoPinSoket<span class="token operator">.</span><span class="token function">voltage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">220</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -638,7 +638,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.3、适配器模式","level":"1.3.3","depth":2,"next":{"title":"2.4、桥接模式","level":"1.3.4","depth":2,"path":"content/structural/bridge.md","ref":"content/structural/bridge.md","articles":[]},"previous":{"title":"2.2、外观模式","level":"1.3.2","depth":2,"path":"content/structural/facade.md","ref":"content/structural/facade.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/structural/adapter.md","mtime":"2017-09-22T01:56:26.073Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.3、适配器模式","level":"1.3.3","depth":2,"next":{"title":"2.4、桥接模式","level":"1.3.4","depth":2,"path":"content/structural/bridge.md","ref":"content/structural/bridge.md","articles":[]},"previous":{"title":"2.2、外观模式","level":"1.3.2","depth":2,"path":"content/structural/facade.md","ref":"content/structural/facade.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/structural/adapter.md","mtime":"2017-09-22T01:56:26.073Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -513,91 +513,91 @@
 <p>&#x672A;&#x53D1;&#x73B0;  </p>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
 <p>&#x7A0B;&#x5E8F;&#x5458;&#x5728;&#x4E0D;&#x540C;&#x65F6;&#x95F4;&#x7F16;&#x7801;&#x53EF;&#x80FD;&#x6709;&#x4E0D;&#x540C;&#x72B6;&#x6001; &#x6BD4;&#x5982;&#x4E0A;&#x5348;10&#x70B9;&#x5F88;&#x6109;&#x5FEB;&#x7684;&#x7F16;&#x7801; &#x4E0B;&#x5348;4&#x70B9;&#x786E;&#x5B9E;&#x660F;&#x660F;&#x6B32;&#x7761;&#x7684;&#x7F16;&#x7801;  </p>
-<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">State</span> </span>{
-    String FORENOON_STATE = <span class="hljs-string">&quot;%s&#x70B9;&#x6B63;&#x5728;&#x52AA;&#x529B;&#x7F16;&#x7801;!&quot;</span>;
-    String NOON_STATE = <span class="hljs-string">&quot;%s&#x70B9;&#x6B63;&#x5728;&#x5403;&#x996D;!&quot;</span>;
-    String AFTERNOON_STATE = <span class="hljs-string">&quot;%s&#x70B9;&#x75B2;&#x52B3;&#x7684;&#x7F16;&#x7801;!&quot;</span>;
-    String EVENING_STATE = <span class="hljs-string">&quot;%s&#x70B9;&#x75B2;&#x60EB;&#x7684;&#x52A0;&#x73ED;&#x7F16;&#x7801;!&quot;</span>;
-    String NIGHT_STATE = <span class="hljs-string">&quot;%s&#x70B9;&#x6B63;&#x5728;&#x7761;&#x89C9;!&quot;</span>;
-    String OFF_DUTY_STATE = <span class="hljs-string">&quot;%s&#x70B9;&#x6109;&#x5FEB;&#x4E0B;&#x73ED;!&quot;</span>;
-    <span class="hljs-function">String <span class="hljs-title">coding</span><span class="hljs-params">(Task task)</span></span>;
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ForenoonState</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">State</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">coding</span><span class="hljs-params">(Task task)</span> </span>{
-        <span class="hljs-keyword">if</span>(task.getTime() &lt; <span class="hljs-number">9</span>){
-            task.setState(<span class="hljs-keyword">new</span> NightState());
-            <span class="hljs-keyword">return</span> task.coding();
-        }
+<pre class="language-"><code class="lang-java"><span class="token keyword">interface</span> <span class="token class-name">State</span> <span class="token punctuation">{</span>
+    String FORENOON_STATE <span class="token operator">=</span> <span class="token string">&quot;%s&#x70B9;&#x6B63;&#x5728;&#x52AA;&#x529B;&#x7F16;&#x7801;!&quot;</span><span class="token punctuation">;</span>
+    String NOON_STATE <span class="token operator">=</span> <span class="token string">&quot;%s&#x70B9;&#x6B63;&#x5728;&#x5403;&#x996D;!&quot;</span><span class="token punctuation">;</span>
+    String AFTERNOON_STATE <span class="token operator">=</span> <span class="token string">&quot;%s&#x70B9;&#x75B2;&#x52B3;&#x7684;&#x7F16;&#x7801;!&quot;</span><span class="token punctuation">;</span>
+    String EVENING_STATE <span class="token operator">=</span> <span class="token string">&quot;%s&#x70B9;&#x75B2;&#x60EB;&#x7684;&#x52A0;&#x73ED;&#x7F16;&#x7801;!&quot;</span><span class="token punctuation">;</span>
+    String NIGHT_STATE <span class="token operator">=</span> <span class="token string">&quot;%s&#x70B9;&#x6B63;&#x5728;&#x7761;&#x89C9;!&quot;</span><span class="token punctuation">;</span>
+    String OFF_DUTY_STATE <span class="token operator">=</span> <span class="token string">&quot;%s&#x70B9;&#x6109;&#x5FEB;&#x4E0B;&#x73ED;!&quot;</span><span class="token punctuation">;</span>
+    String <span class="token function">coding</span><span class="token punctuation">(</span>Task task<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ForenoonState</span> <span class="token keyword">implements</span> <span class="token class-name">State</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">coding</span><span class="token punctuation">(</span>Task task<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>task<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            task<span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">NightState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> task<span class="token punctuation">.</span><span class="token function">coding</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        <span class="hljs-keyword">if</span>(task.getTime() &lt; <span class="hljs-number">12</span>){
-            <span class="hljs-keyword">return</span> String.format(FORENOON_STATE, task.getTime());
-        }
+        <span class="token keyword">if</span><span class="token punctuation">(</span>task<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> String<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>FORENOON_STATE<span class="token punctuation">,</span> task<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        task.setState(<span class="hljs-keyword">new</span> NoonState());
-        <span class="hljs-keyword">return</span> task.coding();
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NoonState</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">State</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">coding</span><span class="hljs-params">(Task task)</span> </span>{
-        <span class="hljs-keyword">if</span>(task.getTime() &gt;= <span class="hljs-number">12</span> &amp;&amp; task.getTime() &lt;= <span class="hljs-number">13</span>){
-            <span class="hljs-keyword">return</span> String.format(NOON_STATE, task.getTime());
-        }
+        task<span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">NoonState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> task<span class="token punctuation">.</span><span class="token function">coding</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NoonState</span> <span class="token keyword">implements</span> <span class="token class-name">State</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">coding</span><span class="token punctuation">(</span>Task task<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>task<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">12</span> <span class="token operator">&amp;&amp;</span> task<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> String<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>NOON_STATE<span class="token punctuation">,</span> task<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        task.setState(<span class="hljs-keyword">new</span> AfternoonState());
-        <span class="hljs-keyword">return</span> task.coding();
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AfternoonState</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">State</span></span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">coding</span><span class="hljs-params">(Task task)</span> </span>{
-        <span class="hljs-keyword">if</span>(task.getTime() &gt; <span class="hljs-number">13</span> &amp;&amp; task.getTime() &lt; <span class="hljs-number">18</span>){
-            <span class="hljs-keyword">return</span> String.format(AFTERNOON_STATE, task.getTime());
-        }
+        task<span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">AfternoonState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> task<span class="token punctuation">.</span><span class="token function">coding</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AfternoonState</span> <span class="token keyword">implements</span> <span class="token class-name">State</span><span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">coding</span><span class="token punctuation">(</span>Task task<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>task<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">13</span> <span class="token operator">&amp;&amp;</span> task<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> String<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>AFTERNOON_STATE<span class="token punctuation">,</span> task<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        task.setState(<span class="hljs-keyword">new</span> EveningState());
-        <span class="hljs-keyword">return</span> task.coding();
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EveningState</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">State</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">coding</span><span class="hljs-params">(Task task)</span> </span>{
-        <span class="hljs-keyword">if</span>(task.getTime() &gt;= <span class="hljs-number">18</span> &amp;&amp; task.getTime() &lt;= <span class="hljs-number">22</span>){
-            <span class="hljs-keyword">return</span> String.format(EVENING_STATE, task.getTime());
-        }
+        task<span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">EveningState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> task<span class="token punctuation">.</span><span class="token function">coding</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EveningState</span> <span class="token keyword">implements</span> <span class="token class-name">State</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">coding</span><span class="token punctuation">(</span>Task task<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>task<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">18</span> <span class="token operator">&amp;&amp;</span> task<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">22</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> String<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>EVENING_STATE<span class="token punctuation">,</span> task<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        task.setState(<span class="hljs-keyword">new</span> NightState());
-        <span class="hljs-keyword">return</span> task.coding();
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NightState</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">State</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">coding</span><span class="hljs-params">(Task task)</span> </span>{
-        <span class="hljs-keyword">return</span> String.format(NIGHT_STATE, task.getTime());
-    }
-}
+        task<span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">NightState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> task<span class="token punctuation">.</span><span class="token function">coding</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NightState</span> <span class="token keyword">implements</span> <span class="token class-name">State</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">coding</span><span class="token punctuation">(</span>Task task<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> String<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>NIGHT_STATE<span class="token punctuation">,</span> task<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StateSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> task() {
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> task = <span class="hljs-keyword">new</span> Task(time, isDone)
-<span class="hljs-symbol">        expect:</span>
-        task.coding() == state
-<span class="hljs-symbol">        where:</span>
-        time | isDone || state
-        <span class="hljs-number">1</span>    | <span class="hljs-literal">false</span>  || String.format(NIGHT_STATE, <span class="hljs-number">1</span>)
-        <span class="hljs-number">10</span>   | <span class="hljs-literal">false</span>  || String.format(FORENOON_STATE, <span class="hljs-number">10</span>)
-        <span class="hljs-number">12</span>   | <span class="hljs-literal">false</span>  || String.format(NOON_STATE, <span class="hljs-number">12</span>)
-        <span class="hljs-number">13</span>   | <span class="hljs-literal">true</span>   || String.format(OFF_DUTY_STATE, <span class="hljs-number">13</span>)
-        <span class="hljs-number">14</span>   | <span class="hljs-literal">false</span>  || String.format(AFTERNOON_STATE, <span class="hljs-number">14</span>)
-        <span class="hljs-number">19</span>   | <span class="hljs-literal">false</span>  || String.format(EVENING_STATE, <span class="hljs-number">19</span>)
-        <span class="hljs-number">20</span>   | <span class="hljs-literal">true</span>   || String.format(OFF_DUTY_STATE, <span class="hljs-number">20</span>)
-        <span class="hljs-number">23</span>   | <span class="hljs-literal">false</span>  || String.format(NIGHT_STATE, <span class="hljs-number">23</span>)
-        <span class="hljs-number">23</span>   | <span class="hljs-literal">true</span>   || String.format(OFF_DUTY_STATE, <span class="hljs-number">23</span>)
-    }
-}
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">StateSpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token function">task</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> task <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Task</span><span class="token punctuation">(</span>time<span class="token punctuation">,</span> isDone<span class="token punctuation">)</span>
+        <span class="token spock-block">expect:</span>
+        task<span class="token operator">.</span><span class="token function">coding</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> state
+        <span class="token spock-block">where:</span>
+        time <span class="token operator">|</span> isDone <span class="token operator">||</span> state
+        <span class="token number">1</span>    <span class="token operator">|</span> <span class="token boolean">false</span>  <span class="token operator">||</span> String<span class="token operator">.</span><span class="token function">format</span><span class="token punctuation">(</span>NIGHT_STATE<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token number">10</span>   <span class="token operator">|</span> <span class="token boolean">false</span>  <span class="token operator">||</span> String<span class="token operator">.</span><span class="token function">format</span><span class="token punctuation">(</span>FORENOON_STATE<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+        <span class="token number">12</span>   <span class="token operator">|</span> <span class="token boolean">false</span>  <span class="token operator">||</span> String<span class="token operator">.</span><span class="token function">format</span><span class="token punctuation">(</span>NOON_STATE<span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span>
+        <span class="token number">13</span>   <span class="token operator">|</span> <span class="token boolean">true</span>   <span class="token operator">||</span> String<span class="token operator">.</span><span class="token function">format</span><span class="token punctuation">(</span>OFF_DUTY_STATE<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span>
+        <span class="token number">14</span>   <span class="token operator">|</span> <span class="token boolean">false</span>  <span class="token operator">||</span> String<span class="token operator">.</span><span class="token function">format</span><span class="token punctuation">(</span>AFTERNOON_STATE<span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">)</span>
+        <span class="token number">19</span>   <span class="token operator">|</span> <span class="token boolean">false</span>  <span class="token operator">||</span> String<span class="token operator">.</span><span class="token function">format</span><span class="token punctuation">(</span>EVENING_STATE<span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">)</span>
+        <span class="token number">20</span>   <span class="token operator">|</span> <span class="token boolean">true</span>   <span class="token operator">||</span> String<span class="token operator">.</span><span class="token function">format</span><span class="token punctuation">(</span>OFF_DUTY_STATE<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span>
+        <span class="token number">23</span>   <span class="token operator">|</span> <span class="token boolean">false</span>  <span class="token operator">||</span> String<span class="token operator">.</span><span class="token function">format</span><span class="token punctuation">(</span>NIGHT_STATE<span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">)</span>
+        <span class="token number">23</span>   <span class="token operator">|</span> <span class="token boolean">true</span>   <span class="token operator">||</span> String<span class="token operator">.</span><span class="token function">format</span><span class="token punctuation">(</span>OFF_DUTY_STATE<span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -642,7 +642,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.8、状态模式","level":"1.4.8","depth":2,"next":{"title":"3.9、策略模式","level":"1.4.9","depth":2,"path":"content/behavioural/strategy.md","ref":"content/behavioural/strategy.md","articles":[]},"previous":{"title":"3.7、观察者模式","level":"1.4.7","depth":2,"path":"content/behavioural/observer.md","ref":"content/behavioural/observer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/state.md","mtime":"2017-09-22T05:15:49.023Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.8、状态模式","level":"1.4.8","depth":2,"next":{"title":"3.9、策略模式","level":"1.4.9","depth":2,"path":"content/behavioural/strategy.md","ref":"content/behavioural/strategy.md","articles":[]},"previous":{"title":"3.7、观察者模式","level":"1.4.7","depth":2,"path":"content/behavioural/observer.md","ref":"content/behavioural/observer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/state.md","mtime":"2017-09-22T05:15:49.023Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

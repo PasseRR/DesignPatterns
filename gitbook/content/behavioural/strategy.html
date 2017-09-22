@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -518,63 +518,63 @@
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
 <p>&#x5728;&#x8D85;&#x65F6;&#x8D2D;&#x4E70;&#x5546;&#x54C1;&#x5728;&#x4E0D;&#x540C;&#x65F6;&#x671F;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x4F18;&#x60E0;&#x7B56;&#x7565; &#x6BD4;&#x5982;&#x6B63;&#x5E38;&#x7B56;&#x7565;&#x3001;&#x4FC3;&#x9500;&#x7B56;&#x7565;&#x3001;&#x4E34;&#x671F;&#x7B56;&#x7565;&#x7B49;  </p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Order</span> </span>{
-    <span class="hljs-keyword">private</span> BigDecimal amount;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Order</span><span class="hljs-params">(BigDecimal amount)</span></span>{
-        <span class="hljs-keyword">this</span>.amount = amount;
-    }
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Order</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> BigDecimal amount<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token function">Order</span><span class="token punctuation">(</span>BigDecimal amount<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>amount <span class="token operator">=</span> amount<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> BigDecimal <span class="hljs-title">check</span><span class="hljs-params">(DiscountPolicy policy)</span></span>{
-        <span class="hljs-keyword">return</span> policy.discount(<span class="hljs-keyword">this</span>.amount);
-    }
-}
-<span class="hljs-meta">@FunctionalInterface</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">DiscountPolicy</span> </span>{
-    <span class="hljs-function">BigDecimal <span class="hljs-title">discount</span><span class="hljs-params">(BigDecimal amount)</span></span>;
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NormalPolicy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">DiscountPolicy</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> BigDecimal <span class="hljs-title">discount</span><span class="hljs-params">(BigDecimal amount)</span> </span>{
-        <span class="hljs-keyword">return</span> amount;
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PromotioPolicy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">DiscountPolicy</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> BigDecimal <span class="hljs-title">discount</span><span class="hljs-params">(BigDecimal amount)</span> </span>{
-        <span class="hljs-comment">// &#x4FC3;&#x9500;9&#x6298;</span>
-        <span class="hljs-keyword">return</span> amount.multiply(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;0.9&quot;</span>));
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DeadlinePolicy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">DiscountPolicy</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> BigDecimal <span class="hljs-title">discount</span><span class="hljs-params">(BigDecimal amount)</span> </span>{
-        <span class="hljs-comment">// &#x4E34;&#x671F;6&#x6298;</span>
-        <span class="hljs-keyword">return</span> amount.multiply(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;0.6&quot;</span>));
-    }
-}
+    <span class="token keyword">public</span> BigDecimal <span class="token function">check</span><span class="token punctuation">(</span>DiscountPolicy policy<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> policy<span class="token punctuation">.</span><span class="token function">discount</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>amount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">DiscountPolicy</span> <span class="token punctuation">{</span>
+    BigDecimal <span class="token function">discount</span><span class="token punctuation">(</span>BigDecimal amount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NormalPolicy</span> <span class="token keyword">implements</span> <span class="token class-name">DiscountPolicy</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> BigDecimal <span class="token function">discount</span><span class="token punctuation">(</span>BigDecimal amount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> amount<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PromotioPolicy</span> <span class="token keyword">implements</span> <span class="token class-name">DiscountPolicy</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> BigDecimal <span class="token function">discount</span><span class="token punctuation">(</span>BigDecimal amount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// &#x4FC3;&#x9500;9&#x6298;</span>
+        <span class="token keyword">return</span> amount<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;0.9&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DeadlinePolicy</span> <span class="token keyword">implements</span> <span class="token class-name">DiscountPolicy</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> BigDecimal <span class="token function">discount</span><span class="token punctuation">(</span>BigDecimal amount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// &#x4E34;&#x671F;6&#x6298;</span>
+        <span class="token keyword">return</span> amount<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;0.6&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-meta">@Shared</span>
-    <span class="hljs-keyword">def</span> selfPolicy = { BigDecimal it -&gt;
-        <span class="hljs-keyword">return</span> it * (<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;0.1&quot;</span>))
-    }
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">OrderSpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Shared</span>
+    <span class="token keyword">def</span> selfPolicy <span class="token operator">=</span> <span class="token punctuation">{</span> BigDecimal it <span class="token operator">-&gt;</span>
+        <span class="token keyword">return</span> it <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;0.1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-keyword">def</span> order() {
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> order = <span class="hljs-keyword">new</span> Order(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;100&quot;</span>))
-<span class="hljs-symbol">        expect:</span>
-        order.check(policy) == amount
-<span class="hljs-symbol">
-        where:</span>
-        policy               || amount
-        <span class="hljs-keyword">new</span> NormalPolicy()   || <span class="hljs-number">100</span>
-        <span class="hljs-keyword">new</span> PromotioPolicy() || <span class="hljs-number">90</span>
-        <span class="hljs-keyword">new</span> DeadlinePolicy() || <span class="hljs-number">60</span>
-        <span class="hljs-comment">// &#x81EA;&#x5B9A;&#x4E49;&#x95ED;&#x5305;&#x7B56;&#x7565;</span>
-        selfPolicy           || <span class="hljs-number">10</span>
-    }
-}
+    <span class="token keyword">def</span> <span class="token function">order</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> order <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Order</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;100&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token spock-block">expect:</span>
+        order<span class="token operator">.</span><span class="token function">check</span><span class="token punctuation">(</span>policy<span class="token punctuation">)</span> <span class="token operator">==</span> amount
+
+        <span class="token spock-block">where:</span>
+        policy               <span class="token operator">||</span> amount
+        <span class="token keyword">new</span> <span class="token class-name">NormalPolicy</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token operator">||</span> <span class="token number">100</span>
+        <span class="token keyword">new</span> <span class="token class-name">PromotioPolicy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token number">90</span>
+        <span class="token keyword">new</span> <span class="token class-name">DeadlinePolicy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token number">60</span>
+        <span class="token comment" spellcheck="true">// &#x81EA;&#x5B9A;&#x4E49;&#x95ED;&#x5305;&#x7B56;&#x7565;</span>
+        selfPolicy           <span class="token operator">||</span> <span class="token number">10</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -619,7 +619,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.9、策略模式","level":"1.4.9","depth":2,"next":{"title":"3.10、模版方法模式","level":"1.4.10","depth":2,"path":"content/behavioural/template_method.md","ref":"content/behavioural/template_method.md","articles":[]},"previous":{"title":"3.8、状态模式","level":"1.4.8","depth":2,"path":"content/behavioural/state.md","ref":"content/behavioural/state.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/strategy.md","mtime":"2017-09-22T05:24:49.084Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.9、策略模式","level":"1.4.9","depth":2,"next":{"title":"3.10、模版方法模式","level":"1.4.10","depth":2,"path":"content/behavioural/template_method.md","ref":"content/behavioural/template_method.md","articles":[]},"previous":{"title":"3.8、状态模式","level":"1.4.8","depth":2,"path":"content/behavioural/state.md","ref":"content/behavioural/state.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/strategy.md","mtime":"2017-09-22T05:24:49.084Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

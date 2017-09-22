@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -517,106 +517,106 @@
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
 <p>&#x7ED8;&#x5236;&#x4E0D;&#x540C;&#x989C;&#x8272;&#x7684;&#x4E0D;&#x540C;&#x56FE;&#x5F62; &#x5C06;&#x5DF2;&#x7ECF;&#x7ED8;&#x5236;&#x8FC7;&#x7684;&#x56FE;&#x5F62;&#x4FDD;&#x5B58;&#x8D77;&#x6765;&#x4E0D;&#x7528;&#x518D;&#x6B21;&#x7ED8;&#x5236;  </p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Shape</span> </span>{
-    <span class="hljs-function">String <span class="hljs-title">draw</span><span class="hljs-params">(Color color)</span></span>;
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteShape</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Shape</span> </span>{
-    <span class="hljs-keyword">private</span> String shape;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ConcreteShape</span><span class="hljs-params">(String shape)</span> </span>{
-        <span class="hljs-keyword">this</span>.shape = shape;
-    }
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Shape</span> <span class="token punctuation">{</span>
+    String <span class="token function">draw</span><span class="token punctuation">(</span>Color color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConcreteShape</span> <span class="token keyword">implements</span> <span class="token class-name">Shape</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> String shape<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token function">ConcreteShape</span><span class="token punctuation">(</span>String shape<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>shape <span class="token operator">=</span> shape<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">draw</span><span class="hljs-params">(Color color)</span> </span>{
-        StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder();
-        sb.append(<span class="hljs-string">&quot;draw a&quot;</span>);
-        sb.append(<span class="hljs-string">&quot; &quot;</span>);
-        sb.append(color.getColor());
-        sb.append(<span class="hljs-string">&quot; &quot;</span>);
-        sb.append(<span class="hljs-keyword">this</span>.shape);
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">draw</span><span class="token punctuation">(</span>Color color<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        StringBuilder sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot;draw a&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot; &quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>color<span class="token punctuation">.</span><span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot; &quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>shape<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="hljs-keyword">return</span> sb.toString();
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Color</span> </span>{
-    <span class="hljs-meta">@Getter</span>
-    <span class="hljs-keyword">private</span> String color;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Color</span><span class="hljs-params">(String color)</span></span>{
-        <span class="hljs-keyword">this</span>.color = color;
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FlyweightFactory</span> </span>{
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, Shape&gt; cache = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;&gt;();
+        <span class="token keyword">return</span> sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Color</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Getter</span>
+    <span class="token keyword">private</span> String color<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token function">Color</span><span class="token punctuation">(</span>String color<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> color<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FlyweightFactory</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Shape<span class="token operator">&gt;</span> cache <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcurrentHashMap</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Shape <span class="hljs-title">create</span><span class="hljs-params">(String shape)</span></span>{
-        <span class="hljs-keyword">if</span>(!<span class="hljs-keyword">this</span>.cache.containsKey(shape)){
-            <span class="hljs-keyword">synchronized</span> (<span class="hljs-keyword">this</span>.cache){
-                <span class="hljs-keyword">if</span>(!<span class="hljs-keyword">this</span>.cache.containsKey(shape)){
-                    <span class="hljs-keyword">this</span>.cache.put(shape, <span class="hljs-keyword">new</span> ConcreteShape(shape));
-                }
-            }
-        }
+    <span class="token keyword">public</span> Shape <span class="token function">create</span><span class="token punctuation">(</span>String shape<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>cache<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>cache<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>cache<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">this</span><span class="token punctuation">.</span>cache<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>shape<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ConcreteShape</span><span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
 
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.cache.get(shape);
-    }
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>cache<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">size</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.cache.size();
-    }
-}
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>cache<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FlyweightFactorySpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> flyweightInnerState() {
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> factory = <span class="hljs-keyword">new</span> FlyweightFactory()
-<span class="hljs-symbol">
-        when:</span>
-        <span class="hljs-keyword">def</span> circle = factory.create(<span class="hljs-string">&quot;circle&quot;</span>)
-        <span class="hljs-keyword">def</span> circleCopy = factory.create(<span class="hljs-string">&quot;circle&quot;</span>)
-<span class="hljs-symbol">        then:</span>
-        circle != <span class="hljs-literal">null</span>
-        circleCopy != <span class="hljs-literal">null</span>
-        circle == circleCopy
-        circle.is(circleCopy)
-<span class="hljs-symbol">
-        when:</span>
-        <span class="hljs-keyword">def</span> rectangle = factory.create(<span class="hljs-string">&quot;rectangle&quot;</span>)
-        <span class="hljs-keyword">def</span> rectangleCopy = factory.create(<span class="hljs-string">&quot;rectangle&quot;</span>)
-<span class="hljs-symbol">        then:</span>
-        rectangle != <span class="hljs-literal">null</span>
-        rectangleCopy != <span class="hljs-literal">null</span>
-        rectangle == rectangleCopy
-        rectangle.is(rectangleCopy)
-<span class="hljs-symbol">
-        when:</span>
-        <span class="hljs-keyword">def</span> triangle = factory.create(<span class="hljs-string">&quot;triangle&quot;</span>)
-        <span class="hljs-keyword">def</span> triangleCopy = factory.create(<span class="hljs-string">&quot;triangle&quot;</span>)
-<span class="hljs-symbol">        then:</span>
-        triangle != <span class="hljs-literal">null</span>
-        triangleCopy != <span class="hljs-literal">null</span>
-        triangle == triangleCopy
-        triangle.is(triangleCopy)
-<span class="hljs-symbol">
-        expect:</span>
-        factory.size() == <span class="hljs-number">3</span>
-    }
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">FlyweightFactorySpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token function">flyweightInnerState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> factory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FlyweightFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    <span class="hljs-keyword">def</span> flyweightOuterState() {
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> factory = <span class="hljs-keyword">new</span> FlyweightFactory()
-<span class="hljs-symbol">
-        expect:</span>
-        factory.create(shape).draw(<span class="hljs-keyword">new</span> Color(color)) == draw
-<span class="hljs-symbol">
-        where:</span>
-        shape       | color    || draw
-        <span class="hljs-string">&quot;circle&quot;</span>    | <span class="hljs-string">&quot;red&quot;</span>    || <span class="hljs-string">&quot;draw a red circle&quot;</span>
-        <span class="hljs-string">&quot;rectangle&quot;</span> | <span class="hljs-string">&quot;yellow&quot;</span> || <span class="hljs-string">&quot;draw a yellow rectangle&quot;</span>
-        <span class="hljs-string">&quot;triangle&quot;</span>  | <span class="hljs-string">&quot;black&quot;</span>  || <span class="hljs-string">&quot;draw a black triangle&quot;</span>
-        <span class="hljs-string">&quot;circle&quot;</span>    | <span class="hljs-string">&quot;black&quot;</span>  || <span class="hljs-string">&quot;draw a black circle&quot;</span>
-    }
-}
+        <span class="token spock-block">when:</span>
+        <span class="token keyword">def</span> circle <span class="token operator">=</span> factory<span class="token operator">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">&quot;circle&quot;</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> circleCopy <span class="token operator">=</span> factory<span class="token operator">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">&quot;circle&quot;</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        circle <span class="token operator">!=</span> null
+        circleCopy <span class="token operator">!=</span> null
+        circle <span class="token operator">==</span> circleCopy
+        circle<span class="token operator">.</span><span class="token function">is</span><span class="token punctuation">(</span>circleCopy<span class="token punctuation">)</span>
+
+        <span class="token spock-block">when:</span>
+        <span class="token keyword">def</span> rectangle <span class="token operator">=</span> factory<span class="token operator">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">&quot;rectangle&quot;</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> rectangleCopy <span class="token operator">=</span> factory<span class="token operator">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">&quot;rectangle&quot;</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        rectangle <span class="token operator">!=</span> null
+        rectangleCopy <span class="token operator">!=</span> null
+        rectangle <span class="token operator">==</span> rectangleCopy
+        rectangle<span class="token operator">.</span><span class="token function">is</span><span class="token punctuation">(</span>rectangleCopy<span class="token punctuation">)</span>
+
+        <span class="token spock-block">when:</span>
+        <span class="token keyword">def</span> triangle <span class="token operator">=</span> factory<span class="token operator">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">&quot;triangle&quot;</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> triangleCopy <span class="token operator">=</span> factory<span class="token operator">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">&quot;triangle&quot;</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        triangle <span class="token operator">!=</span> null
+        triangleCopy <span class="token operator">!=</span> null
+        triangle <span class="token operator">==</span> triangleCopy
+        triangle<span class="token operator">.</span><span class="token function">is</span><span class="token punctuation">(</span>triangleCopy<span class="token punctuation">)</span>
+
+        <span class="token spock-block">expect:</span>
+        factory<span class="token operator">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">3</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">def</span> <span class="token function">flyweightOuterState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> factory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FlyweightFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token spock-block">expect:</span>
+        factory<span class="token operator">.</span><span class="token function">create</span><span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token operator">.</span><span class="token function">draw</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Color</span><span class="token punctuation">(</span>color<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> draw
+
+        <span class="token spock-block">where:</span>
+        shape       <span class="token operator">|</span> color    <span class="token operator">||</span> draw
+        <span class="token string">&quot;circle&quot;</span>    <span class="token operator">|</span> <span class="token string">&quot;red&quot;</span>    <span class="token operator">||</span> <span class="token string">&quot;draw a red circle&quot;</span>
+        <span class="token string">&quot;rectangle&quot;</span> <span class="token operator">|</span> <span class="token string">&quot;yellow&quot;</span> <span class="token operator">||</span> <span class="token string">&quot;draw a yellow rectangle&quot;</span>
+        <span class="token string">&quot;triangle&quot;</span>  <span class="token operator">|</span> <span class="token string">&quot;black&quot;</span>  <span class="token operator">||</span> <span class="token string">&quot;draw a black triangle&quot;</span>
+        <span class="token string">&quot;circle&quot;</span>    <span class="token operator">|</span> <span class="token string">&quot;black&quot;</span>  <span class="token operator">||</span> <span class="token string">&quot;draw a black circle&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -661,7 +661,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.6、享元模式","level":"1.3.6","depth":2,"next":{"title":"2.7、代理模式","level":"1.3.7","depth":2,"path":"content/structural/proxy.md","ref":"content/structural/proxy.md","articles":[]},"previous":{"title":"2.5、装饰器模式","level":"1.3.5","depth":2,"path":"content/structural/decorator.md","ref":"content/structural/decorator.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/structural/flyweight.md","mtime":"2017-09-22T03:05:12.200Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.6、享元模式","level":"1.3.6","depth":2,"next":{"title":"2.7、代理模式","level":"1.3.7","depth":2,"path":"content/structural/proxy.md","ref":"content/structural/proxy.md","articles":[]},"previous":{"title":"2.5、装饰器模式","level":"1.3.5","depth":2,"path":"content/structural/decorator.md","ref":"content/structural/decorator.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/structural/flyweight.md","mtime":"2017-09-22T03:05:12.200Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

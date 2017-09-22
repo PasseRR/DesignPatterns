@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -516,121 +516,121 @@
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
 <p>&#x6C34;&#x679C;&#x5E97;&#x5458;&#x6CA1;&#x5356;&#x51FA;&#x4E00;&#x4E2A;&#x8BA2;&#x5355;&#x7684;&#x6C34;&#x679C; &#x8001;&#x677F;&#x4F1A;&#x5173;&#x5FC3;&#x6BCF;&#x79CD;&#x6C34;&#x679C;&#x5356;&#x51FA;&#x4E86;&#x591A;&#x5C11; &#x8001;&#x677F;&#x5A18;&#x4F1A;&#x5173;&#x5FC3;&#x4E00;&#x5171;&#x5356;&#x51FA;&#x4E86;&#x591A;&#x5C11;&#x94B1;  </p>
-<pre><code class="lang-java"><span class="hljs-meta">@Getter</span>
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> Fruit {
-    APPLE(<span class="hljs-string">&quot;&#x82F9;&#x679C;&quot;</span>, <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;2&quot;</span>)),
-    ORANGE(<span class="hljs-string">&quot;&#x6854;&#x5B50;&quot;</span>, <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;1.5&quot;</span>)),
-    GRAPE(<span class="hljs-string">&quot;&#x8461;&#x8404;&quot;</span>, <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;3&quot;</span>)),
-    PLUM(<span class="hljs-string">&quot;&#x674E;&#x5B50;&quot;</span>, <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;6.5&quot;</span>));
+<pre class="language-"><code class="lang-java"><span class="token annotation punctuation">@Getter</span>
+<span class="token keyword">public</span> <span class="token keyword">enum</span> Fruit <span class="token punctuation">{</span>
+    <span class="token function">APPLE</span><span class="token punctuation">(</span><span class="token string">&quot;&#x82F9;&#x679C;&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;2&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">ORANGE</span><span class="token punctuation">(</span><span class="token string">&quot;&#x6854;&#x5B50;&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;1.5&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">GRAPE</span><span class="token punctuation">(</span><span class="token string">&quot;&#x8461;&#x8404;&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;3&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">PLUM</span><span class="token punctuation">(</span><span class="token string">&quot;&#x674E;&#x5B50;&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;6.5&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-keyword">private</span> String name;
-    <span class="hljs-keyword">private</span> BigDecimal unitPrice;
-    Fruit(String name, BigDecimal unitPrice){
-        <span class="hljs-keyword">this</span>.name = name;
-        <span class="hljs-keyword">this</span>.unitPrice = unitPrice;
-    }
-}
-<span class="hljs-meta">@Data</span>
-<span class="hljs-meta">@AllArgsConstructor</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Order</span> </span>{
-    <span class="hljs-keyword">private</span> Fruit type;
-    <span class="hljs-keyword">private</span> BigDecimal weight;
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FruitStoreAssistant</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Observable</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FruitStoreAssistant</span><span class="hljs-params">(Observer ...observers)</span></span>{
-        <span class="hljs-keyword">super</span>();
-        <span class="hljs-keyword">if</span>(observers != <span class="hljs-keyword">null</span> &amp;&amp; observers.length &gt; <span class="hljs-number">0</span>){
-            <span class="hljs-keyword">for</span>(Observer observer : observers){
-                <span class="hljs-keyword">super</span>.addObserver(observer);
-            }
-        }
-    }
+    <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> BigDecimal unitPrice<span class="token punctuation">;</span>
+    <span class="token function">Fruit</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> BigDecimal unitPrice<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>unitPrice <span class="token operator">=</span> unitPrice<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Order</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> Fruit type<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> BigDecimal weight<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FruitStoreAssistant</span> <span class="token keyword">extends</span> <span class="token class-name">Observable</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token function">FruitStoreAssistant</span><span class="token punctuation">(</span>Observer <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>observers<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>observers <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> observers<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span>Observer observer <span class="token operator">:</span> observers<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">addObserver</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment" spellcheck="true">/**
      * &#x8D29;&#x5356;&#x6C34;&#x679C;
-     * <span class="hljs-doctag">@param</span> order &#x6C34;&#x679C;&#x8BA2;&#x5355;
+     * @param order &#x6C34;&#x679C;&#x8BA2;&#x5355;
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sell</span><span class="hljs-params">(Order order)</span></span>{
-        <span class="hljs-keyword">super</span>.setChanged();
-        <span class="hljs-keyword">super</span>.notifyObservers(order);
-    }
-}
-<span class="hljs-meta">@Getter</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FruitsStoreBoss</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Observer</span> </span>{
-    <span class="hljs-keyword">private</span> Map&lt;Fruit, BigDecimal&gt; statistics = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
-    <span class="hljs-keyword">private</span> BigDecimal total = <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;0&quot;</span>);
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sell</span><span class="token punctuation">(</span>Order order<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">setChanged</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">notifyObservers</span><span class="token punctuation">(</span>order<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token annotation punctuation">@Getter</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FruitsStoreBoss</span> <span class="token keyword">implements</span> <span class="token class-name">Observer</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> Map<span class="token operator">&lt;</span>Fruit<span class="token punctuation">,</span> BigDecimal<span class="token operator">&gt;</span> statistics <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> BigDecimal total <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;0&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FruitsStoreBoss</span><span class="hljs-params">()</span></span>{
-        Fruit []fruits = Fruit.values();
-        <span class="hljs-keyword">for</span>(Fruit fruit : fruits){
-            statistics.put(fruit, <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;0&quot;</span>));
-        }
-    }
+    <span class="token keyword">public</span> <span class="token function">FruitsStoreBoss</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Fruit <span class="token punctuation">[</span><span class="token punctuation">]</span>fruits <span class="token operator">=</span> Fruit<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>Fruit fruit <span class="token operator">:</span> fruits<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            statistics<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>fruit<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;0&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(Observable o, Object arg)</span> </span>{
-        <span class="hljs-keyword">if</span>(arg <span class="hljs-keyword">instanceof</span> Order){
-            <span class="hljs-keyword">this</span>.account((Order) arg);
-        }
-    }
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">update</span><span class="token punctuation">(</span>Observable o<span class="token punctuation">,</span> Object arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>arg <span class="token keyword">instanceof</span> <span class="token class-name">Order</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">account</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Order<span class="token punctuation">)</span> arg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">account</span><span class="hljs-params">(Order order)</span></span>{
-        Fruit fruit = order.getType();
-        BigDecimal current = <span class="hljs-keyword">this</span>.statistics.get(fruit);
-        <span class="hljs-keyword">this</span>.statistics.put(fruit, current.add(order.getWeight()));
-        <span class="hljs-keyword">this</span>.total = <span class="hljs-keyword">this</span>.total.add(order.getWeight());
-    }
-}
-<span class="hljs-meta">@Getter</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FruitsStoreLandlady</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Observer</span> </span>{
-    <span class="hljs-keyword">private</span> Map&lt;Fruit, BigDecimal&gt; statistics = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
-    <span class="hljs-keyword">private</span> BigDecimal total = <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;0&quot;</span>);
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">account</span><span class="token punctuation">(</span>Order order<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Fruit fruit <span class="token operator">=</span> order<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        BigDecimal current <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>statistics<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>fruit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>statistics<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>fruit<span class="token punctuation">,</span> current<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>order<span class="token punctuation">.</span><span class="token function">getWeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>total <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>total<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>order<span class="token punctuation">.</span><span class="token function">getWeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token annotation punctuation">@Getter</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FruitsStoreLandlady</span> <span class="token keyword">implements</span> <span class="token class-name">Observer</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> Map<span class="token operator">&lt;</span>Fruit<span class="token punctuation">,</span> BigDecimal<span class="token operator">&gt;</span> statistics <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> BigDecimal total <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;0&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FruitsStoreLandlady</span><span class="hljs-params">()</span></span>{
-        Fruit []fruits = Fruit.values();
-        <span class="hljs-keyword">for</span>(Fruit fruit : fruits){
-            statistics.put(fruit, <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;0&quot;</span>));
-        }
-    }
+    <span class="token keyword">public</span> <span class="token function">FruitsStoreLandlady</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Fruit <span class="token punctuation">[</span><span class="token punctuation">]</span>fruits <span class="token operator">=</span> Fruit<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>Fruit fruit <span class="token operator">:</span> fruits<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            statistics<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>fruit<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;0&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(Observable o, Object arg)</span> </span>{
-        <span class="hljs-keyword">if</span>(arg <span class="hljs-keyword">instanceof</span> Order){
-            <span class="hljs-keyword">this</span>.account((Order) arg);
-        }
-    }
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">update</span><span class="token punctuation">(</span>Observable o<span class="token punctuation">,</span> Object arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>arg <span class="token keyword">instanceof</span> <span class="token class-name">Order</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">account</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Order<span class="token punctuation">)</span> arg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">account</span><span class="hljs-params">(Order order)</span></span>{
-        Fruit fruit = order.getType();
-        BigDecimal current = <span class="hljs-keyword">this</span>.statistics.get(fruit);
-        BigDecimal orderTotal = fruit.getUnitPrice().multiply(order.getWeight());
-        <span class="hljs-keyword">this</span>.statistics.put(fruit, current.add(orderTotal));
-        <span class="hljs-keyword">this</span>.total = <span class="hljs-keyword">this</span>.total.add(orderTotal);
-    }
-}
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">account</span><span class="token punctuation">(</span>Order order<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Fruit fruit <span class="token operator">=</span> order<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        BigDecimal current <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>statistics<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>fruit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        BigDecimal orderTotal <span class="token operator">=</span> fruit<span class="token punctuation">.</span><span class="token function">getUnitPrice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span>order<span class="token punctuation">.</span><span class="token function">getWeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>statistics<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>fruit<span class="token punctuation">,</span> current<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>orderTotal<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>total <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>total<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>orderTotal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FruitStoreSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> fruitStoreEach() {
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> boss = <span class="hljs-keyword">new</span> FruitsStoreBoss()
-        <span class="hljs-keyword">def</span> landlady = <span class="hljs-keyword">new</span> FruitsStoreLandlady()
-        <span class="hljs-keyword">def</span> assistant = <span class="hljs-keyword">new</span> FruitStoreAssistant(boss, landlady)
-<span class="hljs-symbol">
-        when:</span>
-        assistant.sell(<span class="hljs-keyword">new</span> Order(fruit, weight))
-<span class="hljs-symbol">        then:</span>
-        landlady.getTotal() == totalAmount
-        boss.getTotal() == totalWeight
-<span class="hljs-symbol">
-        where:</span>
-        fruit        | weight || totalAmount                  || totalWeight
-        Fruit.PLUM   | <span class="hljs-number">8.7</span>    || Fruit.PLUM.unitPrice * <span class="hljs-number">8.7</span>   || <span class="hljs-number">8.7</span>
-        Fruit.APPLE  | <span class="hljs-number">1</span>      || Fruit.APPLE.unitPrice * <span class="hljs-number">1</span>    || <span class="hljs-number">1</span>
-        Fruit.GRAPE  | <span class="hljs-number">2.3</span>    || Fruit.GRAPE.unitPrice * <span class="hljs-number">2.3</span>  || <span class="hljs-number">2.3</span>
-        Fruit.ORANGE | <span class="hljs-number">2.5</span>    || Fruit.ORANGE.unitPrice * <span class="hljs-number">2.5</span> || <span class="hljs-number">2.5</span>
-    }
-}
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">FruitStoreSpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token function">fruitStoreEach</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> boss <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FruitsStoreBoss</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> landlady <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FruitsStoreLandlady</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> assistant <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FruitStoreAssistant</span><span class="token punctuation">(</span>boss<span class="token punctuation">,</span> landlady<span class="token punctuation">)</span>
+
+        <span class="token spock-block">when:</span>
+        assistant<span class="token operator">.</span><span class="token function">sell</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Order</span><span class="token punctuation">(</span>fruit<span class="token punctuation">,</span> weight<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        landlady<span class="token operator">.</span><span class="token function">getTotal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> totalAmount
+        boss<span class="token operator">.</span><span class="token function">getTotal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> totalWeight
+
+        <span class="token spock-block">where:</span>
+        fruit        <span class="token operator">|</span> weight <span class="token operator">||</span> totalAmount                  <span class="token operator">||</span> totalWeight
+        Fruit<span class="token operator">.</span>PLUM   <span class="token operator">|</span> <span class="token number">8.7</span>    <span class="token operator">||</span> Fruit<span class="token operator">.</span>PLUM<span class="token operator">.</span>unitPrice <span class="token operator">*</span> <span class="token number">8.7</span>   <span class="token operator">||</span> <span class="token number">8.7</span>
+        Fruit<span class="token operator">.</span>APPLE  <span class="token operator">|</span> <span class="token number">1</span>      <span class="token operator">||</span> Fruit<span class="token operator">.</span>APPLE<span class="token operator">.</span>unitPrice <span class="token operator">*</span> <span class="token number">1</span>    <span class="token operator">||</span> <span class="token number">1</span>
+        Fruit<span class="token operator">.</span>GRAPE  <span class="token operator">|</span> <span class="token number">2.3</span>    <span class="token operator">||</span> Fruit<span class="token operator">.</span>GRAPE<span class="token operator">.</span>unitPrice <span class="token operator">*</span> <span class="token number">2.3</span>  <span class="token operator">||</span> <span class="token number">2.3</span>
+        Fruit<span class="token operator">.</span>ORANGE <span class="token operator">|</span> <span class="token number">2.5</span>    <span class="token operator">||</span> Fruit<span class="token operator">.</span>ORANGE<span class="token operator">.</span>unitPrice <span class="token operator">*</span> <span class="token number">2.5</span> <span class="token operator">||</span> <span class="token number">2.5</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -675,7 +675,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.7、观察者模式","level":"1.4.7","depth":2,"next":{"title":"3.8、状态模式","level":"1.4.8","depth":2,"path":"content/behavioural/state.md","ref":"content/behavioural/state.md","articles":[]},"previous":{"title":"3.6、备忘录模式","level":"1.4.6","depth":2,"path":"content/behavioural/memento.md","ref":"content/behavioural/memento.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/observer.md","mtime":"2017-09-22T04:58:30.173Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.7、观察者模式","level":"1.4.7","depth":2,"next":{"title":"3.8、状态模式","level":"1.4.8","depth":2,"path":"content/behavioural/state.md","ref":"content/behavioural/state.md","articles":[]},"previous":{"title":"3.6、备忘录模式","level":"1.4.6","depth":2,"path":"content/behavioural/memento.md","ref":"content/behavioural/memento.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/observer.md","mtime":"2017-09-22T04:58:30.173Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

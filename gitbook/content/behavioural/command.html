@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -516,172 +516,172 @@
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
 <p>&#x9065;&#x63A7;&#x5668;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x7535;&#x89C6;&#x5F00;&#x3001;&#x5173;&#x3001;&#x58F0;&#x97F3;&#x52A0;&#x51CF;&#x3001;&#x9891;&#x9053;&#x53D8;&#x6362;  </p>
-<pre><code class="lang-java"><span class="hljs-meta">@FunctionalInterface</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Command</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
-    <span class="hljs-function">T <span class="hljs-title">execute</span><span class="hljs-params">()</span></span>;
-}
-<span class="hljs-meta">@Getter</span>
-<span class="hljs-meta">@Setter</span>(AccessLevel.PROTECTED)
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Television</span> </span>{
-    <span class="hljs-comment">/**
+<pre class="language-"><code class="lang-java"><span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Command</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    T <span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token annotation punctuation">@Getter</span>
+<span class="token annotation punctuation">@Setter</span><span class="token punctuation">(</span>AccessLevel<span class="token punctuation">.</span>PROTECTED<span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Television</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/**
      * &#x7535;&#x89C6;&#x540D;&#x79F0;
      */</span>
-    <span class="hljs-keyword">private</span> String name;
-    <span class="hljs-comment">/**
+    <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">/**
      * &#x5F53;&#x524D;&#x6240;&#x5728;&#x9891;&#x9053;
      */</span>
-    <span class="hljs-keyword">private</span> Integer channel;
-    <span class="hljs-comment">/**
+    <span class="token keyword">private</span> Integer channel<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">/**
      * &#x5F53;&#x524D;&#x97F3;&#x91CF;
      */</span>
-    <span class="hljs-keyword">private</span> Integer volume;
+    <span class="token keyword">private</span> Integer volume<span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Television</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">this</span>(<span class="hljs-string">&quot;HaierTv&quot;</span>);
-    }
+    <span class="token keyword">public</span> <span class="token function">Television</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">(</span><span class="token string">&quot;HaierTv&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Television</span><span class="hljs-params">(String name)</span></span>{
-        <span class="hljs-keyword">this</span>(name, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>);
-    }
+    <span class="token keyword">public</span> <span class="token function">Television</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Television</span><span class="hljs-params">(String name, Integer channel, Integer volume)</span></span>{
-        <span class="hljs-keyword">this</span>.name = name;
-        <span class="hljs-keyword">this</span>.channel = channel;
-        <span class="hljs-keyword">this</span>.volume = volume;
-    }
+    <span class="token keyword">public</span> <span class="token function">Television</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> Integer channel<span class="token punctuation">,</span> Integer volume<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>channel <span class="token operator">=</span> channel<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>volume <span class="token operator">=</span> volume<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment" spellcheck="true">/**
      * &#x7535;&#x89C6;&#x673A;&#x6267;&#x884C;&#x9065;&#x63A7;&#x5668;&#x547D;&#x4EE4;
-     * <span class="hljs-doctag">@param</span> command &#x5177;&#x4F53;&#x547D;&#x4EE4;
-     * <span class="hljs-doctag">@param</span> &lt;T&gt; &#x547D;&#x4EE4;&#x8FD4;&#x56DE;&#x503C;
-     * <span class="hljs-doctag">@return</span> &#x547D;&#x4EE4;&#x6267;&#x884C;&#x7ED3;&#x679C;
+     * @param command &#x5177;&#x4F53;&#x547D;&#x4EE4;
+     * @param &lt;T&gt; &#x547D;&#x4EE4;&#x8FD4;&#x56DE;&#x503C;
+     * @return &#x547D;&#x4EE4;&#x6267;&#x884C;&#x7ED3;&#x679C;
      */</span>
-    <span class="hljs-keyword">public</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">execute</span><span class="hljs-params">(Command&lt;T&gt; command)</span></span>{
-        <span class="hljs-keyword">return</span> command.execute();
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RemoteControl</span> </span>{
-    <span class="hljs-keyword">private</span> Television television;
-    <span class="hljs-meta">@Setter</span>
-    <span class="hljs-keyword">private</span> Command&lt;String&gt; turnOn = () -&gt; <span class="hljs-keyword">this</span>.television.getName() + <span class="hljs-string">&quot; on!&quot;</span>;
-    <span class="hljs-meta">@Setter</span>
-    <span class="hljs-keyword">private</span> Command&lt;String&gt; turnOff = () -&gt; <span class="hljs-keyword">this</span>.television.getName() + <span class="hljs-string">&quot; off!&quot;</span>;
-    <span class="hljs-meta">@Setter</span>
-    <span class="hljs-keyword">private</span> Command&lt;Integer&gt; volumeUp = () -&gt; {
-        <span class="hljs-keyword">int</span> currentVolume = <span class="hljs-keyword">this</span>.television.getVolume();
-        <span class="hljs-keyword">this</span>.television.setVolume(++currentVolume);
-        <span class="hljs-keyword">return</span> currentVolume &lt;= <span class="hljs-number">100</span> ? currentVolume : <span class="hljs-number">100</span>;
-    };
-    <span class="hljs-meta">@Setter</span>
-    <span class="hljs-keyword">private</span> Command&lt;Integer&gt; volumeDown = () -&gt; {
-        <span class="hljs-keyword">int</span> currentVolume = <span class="hljs-keyword">this</span>.television.getVolume();
-        <span class="hljs-keyword">this</span>.television.setVolume(--currentVolume);
-        <span class="hljs-keyword">return</span> currentVolume &gt;= <span class="hljs-number">0</span> ? currentVolume : <span class="hljs-number">0</span>;
-    };
-    <span class="hljs-meta">@Setter</span>
-    <span class="hljs-keyword">private</span> Command&lt;Integer&gt; channelUp = () -&gt; {
-        <span class="hljs-keyword">int</span> currentChannel = <span class="hljs-keyword">this</span>.television.getChannel();
-        <span class="hljs-keyword">this</span>.television.setChannel(++currentChannel);
-        <span class="hljs-keyword">return</span> currentChannel &lt;= <span class="hljs-number">200</span> ? currentChannel : <span class="hljs-number">200</span>;
-    };
-    <span class="hljs-meta">@Setter</span>
-    <span class="hljs-keyword">private</span> Command&lt;Integer&gt; channelDown = () -&gt; {
-        <span class="hljs-keyword">int</span> currentChannel = <span class="hljs-keyword">this</span>.television.getChannel();
-        <span class="hljs-keyword">this</span>.television.setChannel(--currentChannel);
-        <span class="hljs-keyword">return</span> currentChannel &gt; <span class="hljs-number">0</span> ? currentChannel : <span class="hljs-number">1</span>;
-    };
+    <span class="token keyword">public</span> <span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> T <span class="token function">execute</span><span class="token punctuation">(</span>Command<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> command<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> command<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RemoteControl</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> Television television<span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Setter</span>
+    <span class="token keyword">private</span> Command<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> turnOn <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>television<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot; on!&quot;</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Setter</span>
+    <span class="token keyword">private</span> Command<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> turnOff <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>television<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot; off!&quot;</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Setter</span>
+    <span class="token keyword">private</span> Command<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span> volumeUp <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> currentVolume <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>television<span class="token punctuation">.</span><span class="token function">getVolume</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>television<span class="token punctuation">.</span><span class="token function">setVolume</span><span class="token punctuation">(</span><span class="token operator">++</span>currentVolume<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> currentVolume <span class="token operator">&lt;=</span> <span class="token number">100</span> <span class="token operator">?</span> currentVolume <span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Setter</span>
+    <span class="token keyword">private</span> Command<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span> volumeDown <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> currentVolume <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>television<span class="token punctuation">.</span><span class="token function">getVolume</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>television<span class="token punctuation">.</span><span class="token function">setVolume</span><span class="token punctuation">(</span><span class="token operator">--</span>currentVolume<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> currentVolume <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">?</span> currentVolume <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Setter</span>
+    <span class="token keyword">private</span> Command<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span> channelUp <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> currentChannel <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>television<span class="token punctuation">.</span><span class="token function">getChannel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>television<span class="token punctuation">.</span><span class="token function">setChannel</span><span class="token punctuation">(</span><span class="token operator">++</span>currentChannel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> currentChannel <span class="token operator">&lt;=</span> <span class="token number">200</span> <span class="token operator">?</span> currentChannel <span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Setter</span>
+    <span class="token keyword">private</span> Command<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span> channelDown <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> currentChannel <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>television<span class="token punctuation">.</span><span class="token function">getChannel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>television<span class="token punctuation">.</span><span class="token function">setChannel</span><span class="token punctuation">(</span><span class="token operator">--</span>currentChannel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> currentChannel <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">?</span> currentChannel <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">RemoteControl</span><span class="hljs-params">(Television television)</span> </span>{
-        <span class="hljs-keyword">this</span>.television = television;
-    }
+    <span class="token keyword">public</span> <span class="token function">RemoteControl</span><span class="token punctuation">(</span>Television television<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>television <span class="token operator">=</span> television<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">turnOn</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.television.execute(turnOn);
-    }
+    <span class="token keyword">public</span> String <span class="token function">turnOn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>television<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>turnOn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">turnOff</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.television.execute(turnOff);
-    }
+    <span class="token keyword">public</span> String <span class="token function">turnOff</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>television<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>turnOff<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">volumeUp</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.television.execute(volumeUp);
-    }
+    <span class="token keyword">public</span> Integer <span class="token function">volumeUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>television<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>volumeUp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">volumeDown</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.television.execute(volumeDown);
-    }
+    <span class="token keyword">public</span> Integer <span class="token function">volumeDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>television<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>volumeDown<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">channelUp</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.television.execute(channelUp);
-    }
+    <span class="token keyword">public</span> Integer <span class="token function">channelUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>television<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>channelUp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">channelDown</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.television.execute(channelDown);
-    }
-}
+    <span class="token keyword">public</span> Integer <span class="token function">channelDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>television<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>channelDown<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CommandSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> control() {
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> tv = <span class="hljs-keyword">new</span> Television(<span class="hljs-string">&quot;&#x4F73;&#x80FD;&#x7535;&#x89C6;&quot;</span>)
-        <span class="hljs-keyword">def</span> control = <span class="hljs-keyword">new</span> RemoteControl(tv)
-<span class="hljs-symbol">
-        when:</span>
-        <span class="hljs-keyword">def</span> on = control.turnOn()
-<span class="hljs-symbol">        then:</span>
-        on == tv.getName() + <span class="hljs-string">&quot; on!&quot;</span>
-<span class="hljs-symbol">
-        when:</span>
-        <span class="hljs-keyword">def</span> volumeUp = control.volumeUp()
-<span class="hljs-symbol">        then:</span>
-        volumeUp == tv.getVolume()
-<span class="hljs-symbol">
-        when:</span>
-        <span class="hljs-keyword">def</span> volumeDown = control.volumeDown()
-<span class="hljs-symbol">        then:</span>
-        volumeDown == tv.getVolume()
-<span class="hljs-symbol">
-        when:</span>
-        <span class="hljs-keyword">def</span> channelUp = control.channelUp()
-<span class="hljs-symbol">        then:</span>
-        channelUp == tv.getChannel()
-<span class="hljs-symbol">
-        when:</span>
-        <span class="hljs-keyword">def</span> channelDown = control.channelDown()
-<span class="hljs-symbol">        then:</span>
-        channelDown == tv.getChannel()
-<span class="hljs-symbol">
-        when:</span>
-        <span class="hljs-keyword">def</span> off = control.turnOff()
-<span class="hljs-symbol">        then:</span>
-        off == tv.getName() + <span class="hljs-string">&quot; off!&quot;</span>
-    }
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">CommandSpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token function">control</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> tv <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Television</span><span class="token punctuation">(</span><span class="token string">&quot;&#x4F73;&#x80FD;&#x7535;&#x89C6;&quot;</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> control <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RemoteControl</span><span class="token punctuation">(</span>tv<span class="token punctuation">)</span>
 
-    <span class="hljs-keyword">def</span> command(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> tv = <span class="hljs-keyword">new</span> Television()
-        <span class="hljs-keyword">def</span> control = <span class="hljs-keyword">new</span> RemoteControl(tv)
-        <span class="hljs-keyword">def</span> onMsg = <span class="hljs-string">&quot;&#x91D1;&#x5149;&#x95EA;&#x95EA;&#x7684;&#x6253;&#x5F00;!&quot;</span>
-        <span class="hljs-keyword">def</span> offMsg = <span class="hljs-string">&quot;&#x725B;&#x903C;&#x54C4;&#x54C4;&#x7684;&#x5173;&#x6389;!&quot;</span>
-        control.setTurnOn({
-            <span class="hljs-keyword">return</span> tv.getName() + onMsg
-        })
-        control.setTurnOff({
-            <span class="hljs-keyword">return</span> tv.getName() + offMsg
-        })
-<span class="hljs-symbol">
-        when:</span>
-        <span class="hljs-keyword">def</span> on = control.turnOn()
-<span class="hljs-symbol">        then:</span>
-        on == tv.getName() + onMsg
-<span class="hljs-symbol">
-        when:</span>
-        <span class="hljs-keyword">def</span> off = control.turnOff()
-<span class="hljs-symbol">        then:</span>
-        off == tv.getName() + offMsg
-    }
-}
+        <span class="token spock-block">when:</span>
+        <span class="token keyword">def</span> on <span class="token operator">=</span> control<span class="token operator">.</span><span class="token function">turnOn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        on <span class="token operator">==</span> tv<span class="token operator">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot; on!&quot;</span>
+
+        <span class="token spock-block">when:</span>
+        <span class="token keyword">def</span> volumeUp <span class="token operator">=</span> control<span class="token operator">.</span><span class="token function">volumeUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        volumeUp <span class="token operator">==</span> tv<span class="token operator">.</span><span class="token function">getVolume</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token spock-block">when:</span>
+        <span class="token keyword">def</span> volumeDown <span class="token operator">=</span> control<span class="token operator">.</span><span class="token function">volumeDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        volumeDown <span class="token operator">==</span> tv<span class="token operator">.</span><span class="token function">getVolume</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token spock-block">when:</span>
+        <span class="token keyword">def</span> channelUp <span class="token operator">=</span> control<span class="token operator">.</span><span class="token function">channelUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        channelUp <span class="token operator">==</span> tv<span class="token operator">.</span><span class="token function">getChannel</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token spock-block">when:</span>
+        <span class="token keyword">def</span> channelDown <span class="token operator">=</span> control<span class="token operator">.</span><span class="token function">channelDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        channelDown <span class="token operator">==</span> tv<span class="token operator">.</span><span class="token function">getChannel</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token spock-block">when:</span>
+        <span class="token keyword">def</span> off <span class="token operator">=</span> control<span class="token operator">.</span><span class="token function">turnOff</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        off <span class="token operator">==</span> tv<span class="token operator">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot; off!&quot;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">def</span> <span class="token function">command</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> tv <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Television</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> control <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RemoteControl</span><span class="token punctuation">(</span>tv<span class="token punctuation">)</span>
+        <span class="token keyword">def</span> onMsg <span class="token operator">=</span> <span class="token string">&quot;&#x91D1;&#x5149;&#x95EA;&#x95EA;&#x7684;&#x6253;&#x5F00;!&quot;</span>
+        <span class="token keyword">def</span> offMsg <span class="token operator">=</span> <span class="token string">&quot;&#x725B;&#x903C;&#x54C4;&#x54C4;&#x7684;&#x5173;&#x6389;!&quot;</span>
+        control<span class="token operator">.</span><span class="token function">setTurnOn</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> tv<span class="token operator">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> onMsg
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        control<span class="token operator">.</span><span class="token function">setTurnOff</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> tv<span class="token operator">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> offMsg
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+        <span class="token spock-block">when:</span>
+        <span class="token keyword">def</span> on <span class="token operator">=</span> control<span class="token operator">.</span><span class="token function">turnOn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        on <span class="token operator">==</span> tv<span class="token operator">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> onMsg
+
+        <span class="token spock-block">when:</span>
+        <span class="token keyword">def</span> off <span class="token operator">=</span> control<span class="token operator">.</span><span class="token function">turnOff</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        off <span class="token operator">==</span> tv<span class="token operator">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> offMsg
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -726,7 +726,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.2、命令模式","level":"1.4.2","depth":2,"next":{"title":"3.3、解释器模式","level":"1.4.3","depth":2,"path":"content/behavioural/interpreter.md","ref":"content/behavioural/interpreter.md","articles":[]},"previous":{"title":"3.1、责任链模式","level":"1.4.1","depth":2,"path":"content/behavioural/chain_of_responsibility.md","ref":"content/behavioural/chain_of_responsibility.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/command.md","mtime":"2017-09-22T03:30:52.018Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.2、命令模式","level":"1.4.2","depth":2,"next":{"title":"3.3、解释器模式","level":"1.4.3","depth":2,"path":"content/behavioural/interpreter.md","ref":"content/behavioural/interpreter.md","articles":[]},"previous":{"title":"3.1、责任链模式","level":"1.4.1","depth":2,"path":"content/behavioural/chain_of_responsibility.md","ref":"content/behavioural/chain_of_responsibility.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/command.md","mtime":"2017-09-22T03:30:52.018Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

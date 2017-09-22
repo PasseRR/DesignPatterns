@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -520,83 +520,83 @@
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
 <p>&#x4F7F;&#x7528;<a href="http://www.projectlombok.org/" target="_blank">Lombok</a>&#x4E2D;&#x7684;@Builder&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x5B9E;&#x73B0;&#x6784;&#x9020;&#x5668;  </p>
-<pre><code class="lang-java"><span class="hljs-meta">@Data</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StudentVo</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>{
-    <span class="hljs-keyword">private</span> String no;
-    <span class="hljs-keyword">private</span> String name;
-    <span class="hljs-keyword">private</span> String sex;
-    <span class="hljs-keyword">private</span> Integer age;
+<pre class="language-"><code class="lang-java"><span class="token annotation punctuation">@Data</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StudentVo</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> String no<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String sex<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> Integer age<span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> StudentBuilder <span class="hljs-title">builder</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> StudentBuilder();
-    }
+    <span class="token keyword">public</span> <span class="token keyword">static</span> StudentBuilder <span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">StudentBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StudentBuilder</span> </span>{
-        <span class="hljs-keyword">private</span> String no;
-        <span class="hljs-keyword">private</span> String name;
-        <span class="hljs-keyword">private</span> String sex;
-        <span class="hljs-keyword">private</span> Integer age;
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">StudentBuilder</span> <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> String no<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> String sex<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> Integer age<span class="token punctuation">;</span>
 
-        <span class="hljs-function"><span class="hljs-keyword">public</span> StudentBuilder <span class="hljs-title">no</span><span class="hljs-params">(String no)</span></span>{
-            <span class="hljs-keyword">this</span>.no = no;
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-        }
+        <span class="token keyword">public</span> StudentBuilder <span class="token function">no</span><span class="token punctuation">(</span>String no<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>no <span class="token operator">=</span> no<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        <span class="hljs-function"><span class="hljs-keyword">public</span> StudentBuilder <span class="hljs-title">name</span><span class="hljs-params">(String name)</span></span>{
-            <span class="hljs-keyword">this</span>.name = name;
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-        }
+        <span class="token keyword">public</span> StudentBuilder <span class="token function">name</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        <span class="hljs-function"><span class="hljs-keyword">public</span> StudentBuilder <span class="hljs-title">sex</span><span class="hljs-params">(String sex)</span></span>{
-            <span class="hljs-keyword">this</span>.sex = sex;
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-        }
+        <span class="token keyword">public</span> StudentBuilder <span class="token function">sex</span><span class="token punctuation">(</span>String sex<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>sex <span class="token operator">=</span> sex<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        <span class="hljs-function"><span class="hljs-keyword">public</span> StudentBuilder <span class="hljs-title">age</span><span class="hljs-params">(Integer age)</span></span>{
-            <span class="hljs-keyword">this</span>.age = age;
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-        }
+        <span class="token keyword">public</span> StudentBuilder <span class="token function">age</span><span class="token punctuation">(</span>Integer age<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        <span class="hljs-function"><span class="hljs-keyword">public</span> StudentVo <span class="hljs-title">build</span><span class="hljs-params">()</span></span>{
-            StudentVo studentVo = <span class="hljs-keyword">new</span> StudentVo();
-            studentVo.setName(<span class="hljs-keyword">this</span>.name);
-            studentVo.setSex(<span class="hljs-keyword">this</span>.sex);
-            studentVo.setAge(<span class="hljs-keyword">this</span>.age);
-            studentVo.setNo(<span class="hljs-keyword">this</span>.no);
+        <span class="token keyword">public</span> StudentVo <span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            StudentVo studentVo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StudentVo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            studentVo<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            studentVo<span class="token punctuation">.</span><span class="token function">setSex</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>sex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            studentVo<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            studentVo<span class="token punctuation">.</span><span class="token function">setNo</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>no<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-            <span class="hljs-keyword">return</span> studentVo;
-        }
-    }
-}
+            <span class="token keyword">return</span> studentVo<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StudentVoSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> build() {
-<span class="hljs-symbol">        when:</span>
-        <span class="hljs-keyword">def</span> student = StudentVo.builder()
-            .name(<span class="hljs-string">&quot;Jack&quot;</span>)
-            .build()
-<span class="hljs-symbol">        then:</span>
-        student != <span class="hljs-literal">null</span>
-        student.name == <span class="hljs-string">&quot;Jack&quot;</span>
-        student.sex == <span class="hljs-literal">null</span>
-        student.age == <span class="hljs-literal">null</span>
-        student.no == <span class="hljs-literal">null</span>
-<span class="hljs-symbol">
-        when:</span>
-        student = StudentVo.builder()
-            .name(<span class="hljs-string">&quot;zhangsan&quot;</span>)
-            .age(<span class="hljs-number">10</span>)
-            .sex(<span class="hljs-string">&quot;male&quot;</span>)
-            .build()
-<span class="hljs-symbol">        then:</span>
-        student != <span class="hljs-literal">null</span>
-        student.name == <span class="hljs-string">&quot;zhangsan&quot;</span>
-        student.age == <span class="hljs-number">10</span>
-        student.sex == <span class="hljs-string">&quot;male&quot;</span>
-        student.no == <span class="hljs-literal">null</span>
-    }
-}
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">StudentVoSpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token spock-block">when:</span>
+        <span class="token keyword">def</span> student <span class="token operator">=</span> StudentVo<span class="token operator">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token string">&quot;Jack&quot;</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        student <span class="token operator">!=</span> null
+        student<span class="token operator">.</span>name <span class="token operator">==</span> <span class="token string">&quot;Jack&quot;</span>
+        student<span class="token operator">.</span>sex <span class="token operator">==</span> null
+        student<span class="token operator">.</span>age <span class="token operator">==</span> null
+        student<span class="token operator">.</span>no <span class="token operator">==</span> null
+
+        <span class="token spock-block">when:</span>
+        student <span class="token operator">=</span> StudentVo<span class="token operator">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token string">&quot;zhangsan&quot;</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">age</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">sex</span><span class="token punctuation">(</span><span class="token string">&quot;male&quot;</span><span class="token punctuation">)</span>
+            <span class="token operator">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        student <span class="token operator">!=</span> null
+        student<span class="token operator">.</span>name <span class="token operator">==</span> <span class="token string">&quot;zhangsan&quot;</span>
+        student<span class="token operator">.</span>age <span class="token operator">==</span> <span class="token number">10</span>
+        student<span class="token operator">.</span>sex <span class="token operator">==</span> <span class="token string">&quot;male&quot;</span>
+        student<span class="token operator">.</span>no <span class="token operator">==</span> null
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -641,7 +641,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.5、构造器模式","level":"1.2.5","depth":2,"next":{"title":"2、结构型模式","level":"1.3","depth":1,"path":"content/structural/README.md","ref":"content/structural/README.md","articles":[{"title":"2.1、组合模式","level":"1.3.1","depth":2,"path":"content/structural/composite.md","ref":"content/structural/composite.md","articles":[]},{"title":"2.2、外观模式","level":"1.3.2","depth":2,"path":"content/structural/facade.md","ref":"content/structural/facade.md","articles":[]},{"title":"2.3、适配器模式","level":"1.3.3","depth":2,"path":"content/structural/adapter.md","ref":"content/structural/adapter.md","articles":[]},{"title":"2.4、桥接模式","level":"1.3.4","depth":2,"path":"content/structural/bridge.md","ref":"content/structural/bridge.md","articles":[]},{"title":"2.5、装饰器模式","level":"1.3.5","depth":2,"path":"content/structural/decorator.md","ref":"content/structural/decorator.md","articles":[]},{"title":"2.6、享元模式","level":"1.3.6","depth":2,"path":"content/structural/flyweight.md","ref":"content/structural/flyweight.md","articles":[]},{"title":"2.7、代理模式","level":"1.3.7","depth":2,"path":"content/structural/proxy.md","ref":"content/structural/proxy.md","articles":[]}]},"previous":{"title":"1.4、工厂方法模式","level":"1.2.4","depth":2,"path":"content/creational/factory_method.md","ref":"content/creational/factory_method.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/creational/builder.md","mtime":"2017-09-21T09:57:16.769Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.5、构造器模式","level":"1.2.5","depth":2,"next":{"title":"2、结构型模式","level":"1.3","depth":1,"path":"content/structural/README.md","ref":"content/structural/README.md","articles":[{"title":"2.1、组合模式","level":"1.3.1","depth":2,"path":"content/structural/composite.md","ref":"content/structural/composite.md","articles":[]},{"title":"2.2、外观模式","level":"1.3.2","depth":2,"path":"content/structural/facade.md","ref":"content/structural/facade.md","articles":[]},{"title":"2.3、适配器模式","level":"1.3.3","depth":2,"path":"content/structural/adapter.md","ref":"content/structural/adapter.md","articles":[]},{"title":"2.4、桥接模式","level":"1.3.4","depth":2,"path":"content/structural/bridge.md","ref":"content/structural/bridge.md","articles":[]},{"title":"2.5、装饰器模式","level":"1.3.5","depth":2,"path":"content/structural/decorator.md","ref":"content/structural/decorator.md","articles":[]},{"title":"2.6、享元模式","level":"1.3.6","depth":2,"path":"content/structural/flyweight.md","ref":"content/structural/flyweight.md","articles":[]},{"title":"2.7、代理模式","level":"1.3.7","depth":2,"path":"content/structural/proxy.md","ref":"content/structural/proxy.md","articles":[]}]},"previous":{"title":"1.4、工厂方法模式","level":"1.2.4","depth":2,"path":"content/creational/factory_method.md","ref":"content/creational/factory_method.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/creational/builder.md","mtime":"2017-09-21T09:57:16.769Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

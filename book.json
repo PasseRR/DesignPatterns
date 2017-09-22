@@ -15,7 +15,9 @@
     "back-to-top-button",
     "collapsible-chapters",
     "sharing",
-    "github"
+    "github",
+    "prism",
+    "-highlight"
   ],
   "pluginsConfig": {
     "search-pro": {
@@ -39,9 +41,17 @@
         "instapaper"
       ]
     },
-    "collapsible-chapters":{},
+    "collapsible-chapters": {},
     "github": {
       "url": "https://github.com/PasseRR"
+    },
+    "prism": {
+      "css": [
+        "prismjs/themes/prism.css"
+      ],
+      "lang": {
+        "flow": "typescript"
+      }
     }
   },
   "pdf": {

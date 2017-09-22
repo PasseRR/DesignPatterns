@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -515,38 +515,38 @@
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
 <p>&#x5B66;&#x751F;&#x3001;&#x767D;&#x9886;&#x901A;&#x8FC7;&#x4E2D;&#x4ECB;&#x79DF;&#x623F;  </p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Renting</span></span>{
-    <span class="hljs-function">String <span class="hljs-title">rent</span><span class="hljs-params">()</span></span>;
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Renting</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">rent</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;student rent&quot;</span>;
-    }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">name</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;student&quot;</span>;
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WhiteCollarWorker</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Renting</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">rent</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;white collar worker rent&quot;</span>;
-    }
-}
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Renting</span><span class="token punctuation">{</span>
+    String <span class="token function">rent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token keyword">implements</span> <span class="token class-name">Renting</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">rent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;student rent&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> String <span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;student&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">WhiteCollarWorker</span> <span class="token keyword">implements</span> <span class="token class-name">Renting</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">rent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;white collar worker rent&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h4 id="&#x9759;&#x6001;&#x4EE3;&#x7406;">&#x9759;&#x6001;&#x4EE3;&#x7406;</h4>
 <p>&#x8FD0;&#x884C;&#x4E4B;&#x524D;&#x4EE3;&#x7406;&#x7C7B;&#x548C;&#x59D4;&#x6258;&#x7C7B;&#x5173;&#x7CFB;&#x5C31;&#x5DF2;&#x7ECF;&#x786E;&#x5B9A;  </p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Realtor</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Renting</span> </span>{
-    <span class="hljs-keyword">private</span> Renting renting;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Realtor</span><span class="hljs-params">(Renting renting)</span></span>{
-        <span class="hljs-keyword">this</span>.renting = renting;
-    }
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Realtor</span> <span class="token keyword">implements</span> <span class="token class-name">Renting</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> Renting renting<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token function">Realtor</span><span class="token punctuation">(</span>Renting renting<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>renting <span class="token operator">=</span> renting<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">rent</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;realtor in the name of &quot;</span> + <span class="hljs-keyword">this</span>.renting.rent();
-    }
-}
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">rent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;realtor in the name of &quot;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>renting<span class="token punctuation">.</span><span class="token function">rent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h4 id="&#x52A8;&#x6001;&#x4EE3;&#x7406;">&#x52A8;&#x6001;&#x4EE3;&#x7406;</h4>
 <p>&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x5206;&#x4E3A;jdk&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x548C;cglib&#x52A8;&#x6001;&#x4EE3;&#x7406;  </p>
@@ -554,122 +554,122 @@
 <li>jdk&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x7C7B;Proxy&#x548C;InvocationHandler&#x56DE;&#x8C03;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#xFF0C;&#x8981;&#x6C42;&#x59D4;&#x6258;&#x7C7B;&#x5FC5;&#x987B;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x53EA;&#x80FD;&#x5BF9;&#x8BE5;&#x7C7B;&#x63A5;&#x53E3;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x4EE3;&#x7406;&#xFF0C;&#x8FD9;&#x5728;&#x5B9E;&#x9645;&#x7F16;&#x7A0B;&#x4E2D;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x5C40;&#x9650;&#x6027;&#x3002;</li>
 <li>cglib&#x662F;&#x9488;&#x5BF9;&#x7C7B;&#x6765;&#x5B9E;&#x73B0;&#x4EE3;&#x7406;&#x7684;&#xFF0C;&#x4ED6;&#x7684;&#x539F;&#x7406;&#x662F;&#x5BF9;&#x6307;&#x5B9A;&#x7684;&#x76EE;&#x6807;&#x7C7B;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5B50;&#x7C7B;&#xFF0C;&#x5E76;&#x8986;&#x76D6;&#x5176;&#x4E2D;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x589E;&#x5F3A;&#xFF0C;&#x4F46;&#x56E0;&#x4E3A;&#x91C7;&#x7528;&#x7684;&#x662F;&#x7EE7;&#x627F;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x80FD;&#x5BF9;final&#x4FEE;&#x9970;&#x7684;&#x7C7B;&#x8FDB;&#x884C;&#x4EE3;&#x7406;&#x3002;</li>
 </ul>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JdkProxy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">InvocationHandler</span> </span>{
-    <span class="hljs-keyword">private</span> Object target;
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JdkProxy</span> <span class="token keyword">implements</span> <span class="token class-name">InvocationHandler</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> Object target<span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">JdkProxy</span><span class="hljs-params">(Object target)</span> </span>{
-        <span class="hljs-keyword">this</span>.target = target;
-    }
+    <span class="token keyword">public</span> <span class="token function">JdkProxy</span><span class="token punctuation">(</span>Object target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>target <span class="token operator">=</span> target<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">invoke</span><span class="hljs-params">(Object proxy, Method method, Object[] args)</span> <span class="hljs-keyword">throws</span> Throwable </span>{
-        <span class="hljs-keyword">return</span> method.invoke(<span class="hljs-keyword">this</span>.target, args);
-    }
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Object <span class="token function">invoke</span><span class="token punctuation">(</span>Object proxy<span class="token punctuation">,</span> Method method<span class="token punctuation">,</span> Object<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> Throwable <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>target<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getProxyInstance</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> Proxy.newProxyInstance(
-            <span class="hljs-keyword">this</span>.target.getClass().getClassLoader(),
-            <span class="hljs-keyword">this</span>.target.getClass().getInterfaces(),
-            <span class="hljs-keyword">this</span>
-        );
-    }
-}
+    <span class="token keyword">public</span> Object <span class="token function">getProxyInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Proxy<span class="token punctuation">.</span><span class="token function">newProxyInstance</span><span class="token punctuation">(</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>target<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>target<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInterfaces</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token keyword">this</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CglibProxy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">MethodInterceptor</span> </span>{
-    <span class="hljs-keyword">private</span> Object target;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">CglibProxy</span><span class="hljs-params">(Object target)</span></span>{
-        <span class="hljs-keyword">this</span>.target = target;
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">intercept</span><span class="hljs-params">(Object o, Method method, Object[] objects, MethodProxy methodProxy)</span> 
-        <span class="hljs-keyword">throws</span> Throwable </span>{
-        <span class="hljs-keyword">return</span> methodProxy.invokeSuper(o, objects);
-    }
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CglibProxy</span> <span class="token keyword">implements</span> <span class="token class-name">MethodInterceptor</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> Object target<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token function">CglibProxy</span><span class="token punctuation">(</span>Object target<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>target <span class="token operator">=</span> target<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Object <span class="token function">intercept</span><span class="token punctuation">(</span>Object o<span class="token punctuation">,</span> Method method<span class="token punctuation">,</span> Object<span class="token punctuation">[</span><span class="token punctuation">]</span> objects<span class="token punctuation">,</span> MethodProxy methodProxy<span class="token punctuation">)</span> 
+        <span class="token keyword">throws</span> Throwable <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> methodProxy<span class="token punctuation">.</span><span class="token function">invokeSuper</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> objects<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getProxyInstance</span><span class="hljs-params">()</span> </span>{
-        Enhancer enhancer = <span class="hljs-keyword">new</span> Enhancer();
-        enhancer.setSuperclass(<span class="hljs-keyword">this</span>.target.getClass());
-        enhancer.setCallback(<span class="hljs-keyword">this</span>);
+    <span class="token keyword">public</span> Object <span class="token function">getProxyInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Enhancer enhancer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Enhancer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        enhancer<span class="token punctuation">.</span><span class="token function">setSuperclass</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>target<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        enhancer<span class="token punctuation">.</span><span class="token function">setCallback</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="hljs-keyword">return</span> enhancer.create();
-    }
-}
+        <span class="token keyword">return</span> enhancer<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
 <p>&#x9759;&#x6001;&#x4EE3;&#x7406;  </p>
-<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RealtorSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> </span>{
-    <span class="hljs-function">def <span class="hljs-title">renting</span><span class="hljs-params">()</span> </span>{
-        expect:
-        renting.rent() == result
-        where:
-        renting                 || <span class="hljs-function">result
-        new <span class="hljs-title">Student</span><span class="hljs-params">()</span>           || &quot;student rent&quot;
-        new <span class="hljs-title">WhiteCollarWorker</span><span class="hljs-params">()</span> || &quot;white collar worker rent&quot;
-    }
+<pre class="language-"><code class="lang-java"><span class="token keyword">class</span> <span class="token class-name">RealtorSpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    def <span class="token function">renting</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        expect<span class="token operator">:</span>
+        renting<span class="token punctuation">.</span><span class="token function">rent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> result
+        where<span class="token operator">:</span>
+        renting                 <span class="token operator">||</span> result
+        <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span>           <span class="token operator">||</span> <span class="token string">&quot;student rent&quot;</span>
+        <span class="token keyword">new</span> <span class="token class-name">WhiteCollarWorker</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token string">&quot;white collar worker rent&quot;</span>
+    <span class="token punctuation">}</span>
 
-    def <span class="hljs-title">realtor</span><span class="hljs-params">()</span> </span>{
-        expect:
-        realtor.rent() == result
-        where:
-        realtor                              || <span class="hljs-function">result
-        new <span class="hljs-title">Realtor</span><span class="hljs-params">(new Student()</span>)           || &quot;realtor in the name of student rent&quot;
-        new <span class="hljs-title">Realtor</span><span class="hljs-params">(new WhiteCollarWorker()</span>) || &quot;realtor in the name of white collar worker rent&quot;
-    }
-}
-</span></code></pre>
+    def <span class="token function">realtor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        expect<span class="token operator">:</span>
+        realtor<span class="token punctuation">.</span><span class="token function">rent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> result
+        where<span class="token operator">:</span>
+        realtor                              <span class="token operator">||</span> result
+        <span class="token keyword">new</span> <span class="token class-name">Realtor</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>           <span class="token operator">||</span> <span class="token string">&quot;realtor in the name of student rent&quot;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Realtor</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">WhiteCollarWorker</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token string">&quot;realtor in the name of white collar worker rent&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>&#x52A8;&#x6001;&#x4EE3;&#x7406;  </p>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JdkProxySpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> jdkProxyInterface() {
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> jdkProxy = <span class="hljs-keyword">new</span> JdkProxy(target)
-        <span class="hljs-keyword">def</span> instance = (Renting) jdkProxy.getProxyInstance()
-<span class="hljs-symbol">        expect:</span>
-        instance.rent() == result
-<span class="hljs-symbol">        where:</span>
-        target                  || result
-        <span class="hljs-keyword">new</span> Student()           || <span class="hljs-string">&quot;student rent&quot;</span>
-        <span class="hljs-keyword">new</span> WhiteCollarWorker() || <span class="hljs-string">&quot;white collar worker rent&quot;</span>
-    }
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">JdkProxySpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token function">jdkProxyInterface</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> jdkProxy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JdkProxy</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span>
+        <span class="token keyword">def</span> instance <span class="token operator">=</span> <span class="token punctuation">(</span>Renting<span class="token punctuation">)</span> jdkProxy<span class="token operator">.</span><span class="token function">getProxyInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">expect:</span>
+        instance<span class="token operator">.</span><span class="token function">rent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> result
+        <span class="token spock-block">where:</span>
+        target                  <span class="token operator">||</span> result
+        <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span>           <span class="token operator">||</span> <span class="token string">&quot;student rent&quot;</span>
+        <span class="token keyword">new</span> <span class="token class-name">WhiteCollarWorker</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token string">&quot;white collar worker rent&quot;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-keyword">def</span> jdkProxyClass(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> jdkProxy = <span class="hljs-keyword">new</span> JdkProxy(<span class="hljs-keyword">new</span> Student())
-<span class="hljs-symbol">
-        when:</span>
-        <span class="hljs-comment">// &#x4EE3;&#x7406;&#x7C7B;&#x4E0D;&#x80FD;&#x88AB;&#x5F3A;&#x8F6C;&#x4E3A;Student</span>
-        <span class="hljs-keyword">def</span> studentProxy = (Student) jdkProxy.getProxyInstance()
-<span class="hljs-symbol">        then:</span>
-        thrown(Exception.<span class="hljs-keyword">class</span>)
-        studentProxy == <span class="hljs-literal">null</span>
-    }
-}
+    <span class="token keyword">def</span> <span class="token function">jdkProxyClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> jdkProxy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JdkProxy</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CglibProxySpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> cglibProxyInterface(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> cglibProxy = <span class="hljs-keyword">new</span> CglibProxy(target)
-        <span class="hljs-keyword">def</span> instance = (Renting) cglibProxy.getProxyInstance()
-<span class="hljs-symbol">        expect:</span>
-        instance.rent() == result
-<span class="hljs-symbol">        where:</span>
-        target                  || result
-        <span class="hljs-keyword">new</span> Student()           || <span class="hljs-string">&quot;student rent&quot;</span>
-        <span class="hljs-keyword">new</span> WhiteCollarWorker() || <span class="hljs-string">&quot;white collar worker rent&quot;</span>
-    }
+        <span class="token spock-block">when:</span>
+        <span class="token comment" spellcheck="true">// &#x4EE3;&#x7406;&#x7C7B;&#x4E0D;&#x80FD;&#x88AB;&#x5F3A;&#x8F6C;&#x4E3A;Student</span>
+        <span class="token keyword">def</span> studentProxy <span class="token operator">=</span> <span class="token punctuation">(</span>Student<span class="token punctuation">)</span> jdkProxy<span class="token operator">.</span><span class="token function">getProxyInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">then:</span>
+        <span class="token function">thrown</span><span class="token punctuation">(</span>Exception<span class="token operator">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+        studentProxy <span class="token operator">==</span> null
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-    <span class="hljs-keyword">def</span> cglibProxyClass(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> cglibProxy = <span class="hljs-keyword">new</span> CglibProxy(<span class="hljs-keyword">new</span> Student())
-        <span class="hljs-comment">// &#x548C;jdk&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x4E3B;&#x8981;&#x533A;&#x522B;</span>
-        <span class="hljs-comment">// jdk &#x83B7;&#x5F97;&#x5B9E;&#x4F8B;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x63A5;&#x53E3;</span>
-        <span class="hljs-comment">// cglib &#x83B7;&#x5F97;&#x5B9E;&#x4F8B;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x7C7B;</span>
-        <span class="hljs-keyword">def</span> instance = (Student) cglibProxy.getProxyInstance()
-<span class="hljs-symbol">
-        expect:</span>
-        instance.rent() == <span class="hljs-string">&quot;student rent&quot;</span>
-        instance.name() == <span class="hljs-string">&quot;student&quot;</span>
-    }
-}
+<span class="token keyword">class</span> <span class="token class-name">CglibProxySpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token function">cglibProxyInterface</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> cglibProxy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CglibProxy</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span>
+        <span class="token keyword">def</span> instance <span class="token operator">=</span> <span class="token punctuation">(</span>Renting<span class="token punctuation">)</span> cglibProxy<span class="token operator">.</span><span class="token function">getProxyInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">expect:</span>
+        instance<span class="token operator">.</span><span class="token function">rent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> result
+        <span class="token spock-block">where:</span>
+        target                  <span class="token operator">||</span> result
+        <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span>           <span class="token operator">||</span> <span class="token string">&quot;student rent&quot;</span>
+        <span class="token keyword">new</span> <span class="token class-name">WhiteCollarWorker</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token string">&quot;white collar worker rent&quot;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">def</span> <span class="token function">cglibProxyClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> cglibProxy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CglibProxy</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">// &#x548C;jdk&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x4E3B;&#x8981;&#x533A;&#x522B;</span>
+        <span class="token comment" spellcheck="true">// jdk &#x83B7;&#x5F97;&#x5B9E;&#x4F8B;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x63A5;&#x53E3;</span>
+        <span class="token comment" spellcheck="true">// cglib &#x83B7;&#x5F97;&#x5B9E;&#x4F8B;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x7C7B;</span>
+        <span class="token keyword">def</span> instance <span class="token operator">=</span> <span class="token punctuation">(</span>Student<span class="token punctuation">)</span> cglibProxy<span class="token operator">.</span><span class="token function">getProxyInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token spock-block">expect:</span>
+        instance<span class="token operator">.</span><span class="token function">rent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">&quot;student rent&quot;</span>
+        instance<span class="token operator">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">&quot;student&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -714,7 +714,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.7、代理模式","level":"1.3.7","depth":2,"next":{"title":"3、行为型模式","level":"1.4","depth":1,"path":"content/behavioural/README.md","ref":"content/behavioural/README.md","articles":[{"title":"3.1、责任链模式","level":"1.4.1","depth":2,"path":"content/behavioural/chain_of_responsibility.md","ref":"content/behavioural/chain_of_responsibility.md","articles":[]},{"title":"3.2、命令模式","level":"1.4.2","depth":2,"path":"content/behavioural/command.md","ref":"content/behavioural/command.md","articles":[]},{"title":"3.3、解释器模式","level":"1.4.3","depth":2,"path":"content/behavioural/interpreter.md","ref":"content/behavioural/interpreter.md","articles":[]},{"title":"3.4、迭代器模式","level":"1.4.4","depth":2,"path":"content/behavioural/iterator.md","ref":"content/behavioural/iterator.md","articles":[]},{"title":"3.5、中介者模式","level":"1.4.5","depth":2,"path":"content/behavioural/mediator.md","ref":"content/behavioural/mediator.md","articles":[]},{"title":"3.6、备忘录模式","level":"1.4.6","depth":2,"path":"content/behavioural/memento.md","ref":"content/behavioural/memento.md","articles":[]},{"title":"3.7、观察者模式","level":"1.4.7","depth":2,"path":"content/behavioural/observer.md","ref":"content/behavioural/observer.md","articles":[]},{"title":"3.8、状态模式","level":"1.4.8","depth":2,"path":"content/behavioural/state.md","ref":"content/behavioural/state.md","articles":[]},{"title":"3.9、策略模式","level":"1.4.9","depth":2,"path":"content/behavioural/strategy.md","ref":"content/behavioural/strategy.md","articles":[]},{"title":"3.10、模版方法模式","level":"1.4.10","depth":2,"path":"content/behavioural/template_method.md","ref":"content/behavioural/template_method.md","articles":[]},{"title":"3.11、访问者模式","level":"1.4.11","depth":2,"path":"content/behavioural/visitor.md","ref":"content/behavioural/visitor.md","articles":[]}]},"previous":{"title":"2.6、享元模式","level":"1.3.6","depth":2,"path":"content/structural/flyweight.md","ref":"content/structural/flyweight.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/structural/proxy.md","mtime":"2017-09-22T03:15:52.067Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.7、代理模式","level":"1.3.7","depth":2,"next":{"title":"3、行为型模式","level":"1.4","depth":1,"path":"content/behavioural/README.md","ref":"content/behavioural/README.md","articles":[{"title":"3.1、责任链模式","level":"1.4.1","depth":2,"path":"content/behavioural/chain_of_responsibility.md","ref":"content/behavioural/chain_of_responsibility.md","articles":[]},{"title":"3.2、命令模式","level":"1.4.2","depth":2,"path":"content/behavioural/command.md","ref":"content/behavioural/command.md","articles":[]},{"title":"3.3、解释器模式","level":"1.4.3","depth":2,"path":"content/behavioural/interpreter.md","ref":"content/behavioural/interpreter.md","articles":[]},{"title":"3.4、迭代器模式","level":"1.4.4","depth":2,"path":"content/behavioural/iterator.md","ref":"content/behavioural/iterator.md","articles":[]},{"title":"3.5、中介者模式","level":"1.4.5","depth":2,"path":"content/behavioural/mediator.md","ref":"content/behavioural/mediator.md","articles":[]},{"title":"3.6、备忘录模式","level":"1.4.6","depth":2,"path":"content/behavioural/memento.md","ref":"content/behavioural/memento.md","articles":[]},{"title":"3.7、观察者模式","level":"1.4.7","depth":2,"path":"content/behavioural/observer.md","ref":"content/behavioural/observer.md","articles":[]},{"title":"3.8、状态模式","level":"1.4.8","depth":2,"path":"content/behavioural/state.md","ref":"content/behavioural/state.md","articles":[]},{"title":"3.9、策略模式","level":"1.4.9","depth":2,"path":"content/behavioural/strategy.md","ref":"content/behavioural/strategy.md","articles":[]},{"title":"3.10、模版方法模式","level":"1.4.10","depth":2,"path":"content/behavioural/template_method.md","ref":"content/behavioural/template_method.md","articles":[]},{"title":"3.11、访问者模式","level":"1.4.11","depth":2,"path":"content/behavioural/visitor.md","ref":"content/behavioural/visitor.md","articles":[]}]},"previous":{"title":"2.6、享元模式","level":"1.3.6","depth":2,"path":"content/structural/flyweight.md","ref":"content/structural/flyweight.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/structural/proxy.md","mtime":"2017-09-22T03:15:52.067Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -517,47 +517,47 @@
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
 <p>&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x8BA1;&#x7B97;&#x8868;&#x8FBE;&#x5F0F; &#x8BA1;&#x7B97;&#x51FA;&#x7ED3;&#x679C; &#x4EE3;&#x7801;&#x4E0D;&#x5B8C;&#x6574;&#x4EC5;&#x8868;&#x8FBE;&#x89E3;&#x91CA;&#x5668;&#x8FD9;&#x4E2A;&#x610F;&#x601D;  </p>
-<pre><code class="lang-java"><span class="hljs-comment">// &#x8BA1;&#x7B97;&#x7ED3;&#x679C;</span>
-<span class="hljs-meta">@Data</span>
-<span class="hljs-meta">@Builder</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CalculateResult</span> </span>{
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> isValid;
-    <span class="hljs-keyword">private</span> BigDecimal result;
+<pre class="language-"><code class="lang-java"><span class="token comment" spellcheck="true">// &#x8BA1;&#x7B97;&#x7ED3;&#x679C;</span>
+<span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@Builder</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CalculateResult</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> isValid<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> BigDecimal result<span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> CalculateResult <span class="hljs-title">invalid</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> CalculateResult.builder()
-            .isValid(<span class="hljs-keyword">false</span>)
-            .build();
-    }
+    <span class="token keyword">public</span> <span class="token keyword">static</span> CalculateResult <span class="token function">invalid</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> CalculateResult<span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">isValid</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> CalculateResult <span class="hljs-title">valid</span><span class="hljs-params">(BigDecimal result)</span> </span>{
-        <span class="hljs-keyword">return</span> CalculateResult.builder()
-            .isValid(<span class="hljs-keyword">true</span>)
-            .result(result)
-            .build();
-    }
-}
-<span class="hljs-comment">// &#x8BA1;&#x7B97;&#x5668;&#x5E2E;&#x52A9;&#x7C7B;</span>
-<span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CalculateHelper</span> </span>{
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String LEFT_BRACKET = <span class="hljs-string">&quot;(&quot;</span>;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String RIGHT_BRACKET = <span class="hljs-string">&quot;)&quot;</span>;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String PLUS = <span class="hljs-string">&quot;+&quot;</span>;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String MINUS = <span class="hljs-string">&quot;-&quot;</span>;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String MULTIPLY = <span class="hljs-string">&quot;*&quot;</span>;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String DIVIDE = <span class="hljs-string">&quot;/&quot;</span>;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String REMAINDER = <span class="hljs-string">&quot;%&quot;</span>;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String POINT = <span class="hljs-string">&quot;.&quot;</span>;
+    <span class="token keyword">public</span> <span class="token keyword">static</span> CalculateResult <span class="token function">valid</span><span class="token punctuation">(</span>BigDecimal result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> CalculateResult<span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">isValid</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">result</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// &#x8BA1;&#x7B97;&#x5668;&#x5E2E;&#x52A9;&#x7C7B;</span>
+<span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">CalculateHelper</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String LEFT_BRACKET <span class="token operator">=</span> <span class="token string">&quot;(&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String RIGHT_BRACKET <span class="token operator">=</span> <span class="token string">&quot;)&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String PLUS <span class="token operator">=</span> <span class="token string">&quot;+&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String MINUS <span class="token operator">=</span> <span class="token string">&quot;-&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String MULTIPLY <span class="token operator">=</span> <span class="token string">&quot;*&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String DIVIDE <span class="token operator">=</span> <span class="token string">&quot;/&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String REMAINDER <span class="token operator">=</span> <span class="token string">&quot;%&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String POINT <span class="token operator">=</span> <span class="token string">&quot;.&quot;</span><span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">CalculateHelper</span><span class="hljs-params">()</span> </span>{
+    <span class="token keyword">private</span> <span class="token function">CalculateHelper</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-    }
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">static</span> BigDecimal <span class="hljs-title">calculate</span><span class="hljs-params">(String expression)</span> </span>{
-        Stack&lt;String&gt; order = convertInOrder2PostOrder(expression);
-        <span class="hljs-keyword">return</span> calc(order);
-    }
+    <span class="token keyword">static</span> BigDecimal <span class="token function">calculate</span><span class="token punctuation">(</span>String expression<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Stack<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> order <span class="token operator">=</span> <span class="token function">convertInOrder2PostOrder</span><span class="token punctuation">(</span>expression<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">calc</span><span class="token punctuation">(</span>order<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment" spellcheck="true">/**
      * &lt;p&gt;
      * &#x9996;&#x5148;&#x7EF4;&#x62A4;&#x7684;&#x662F;&#x4E24;&#x4E2A;&#x6808;&#xFF0C;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x6682;&#x4E14;&#x79F0;&#x4E3A;S1&#x548C;S2&#xFF0C;S1&#x4E2D;&#x7684;&#x7ED3;&#x679C;&#x6700;&#x540E;&#x5B58;&#x7684;&#x5C31;&#x662F;&#x9006;&#x6CE2;&#x5170;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;
      * S2&#x4E2D;&#x5C06;&#x7528;&#x4E8E;&#x6682;&#x65F6;&#x5B58;&#x653E;&#x8FD0;&#x7B97;&#x7B26;&#x5E76;&#x4E14;&#x5728;&#x6700;&#x7EC8;&#x5F62;&#x6210;&#x9006;&#x6CE2;&#x5170;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8BE5;&#x6808;&#x662F;&#x4F1A;&#x6E05;&#x7A7A;&#x7684;&#x3002;
@@ -592,77 +592,77 @@
      * &#x76F4;&#x5230;&#x904D;&#x5386;&#x5B8C;&#x6574;&#x4E2A;&#x4E2D;&#x5E8F;&#x8868;&#x8FBE;&#x5F0F;&#x4E4B;&#x540E;&#xFF0C;&#x6808;S2&#x4E2D;&#x4ECD;&#x7136;&#x5B58;&#x5728;&#x8FD0;&#x7B97;&#x7B26;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x8FD9;&#x4E9B;&#x8FD0;&#x7B97;&#x7B26;&#x4F9D;&#x6B21;&#x51FA;&#x6808;&#x52A0;&#x5165;&#x5230;&#x6808;S1&#x4E2D;&#xFF0C;&#x76F4;&#x5230;&#x6808;&#x4E3A;&#x7A7A;&#x3002;
      * &lt;/li&gt;
      * &lt;/ol&gt;
-     * <span class="hljs-doctag">@param</span> expression &#x7B97;&#x5F0F;&#x5B57;&#x7B26;&#x4E32;
+     * @param expression &#x7B97;&#x5F0F;&#x5B57;&#x7B26;&#x4E32;
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Stack&lt;String&gt; <span class="hljs-title">convertInOrder2PostOrder</span><span class="hljs-params">(String expression)</span> </span>{
-        Stack&lt;String&gt; order = <span class="hljs-keyword">new</span> Stack&lt;&gt;();
-        Stack&lt;String&gt; temp = <span class="hljs-keyword">new</span> Stack&lt;&gt;();
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, len = expression.length(); i &lt; len; i++) {
-            StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder();
-            String word = expression.substring(i, i + <span class="hljs-number">1</span>);
-            <span class="hljs-keyword">if</span> (isDigit(word)) {
-                sb.append(word);
-                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>; j &lt; len; j++) {
-                    word = expression.substring(j, j + <span class="hljs-number">1</span>);
-                    <span class="hljs-keyword">if</span> (isDigit(word)) {
-                        sb.append(word);
-                        <span class="hljs-keyword">if</span> (j == len - <span class="hljs-number">1</span>) {
-                            i = len - <span class="hljs-number">1</span>;
-                            <span class="hljs-keyword">break</span>;
-                        }
-                    } <span class="hljs-keyword">else</span> {
-                        i = j - <span class="hljs-number">1</span>;
-                        <span class="hljs-keyword">break</span>;
-                    }
-                }
+    <span class="token keyword">private</span> <span class="token keyword">static</span> Stack<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> <span class="token function">convertInOrder2PostOrder</span><span class="token punctuation">(</span>String expression<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Stack<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> order <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Stack<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> temp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> expression<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            StringBuilder sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            String word <span class="token operator">=</span> expression<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isDigit</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    word <span class="token operator">=</span> expression<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span> j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isDigit</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">==</span> len <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            i <span class="token operator">=</span> len <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                            <span class="token keyword">break</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                        i <span class="token operator">=</span> j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                        <span class="token keyword">break</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
 
-                order.push(sb.toString());
-            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (LEFT_BRACKET.equals(word)) {
-                temp.push(word);
-            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (RIGHT_BRACKET.equals(word)) {
-                <span class="hljs-keyword">while</span> (temp.size() &gt; <span class="hljs-number">0</span>) {
-                    String top = temp.pop();
-                    <span class="hljs-keyword">if</span> (LEFT_BRACKET.equals(top)) {
-                        <span class="hljs-keyword">break</span>;
-                    }
+                order<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>LEFT_BRACKET<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                temp<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>RIGHT_BRACKET<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    String top <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>LEFT_BRACKET<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>top<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">break</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
 
-                    order.push(top);
-                }
-            } <span class="hljs-keyword">else</span> { <span class="hljs-comment">// + - * / %</span>
-                <span class="hljs-keyword">if</span> (temp.isEmpty()) {
-                    temp.push(word);
-                } <span class="hljs-keyword">else</span> {
-                    String top = temp.peek();
-                    <span class="hljs-keyword">if</span> (compareTo(word, top) &gt;= <span class="hljs-number">0</span>) {
-                        temp.push(word);
-                    } <span class="hljs-keyword">else</span> {
-                        <span class="hljs-keyword">while</span> (temp.size() &gt; <span class="hljs-number">0</span>) {
-                            top = temp.peek();
-                            <span class="hljs-keyword">if</span> (compareTo(word, top) &lt; <span class="hljs-number">0</span>) {
-                                <span class="hljs-keyword">if</span>(!LEFT_BRACKET.equals(top)){
-                                    order.push(top);
-                                }
-                            } <span class="hljs-keyword">else</span> {
-                                temp.push(word);
-                                <span class="hljs-keyword">break</span>;
-                            }
+                    order<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>top<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// + - * / %</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    temp<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    String top <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">compareTo</span><span class="token punctuation">(</span>word<span class="token punctuation">,</span> top<span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        temp<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">while</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            top <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">compareTo</span><span class="token punctuation">(</span>word<span class="token punctuation">,</span> top<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>LEFT_BRACKET<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>top<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                                    order<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>top<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                <span class="token punctuation">}</span>
+                            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                                temp<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                <span class="token keyword">break</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">}</span>
 
-                            temp.pop();
-                        }
-                    }
-                }
-            }
-        }
+                            temp<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
 
-        <span class="hljs-keyword">if</span> (!temp.isEmpty()) {
-            order.addAll(temp);
-        }
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>temp<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            order<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
 
-        <span class="hljs-keyword">return</span> order;
-    }
+        <span class="token keyword">return</span> order<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment" spellcheck="true">/**
      * &lt;p&gt;
      * &#x6211;&#x4EEC;&#x6B64;&#x65F6;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x7ED3;&#x679C;&#x6808;S3&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x4F1A;&#x770B;&#x5230;&#x8BE5;&#x6808;&#x4E2D;&#x6700;&#x540E;&#x5B58;&#x653E;&#x7684;&#x662F;&#x6700;&#x7EC8;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x503C;&#x3002;
      * &#x6211;&#x4EEC;&#x4ECE;&#x5DE6;&#x81F3;&#x53F3;&#x7684;&#x904D;&#x5386;&#x6808;S1&#xFF0C;&#x7136;&#x540E;&#x6309;&#x7167;&#x4E0B;&#x9762;&#x7684;&#x89C4;&#x5219;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x6808;S3.
@@ -678,147 +678,147 @@
      * &#x5982;&#x679C;&#x9047;&#x5230;&#x7684;&#x662F;&#x53CC;&#x76EE;&#x8FD0;&#x7B97;&#x7B26;&#xFF0C;&#x90A3;&#x4E48;&#x53D6;S3&#x6808;&#x9876;&#x7684;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#xFF0C;&#x9996;&#x5148;&#x51FA;&#x6808;&#x7684;&#x5728;&#x5DE6;&#xFF0C;&#x540E;&#x51FA;&#x6808;&#x7684;&#x5728;&#x53F3;&#x8FDB;&#x884C;&#x53CC;&#x76EE;&#x8FD0;&#x7B97;&#x7B26;&#x7684;&#x8BA1;&#x7B97;&#xFF0C;&#x5C06;&#x7ED3;&#x679C;&#x518D;&#x6B21;&#x538B;&#x5165;&#x5230;S3&#x4E2D;&#x3002;
      * &lt;/li&gt;
      * &lt;/ol&gt;
-     * <span class="hljs-doctag">@param</span> order
-     * <span class="hljs-doctag">@return</span>
+     * @param order
+     * @return
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> BigDecimal <span class="hljs-title">calc</span><span class="hljs-params">(Stack&lt;String&gt; order)</span> </span>{
-        LinkedList&lt;String&gt; copyOrder = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;(order);
-        Stack&lt;String&gt; temp = <span class="hljs-keyword">new</span> Stack&lt;&gt;();
-        <span class="hljs-keyword">while</span> (copyOrder.size() &gt; <span class="hljs-number">0</span>) {
-            String top = copyOrder.pollFirst();
-            <span class="hljs-keyword">if</span> (isOperator(top)) {
-                String second = temp.pop();
-                String first = temp.pop();
-                temp.push(calc(first, second, top).toString());
-            } <span class="hljs-keyword">else</span> {
-                temp.push(top);
-            }
-        }
+    <span class="token keyword">private</span> <span class="token keyword">static</span> BigDecimal <span class="token function">calc</span><span class="token punctuation">(</span>Stack<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> order<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        LinkedList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> copyOrder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>order<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Stack<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> temp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>copyOrder<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            String top <span class="token operator">=</span> copyOrder<span class="token punctuation">.</span><span class="token function">pollFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isOperator</span><span class="token punctuation">(</span>top<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                String second <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                String first <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                temp<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token function">calc</span><span class="token punctuation">(</span>first<span class="token punctuation">,</span> second<span class="token punctuation">,</span> top<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                temp<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>top<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
 
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> BigDecimal(temp.pop());
-    }
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> BigDecimal <span class="hljs-title">calc</span><span class="hljs-params">(String first, String second, String operator)</span> </span>{
-        BigDecimal a = <span class="hljs-keyword">new</span> BigDecimal(first);
-        BigDecimal b = <span class="hljs-keyword">new</span> BigDecimal(second);
-        <span class="hljs-keyword">if</span>(PLUS.equals(operator)){
-            <span class="hljs-keyword">return</span> a.add(b);
-        }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(MINUS.equals(operator)){
-            <span class="hljs-keyword">return</span> a.subtract(b);
-        }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(MULTIPLY.equals(operator)){
-            <span class="hljs-keyword">return</span> a.multiply(b);
-        }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(DIVIDE.equals(operator)){
-            <span class="hljs-keyword">return</span> a.divide(b);
-        }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(REMAINDER.equals(operator)){
-            <span class="hljs-keyword">return</span> a.remainder(b);
-        }
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
-    }
+    <span class="token keyword">private</span> <span class="token keyword">static</span> BigDecimal <span class="token function">calc</span><span class="token punctuation">(</span>String first<span class="token punctuation">,</span> String second<span class="token punctuation">,</span> String operator<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        BigDecimal a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span>first<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        BigDecimal b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span>second<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>PLUS<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>operator<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> a<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>MINUS<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>operator<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> a<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>MULTIPLY<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>operator<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> a<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>DIVIDE<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>operator<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> a<span class="token punctuation">.</span><span class="token function">divide</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>REMAINDER<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>operator<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> a<span class="token punctuation">.</span><span class="token function">remainder</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment" spellcheck="true">/**
      * &#x662F;&#x5426;&#x662F;&#x6570;&#x5B57;&#x548C;&#x5C0F;&#x6570;&#x70B9;
-     * <span class="hljs-doctag">@param</span> word &#x957F;&#x5EA6;&#x4E3A;1&#x7684;&#x5B57;&#x7B26;&#x4E32;
-     * <span class="hljs-doctag">@return</span> true/false
+     * @param word &#x957F;&#x5EA6;&#x4E3A;1&#x7684;&#x5B57;&#x7B26;&#x4E32;
+     * @return true/false
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isDigit</span><span class="hljs-params">(String word)</span> </span>{
-        <span class="hljs-keyword">char</span> c = word.toCharArray()[<span class="hljs-number">0</span>];
-        <span class="hljs-keyword">return</span> POINT.equals(<span class="hljs-string">&quot;&quot;</span> + c) || Character.isDigit(c);
-    }
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">isDigit</span><span class="token punctuation">(</span>String word<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">char</span> c <span class="token operator">=</span> word<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> POINT<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">&quot;&quot;</span> <span class="token operator">+</span> c<span class="token punctuation">)</span> <span class="token operator">||</span> Character<span class="token punctuation">.</span><span class="token function">isDigit</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment" spellcheck="true">/**
      * &#x662F;&#x5426;&#x662F;&#x8FD0;&#x7B97;&#x7B26;(+ - * / %)
-     * <span class="hljs-doctag">@param</span> word &#x957F;&#x5EA6;&#x4E3A;1&#x7684;&#x5B57;&#x7B26;&#x4E32;
-     * <span class="hljs-doctag">@return</span> true/false
+     * @param word &#x957F;&#x5EA6;&#x4E3A;1&#x7684;&#x5B57;&#x7B26;&#x4E32;
+     * @return true/false
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isOperator</span><span class="hljs-params">(String word)</span> </span>{
-        <span class="hljs-keyword">return</span> PLUS.equals(word)
-            || MINUS.equals(word)
-            || MULTIPLY.equals(word)
-            || DIVIDE.equals(word)
-            || REMAINDER.equals(word);
-    }
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">isOperator</span><span class="token punctuation">(</span>String word<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> PLUS<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span>
+            <span class="token operator">||</span> MINUS<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span>
+            <span class="token operator">||</span> MULTIPLY<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span>
+            <span class="token operator">||</span> DIVIDE<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span>
+            <span class="token operator">||</span> REMAINDER<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment" spellcheck="true">/**
      * &#x6BD4;&#x8F83;&#x64CD;&#x4F5C;&#x7B26;&#x4F18;&#x5148;&#x7EA7;
-     * <span class="hljs-doctag">@param</span> operator1 &#x8FD0;&#x7B97;&#x7B26;1
-     * <span class="hljs-doctag">@param</span> operator2 &#x8FD0;&#x7B97;&#x7B26;2
-     * <span class="hljs-doctag">@return</span> &gt;0&#x8FD0;&#x7B97;&#x7B26;1&#x4F18;&#x5148;&#x7EA7;&#x5927;&#x4E8E;&#x8FD0;&#x7B97;&#x7B26;2 0&#x4F18;&#x5148;&#x7EA7;&#x76F8;&#x540C; &lt;0&#x8FD0;&#x7B97;&#x7B26;1&#x4F18;&#x5148;&#x7EA7;&#x5C0F;&#x4E8E;&#x8FD0;&#x7B97;&#x7B26;2
+     * @param operator1 &#x8FD0;&#x7B97;&#x7B26;1
+     * @param operator2 &#x8FD0;&#x7B97;&#x7B26;2
+     * @return &gt;0&#x8FD0;&#x7B97;&#x7B26;1&#x4F18;&#x5148;&#x7EA7;&#x5927;&#x4E8E;&#x8FD0;&#x7B97;&#x7B26;2 0&#x4F18;&#x5148;&#x7EA7;&#x76F8;&#x540C; &lt;0&#x8FD0;&#x7B97;&#x7B26;1&#x4F18;&#x5148;&#x7EA7;&#x5C0F;&#x4E8E;&#x8FD0;&#x7B97;&#x7B26;2
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compareTo</span><span class="hljs-params">(String operator1, String operator2)</span> </span>{
-        <span class="hljs-keyword">return</span> getPriority(operator1) - getPriority(operator2);
-    }
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">compareTo</span><span class="token punctuation">(</span>String operator1<span class="token punctuation">,</span> String operator2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">getPriority</span><span class="token punctuation">(</span>operator1<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">getPriority</span><span class="token punctuation">(</span>operator2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment" spellcheck="true">/**
      * &#x8FD0;&#x7B97;&#x7B26;&#x4F18;&#x5148;&#x7EA7;&#x7B49;&#x7EA7;
-     * <span class="hljs-doctag">@param</span> operator &#x8FD0;&#x7B97;&#x7B26;
-     * <span class="hljs-doctag">@return</span> 1 0 -1
+     * @param operator &#x8FD0;&#x7B97;&#x7B26;
+     * @return 1 0 -1
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getPriority</span><span class="hljs-params">(String operator)</span> </span>{
-        <span class="hljs-keyword">if</span> (LEFT_BRACKET.equals(operator) || RIGHT_BRACKET.equals(operator)) {
-            <span class="hljs-comment">// ( )</span>
-            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (PLUS.equals(operator) || MINUS.equals(operator)) {
-            <span class="hljs-comment">// + -</span>
-            <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
-        } <span class="hljs-keyword">else</span> {
-            <span class="hljs-comment">// * / %</span>
-            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-        }
-    }
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Calculator</span> </span>{
-    <span class="hljs-meta">@Getter</span>
-    <span class="hljs-keyword">private</span> String expression;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String EXPRESSION_REG = <span class="hljs-string">&quot;^(\\(*\\d+(.\\d+)*\\)*(\\+|-|/|\\*|%))+\\d+(.\\d+)*\\)*$&quot;</span>;
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">getPriority</span><span class="token punctuation">(</span>String operator<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>LEFT_BRACKET<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>operator<span class="token punctuation">)</span> <span class="token operator">||</span> RIGHT_BRACKET<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>operator<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// ( )</span>
+            <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>PLUS<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>operator<span class="token punctuation">)</span> <span class="token operator">||</span> MINUS<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>operator<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// + -</span>
+            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// * / %</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Calculator</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Getter</span>
+    <span class="token keyword">private</span> String expression<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String EXPRESSION_REG <span class="token operator">=</span> <span class="token string">&quot;^(\\(*\\d+(.\\d+)*\\)*(\\+|-|/|\\*|%))+\\d+(.\\d+)*\\)*$&quot;</span><span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Calculator</span><span class="hljs-params">(String expression)</span> </span>{
-        <span class="hljs-keyword">this</span>.expression = expression;
-    }
+    <span class="token keyword">public</span> <span class="token function">Calculator</span><span class="token punctuation">(</span>String expression<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>expression <span class="token operator">=</span> expression<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment" spellcheck="true">/**
      * &#x7B80;&#x5355;&#x6821;&#x9A8C;&#x662F;&#x5426;&#x662F;&#x5408;&#x6CD5;&#x7684;&#x7B97;&#x5F0F;
-     * <span class="hljs-doctag">@return</span> true/false
+     * @return true/false
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isValid</span><span class="hljs-params">()</span> </span>{
-        Pattern pattern = Pattern.compile(EXPRESSION_REG);
-        Matcher matcher = pattern.matcher(<span class="hljs-keyword">this</span>.expression);
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> <span class="token function">isValid</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Pattern pattern <span class="token operator">=</span> Pattern<span class="token punctuation">.</span><span class="token function">compile</span><span class="token punctuation">(</span>EXPRESSION_REG<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Matcher matcher <span class="token operator">=</span> pattern<span class="token punctuation">.</span><span class="token function">matcher</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>expression<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="hljs-keyword">return</span> matcher.matches();
-    }
+        <span class="token keyword">return</span> matcher<span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-comment">/**
+    <span class="token comment" spellcheck="true">/**
      * &#x901A;&#x8FC7;&#x8BA1;&#x7B97;&#x7B97;&#x5F0F;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;
-     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@link</span> CalculateResult}&#x8BA1;&#x7B97;&#x7ED3;&#x679C;
+     * @return {@link CalculateResult}&#x8BA1;&#x7B97;&#x7ED3;&#x679C;
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> CalculateResult <span class="hljs-title">calculate</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.isValid()) {
-            <span class="hljs-keyword">return</span> CalculateResult.invalid();
-        }
+    <span class="token keyword">public</span> CalculateResult <span class="token function">calculate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">isValid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> CalculateResult<span class="token punctuation">.</span><span class="token function">invalid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        <span class="hljs-keyword">return</span> CalculateResult.valid(CalculateHelper.calculate(<span class="hljs-keyword">this</span>.expression));
-    }
-}
+        <span class="token keyword">return</span> CalculateResult<span class="token punctuation">.</span><span class="token function">valid</span><span class="token punctuation">(</span>CalculateHelper<span class="token punctuation">.</span><span class="token function">calculate</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>expression<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CalculatorSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> calculate() {
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> calculator = <span class="hljs-keyword">new</span> Calculator(expression)
-        <span class="hljs-keyword">def</span> result = calculator.calculate()
-<span class="hljs-symbol">        expect:</span>
-        result.isValid() == isValid
-        result.getResult() == calculateResult
-<span class="hljs-symbol">        where:</span>
-        expression                   || isValid || calculateResult
-        <span class="hljs-string">&quot;a&quot;</span>                          || <span class="hljs-literal">false</span>   || <span class="hljs-literal">null</span>
-        <span class="hljs-string">&quot;1+++1&quot;</span>                      || <span class="hljs-literal">false</span>   || <span class="hljs-literal">null</span>
-        <span class="hljs-string">&quot;-1+1&quot;</span>                       || <span class="hljs-literal">false</span>   || <span class="hljs-literal">null</span>
-        <span class="hljs-string">&quot;--1+1&quot;</span>                      || <span class="hljs-literal">false</span>   || <span class="hljs-literal">null</span>
-        <span class="hljs-string">&quot;1+1&quot;</span>                        || <span class="hljs-literal">true</span>    || <span class="hljs-number">2</span>
-        <span class="hljs-string">&quot;1+(1-1)&quot;</span>                    || <span class="hljs-literal">true</span>    || <span class="hljs-number">1</span>
-        <span class="hljs-string">&quot;12.232+((111+333.222)-2*5)&quot;</span> || <span class="hljs-literal">true</span>    || <span class="hljs-number">446.454</span>
-    }
-}
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">CalculatorSpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token function">calculate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> calculator <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Calculator</span><span class="token punctuation">(</span>expression<span class="token punctuation">)</span>
+        <span class="token keyword">def</span> result <span class="token operator">=</span> calculator<span class="token operator">.</span><span class="token function">calculate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token spock-block">expect:</span>
+        result<span class="token operator">.</span><span class="token function">isValid</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> isValid
+        result<span class="token operator">.</span><span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> calculateResult
+        <span class="token spock-block">where:</span>
+        expression                   <span class="token operator">||</span> isValid <span class="token operator">||</span> calculateResult
+        <span class="token string">&quot;a&quot;</span>                          <span class="token operator">||</span> <span class="token boolean">false</span>   <span class="token operator">||</span> null
+        <span class="token string">&quot;1+++1&quot;</span>                      <span class="token operator">||</span> <span class="token boolean">false</span>   <span class="token operator">||</span> null
+        <span class="token string">&quot;-1+1&quot;</span>                       <span class="token operator">||</span> <span class="token boolean">false</span>   <span class="token operator">||</span> null
+        <span class="token string">&quot;--1+1&quot;</span>                      <span class="token operator">||</span> <span class="token boolean">false</span>   <span class="token operator">||</span> null
+        <span class="token string">&quot;1+1&quot;</span>                        <span class="token operator">||</span> <span class="token boolean">true</span>    <span class="token operator">||</span> <span class="token number">2</span>
+        <span class="token string">&quot;1+(1-1)&quot;</span>                    <span class="token operator">||</span> <span class="token boolean">true</span>    <span class="token operator">||</span> <span class="token number">1</span>
+        <span class="token string">&quot;12.232+((111+333.222)-2*5)&quot;</span> <span class="token operator">||</span> <span class="token boolean">true</span>    <span class="token operator">||</span> <span class="token number">446.454</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -863,7 +863,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.3、解释器模式","level":"1.4.3","depth":2,"next":{"title":"3.4、迭代器模式","level":"1.4.4","depth":2,"path":"content/behavioural/iterator.md","ref":"content/behavioural/iterator.md","articles":[]},"previous":{"title":"3.2、命令模式","level":"1.4.2","depth":2,"path":"content/behavioural/command.md","ref":"content/behavioural/command.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/interpreter.md","mtime":"2017-09-22T03:38:52.047Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.3、解释器模式","level":"1.4.3","depth":2,"next":{"title":"3.4、迭代器模式","level":"1.4.4","depth":2,"path":"content/behavioural/iterator.md","ref":"content/behavioural/iterator.md","articles":[]},"previous":{"title":"3.2、命令模式","level":"1.4.2","depth":2,"path":"content/behavioural/command.md","ref":"content/behavioural/command.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/interpreter.md","mtime":"2017-09-22T03:38:52.047Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

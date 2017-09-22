@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -518,63 +518,63 @@
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
 <p>&#x6709;&#x4E00;&#x4E2A;&#x751F;&#x4EA7;&#x8F66;&#x7684;&#x5DE5;&#x5382;&#xFF0C;&#x5728;&#x4F60;&#x9700;&#x8981;&#x4EC0;&#x4E48;&#x8F66;&#x7684;&#x65F6;&#x5019;&#x751F;&#x4EA7;&#x4EC0;&#x4E48;&#x8F66;&#xFF0C;&#x4E0E;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x7684;&#x533A;&#x522B;&#x5C31;&#x662F;&#x5728;&#x4F7F;&#x7528;&#x5DE5;&#x5382;&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x77E5;&#x9053;&#x5177;&#x4F53;&#x7C7B;</p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CarFactory</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Car <span class="hljs-title">create</span><span class="hljs-params">(Class&lt;? extends Car&gt; clazz)</span></span>{
-        <span class="hljs-keyword">try</span> {
-            <span class="hljs-keyword">return</span> clazz.newInstance();
-        } <span class="hljs-keyword">catch</span> (InstantiationException | IllegalAccessException e) {
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
-        }
-    }
-}
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CarFactory</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> Car <span class="token function">create</span><span class="token punctuation">(</span>Class<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">Car</span><span class="token operator">&gt;</span> clazz<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> clazz<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InstantiationException</span> <span class="token operator">|</span> IllegalAccessException e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>&#x8F66;&#x7684;&#x79CD;&#x7C7B;&#x53EF;&#x4EE5;&#x6C34;&#x5E73;&#x6269;&#x5C55;&#xFF0C;&#x5DE5;&#x5382;&#x4E0D;&#x9700;&#x8981;&#x53D8;&#x5316;  </p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Car</span> </span>{
-    <span class="hljs-function">String <span class="hljs-title">getName</span><span class="hljs-params">()</span></span>;
-}
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+    String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BmwCar</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Car</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Bmw&quot;</span>;
-    }
-}
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BmwCar</span> <span class="token keyword">implements</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Bmw&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BenzCar</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Car</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Benz&quot;</span>;
-    }
-}
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BenzCar</span> <span class="token keyword">implements</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Benz&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AudiCar</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Car</span></span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Audi&quot;</span>;
-    }
-}
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AudiCar</span> <span class="token keyword">implements</span> <span class="token class-name">Car</span><span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Audi&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CarFactorySpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> create(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> carFactory = <span class="hljs-keyword">new</span> CarFactory()
-        <span class="hljs-keyword">def</span> benz = carFactory.create(BenzCar.<span class="hljs-keyword">class</span>)
-        <span class="hljs-keyword">def</span> bmw = carFactory.create(BmwCar.<span class="hljs-keyword">class</span>)
-        <span class="hljs-keyword">def</span> audi = carFactory.create(AudiCar.<span class="hljs-keyword">class</span>)
-<span class="hljs-symbol">
-        expect:</span>
-        benz != <span class="hljs-literal">null</span>
-        bmw != <span class="hljs-literal">null</span>
-        audi != <span class="hljs-literal">null</span>
-        benz <span class="hljs-keyword">instanceof</span> BenzCar
-        bmw <span class="hljs-keyword">instanceof</span> BmwCar
-        audi <span class="hljs-keyword">instanceof</span> AudiCar
-        benz.getName() == <span class="hljs-string">&quot;Benz&quot;</span>
-        bmw.getName() == <span class="hljs-string">&quot;Bmw&quot;</span>
-        audi.getName() == <span class="hljs-string">&quot;Audi&quot;</span>
-    }
-}
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">class</span> <span class="token class-name">CarFactorySpec</span> <span class="token keyword">extends</span> <span class="token class-name">Specification</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token spock-block">given:</span>
+        <span class="token keyword">def</span> carFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CarFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> benz <span class="token operator">=</span> carFactory<span class="token operator">.</span><span class="token function">create</span><span class="token punctuation">(</span>BenzCar<span class="token operator">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> bmw <span class="token operator">=</span> carFactory<span class="token operator">.</span><span class="token function">create</span><span class="token punctuation">(</span>BmwCar<span class="token operator">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> audi <span class="token operator">=</span> carFactory<span class="token operator">.</span><span class="token function">create</span><span class="token punctuation">(</span>AudiCar<span class="token operator">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+
+        <span class="token spock-block">expect:</span>
+        benz <span class="token operator">!=</span> null
+        bmw <span class="token operator">!=</span> null
+        audi <span class="token operator">!=</span> null
+        benz <span class="token keyword">instanceof</span> <span class="token class-name">BenzCar</span>
+        bmw <span class="token keyword">instanceof</span> <span class="token class-name">BmwCar</span>
+        audi <span class="token keyword">instanceof</span> <span class="token class-name">AudiCar</span>
+        benz<span class="token operator">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">&quot;Benz&quot;</span>
+        bmw<span class="token operator">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">&quot;Bmw&quot;</span>
+        audi<span class="token operator">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">&quot;Audi&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -619,7 +619,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.4、工厂方法模式","level":"1.2.4","depth":2,"next":{"title":"1.5、构造器模式","level":"1.2.5","depth":2,"path":"content/creational/builder.md","ref":"content/creational/builder.md","articles":[]},"previous":{"title":"1.3、抽象工厂模式","level":"1.2.3","depth":2,"path":"content/creational/abstract_factory.md","ref":"content/creational/abstract_factory.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/creational/factory_method.md","mtime":"2017-09-21T09:34:43.979Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T05:44:31.577Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.4、工厂方法模式","level":"1.2.4","depth":2,"next":{"title":"1.5、构造器模式","level":"1.2.5","depth":2,"path":"content/creational/builder.md","ref":"content/creational/builder.md","articles":[]},"previous":{"title":"1.3、抽象工厂模式","level":"1.2.3","depth":2,"path":"content/creational/abstract_factory.md","ref":"content/creational/abstract_factory.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","prism","-highlight","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"],"lang":{"flow":"typescript"}},"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/creational/factory_method.md","mtime":"2017-09-21T09:34:43.979Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T07:59:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
