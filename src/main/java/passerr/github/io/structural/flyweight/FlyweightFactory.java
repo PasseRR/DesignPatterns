@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Copyright(c) gome inc Gome Co.,LTD
  */
 public class FlyweightFactory {
-    private Map<String, Shape> cache = new ConcurrentHashMap<>();
+    private final Map<String, Shape> cache = new ConcurrentHashMap<>();
 
     public Shape create(String shape){
         if(!this.cache.containsKey(shape)){
