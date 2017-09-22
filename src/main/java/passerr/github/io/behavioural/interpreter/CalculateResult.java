@@ -4,8 +4,6 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
 
 /**
  * 计算结果
@@ -30,13 +28,5 @@ public class CalculateResult {
             .isValid(true)
             .result(result)
             .build();
-    }
-
-    public static void main(String[] args) {
-        BigDecimal a = new BigDecimal(1);
-        BigDecimal b = new BigDecimal(3);
-        BigDecimal c = a.divide(b, new MathContext(5, RoundingMode.HALF_UP));
-
-        System.out.println(c.toString());
     }
 }
