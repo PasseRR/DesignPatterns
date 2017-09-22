@@ -15,3 +15,4 @@
   * [3.6、享元模式](content/structural/flyweight.md)
   * [3.7、代理模式](content/structural/proxy.md)
 * [4、行为型模式](content/behavioural/README.md)
+  * [4.1、责任链模式](content/behavioural/chain_of_responsibility.md)
