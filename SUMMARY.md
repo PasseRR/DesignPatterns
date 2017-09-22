@@ -13,4 +13,5 @@
   * [3.4、桥接模式](content/structural/bridge.md)
   * [3.5、装饰器模式](content/structural/decorator.md)
   * [3.6、享元模式](content/structural/flyweight.md)
+  * [3.7、代理模式](content/structural/proxy.md)
 * [4、行为型模式](content/behavioural/README.md)
