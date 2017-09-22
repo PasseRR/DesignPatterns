@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>4.4、迭代器模式 · 设计模式</title>
+        <title>4.5、中介者模式 · 设计模式</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -61,10 +61,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="mediator.html" />
     
-    
-    <link rel="prev" href="interpreter.html" />
+    <link rel="prev" href="iterator.html" />
     
 
     </head>
@@ -366,7 +364,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.4" data-path="iterator.html">
+        <li class="chapter " data-level="1.5.4" data-path="iterator.html">
             
                 <a href="iterator.html">
             
@@ -379,7 +377,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="mediator.html">
+        <li class="chapter active" data-level="1.5.5" data-path="mediator.html">
             
                 <a href="mediator.html">
             
@@ -427,7 +425,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >4.4、迭代器模式</a>
+        <a href="../.." >4.5、中介者模式</a>
     </h1>
 </div>
 
@@ -442,75 +440,127 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x8FED;&#x4EE3;&#x5668;&#x6A21;&#x5F0F;">&#x8FED;&#x4EE3;&#x5668;&#x6A21;&#x5F0F;</h2>
-<p>&#x8FED;&#x4EE3;&#x5668;&#x6A21;&#x5F0F;&#x53EF;&#x4EE5;&#x987A;&#x5E8F;&#x5730;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x805A;&#x96C6;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x800C;&#x4E0D;&#x5FC5;&#x66B4;&#x9732;&#x805A;&#x96C6;&#x7684;&#x5185;&#x90E8;&#x8868;&#x8C61;&#xFF08;internal representation&#xFF09;  </p>
+                                <h2 id="&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;">&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;</h2>
+<p>&#x7528;&#x4E00;&#x4E2A;&#x4E2D;&#x4ECB;&#x8005;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x5BF9;&#x8C61;&#x4EA4;&#x4E92;&#xFF0C;&#x4E2D;&#x4ECB;&#x8005;&#x4F7F;&#x5404;&#x5BF9;&#x8C61;&#x4E0D;&#x9700;&#x8981;&#x663E;&#x793A;&#x5730;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#xFF0C;&#x4ECE;&#x800C;&#x4F7F;&#x8026;&#x5408;&#x677E;&#x6563;&#xFF0C;&#x800C;&#x4E14;&#x53EF;&#x4EE5;&#x72EC;&#x7ACB;&#x5730;&#x6539;&#x53D8;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x4EA4;&#x4E92;&#x3002;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x5BF9;&#x8C61;&#x6765;&#x8FDB;&#x884C;&#x6D88;&#x606F;&#x5206;&#x53D1;&#x4EE5;&#x53CA;&#x51CF;&#x5C11;&#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x76F4;&#x63A5;&#x4F9D;&#x8D56;&#x3002;  </p>
 <h3 id="jdk&#x4E2D;&#x7684;&#x4F7F;&#x7528;">JDK&#x4E2D;&#x7684;&#x4F7F;&#x7528;</h3>
 <ul>
-<li>java.util.Iterator</li>
-<li>java.util.Enumeration</li>
+<li>java.util.Timer#schedule(java.util.TimerTask, java.util.Date)</li>
+<li>java.lang.reflect.Method#invoke(java.lang.Object, java.lang.Object...)</li>
+<li>java.util.concurrent.ExecutorService#submit(java.util.concurrent.Callable)</li>
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
-<p>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;List&#x7684;&#x8FED;&#x4EE3;&#x5668;  </p>
-<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyIterator</span>&lt;<span class="hljs-title">T</span>&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
-    <span class="hljs-keyword">private</span> LinkedList&lt;T&gt; list;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> index;
+<p>ATM&#x4F5C;&#x4E3A;&#x4E2D;&#x4ECB;&#x8005; &#x8BA9;&#x94F6;&#x884C;&#x548C;&#x5BA2;&#x6237;&#x4EA4;&#x4E92; &#x4EE5;&#x53D6;&#x5B58;&#x6B3E;&#x4E3A;&#x4F8B;  </p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x865A;&#x62DF;&#x51FA;&#x7EB3;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Teller</span> </span>{
+    <span class="hljs-comment">/**
+     * &#x53D6;&#x94B1;&#x64CD;&#x4F5C;
+     * <span class="hljs-doctag">@param</span> account &#x5361;&#x53F7;
+     * <span class="hljs-doctag">@param</span> amount &#x91D1;&#x989D;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">withdraw</span><span class="hljs-params">(String account, BigDecimal amount)</span></span>;
+    <span class="hljs-comment">/**
+     * &#x5B58;&#x94B1;&#x64CD;&#x4F5C;
+     * <span class="hljs-doctag">@param</span> account &#x5361;&#x53F7;
+     * <span class="hljs-doctag">@param</span> amount &#x91D1;&#x989D;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">deposit</span><span class="hljs-params">(String account, BigDecimal amount)</span></span>;
+}
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bank</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Teller</span> </span>{
+    <span class="hljs-meta">@Getter</span>
+    <span class="hljs-keyword">private</span> BigDecimal balance;
 
-    MyIterator(LinkedList&lt;T&gt; list) {
-        <span class="hljs-keyword">this</span>.list = list;
-        <span class="hljs-keyword">this</span>.index = <span class="hljs-number">0</span>;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Bank</span><span class="hljs-params">(BigDecimal balance)</span> </span>{
+        <span class="hljs-keyword">this</span>.balance = balance;
     }
 
     <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.index &lt; <span class="hljs-keyword">this</span>.list.size();
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">withdraw</span><span class="hljs-params">(String account, BigDecimal amount)</span> </span>{
+        <span class="hljs-comment">// &#x5BA2;&#x6237;&#x53D6;&#x94B1; &#x94F6;&#x884C;&#x4F59;&#x989D;&#x51CF;&#x5C11;</span>
+        <span class="hljs-keyword">this</span>.balance = <span class="hljs-keyword">this</span>.balance.subtract(amount);
     }
 
     <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.list.get(<span class="hljs-keyword">this</span>.index ++);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deposit</span><span class="hljs-params">(String account, BigDecimal amount)</span> </span>{
+        <span class="hljs-comment">// &#x5BA2;&#x6237;&#x5B58;&#x94B1; &#x94F6;&#x884C;&#x4F59;&#x989D;&#x589E;&#x52A0;</span>
+        <span class="hljs-keyword">this</span>.balance = <span class="hljs-keyword">this</span>.balance.add(amount);
     }
 }
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Customer</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Teller</span> </span>{
+    <span class="hljs-meta">@Getter</span>
+    <span class="hljs-keyword">private</span> BigDecimal cash;
 
-<span class="hljs-comment">// LinkedList&#x89C1;&#x7EC4;&#x5408;&#x6A21;&#x5F0F;</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyList</span>&lt;<span class="hljs-title">T</span>&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title">LinkedList</span>&lt;<span class="hljs-title">T</span>&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterable</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Customer</span><span class="hljs-params">(BigDecimal cash)</span> </span>{
+        <span class="hljs-keyword">this</span>.cash = cash;
+    }
+
     <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Iterator&lt;T&gt; <span class="hljs-title">iterator</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MyIterator&lt;&gt;(<span class="hljs-keyword">this</span>);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">withdraw</span><span class="hljs-params">(String account, BigDecimal amount)</span> </span>{
+        <span class="hljs-comment">// Atm&#x53D6;&#x94B1; &#x5BA2;&#x6237;&#x73B0;&#x91D1;&#x589E;&#x52A0;</span>
+        <span class="hljs-keyword">this</span>.cash = <span class="hljs-keyword">this</span>.cash.add(amount);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deposit</span><span class="hljs-params">(String account, BigDecimal amount)</span> </span>{
+        <span class="hljs-comment">// Atm&#x5B58;&#x94B1; &#x5BA2;&#x6237;&#x73B0;&#x91D1;&#x51CF;&#x5C11;</span>
+        <span class="hljs-keyword">this</span>.cash = <span class="hljs-keyword">this</span>.cash.subtract(amount);
+    }
+}
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Atm</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Teller</span> </span>{
+    <span class="hljs-keyword">private</span> Bank bank;
+    <span class="hljs-keyword">private</span> Customer customer;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Atm</span><span class="hljs-params">(Bank bank, Customer customer)</span> </span>{
+        <span class="hljs-keyword">this</span>.bank = bank;
+        <span class="hljs-keyword">this</span>.customer = customer;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">withdraw</span><span class="hljs-params">(String account, BigDecimal amount)</span> </span>{
+        <span class="hljs-keyword">this</span>.bank.withdraw(account, amount);
+        <span class="hljs-keyword">this</span>.customer.withdraw(account, amount);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deposit</span><span class="hljs-params">(String account, BigDecimal amount)</span> </span>{
+        <span class="hljs-keyword">this</span>.bank.deposit(account, amount);
+        <span class="hljs-keyword">this</span>.customer.deposit(account, amount);
     }
 }
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyListSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> myList(){
-        <span class="hljs-keyword">def</span> data
+<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AtmSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
+    <span class="hljs-keyword">def</span> atm(){
 <span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> list = <span class="hljs-keyword">new</span> MyList()
-        list.add(<span class="hljs-string">&quot;hello&quot;</span>)
-        list.add(<span class="hljs-string">&quot;world&quot;</span>)
-        list.add(<span class="hljs-string">&quot;!&quot;</span>)
-        <span class="hljs-keyword">def</span> iterator = list.iterator()
-<span class="hljs-symbol">
-        expect:</span>
-        iterator != <span class="hljs-literal">null</span>
-        iterator.hasNext()
+        <span class="hljs-keyword">def</span> bank = <span class="hljs-keyword">new</span> Bank(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;1000&quot;</span>))
+        <span class="hljs-keyword">def</span> customer1 = <span class="hljs-keyword">new</span> Customer(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;250&quot;</span>))
+        <span class="hljs-keyword">def</span> customer2 = <span class="hljs-keyword">new</span> Customer(<span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;200&quot;</span>))
 <span class="hljs-symbol">
         when:</span>
-        data = iterator.next()
+        <span class="hljs-keyword">def</span> atm1 = <span class="hljs-keyword">new</span> Atm(bank, customer1)
+        atm1.deposit(<span class="hljs-string">&quot;1234&quot;</span>, <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;100&quot;</span>))
 <span class="hljs-symbol">        then:</span>
-        data == <span class="hljs-string">&quot;hello&quot;</span>
-        iterator.hasNext()
+        customer1.getCash() == <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;150&quot;</span>)
+        bank.getBalance() == <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;1100&quot;</span>)
+<span class="hljs-symbol">
+
+        when:</span>
+        atm1.withdraw(<span class="hljs-string">&quot;1234&quot;</span>, <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;50&quot;</span>))
+<span class="hljs-symbol">        then:</span>
+        customer1.getCash() == <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;200&quot;</span>)
+        bank.getBalance() == <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;1050&quot;</span>)
 <span class="hljs-symbol">
         when:</span>
-        data = iterator.next()
+        <span class="hljs-keyword">def</span> atm2 = <span class="hljs-keyword">new</span> Atm(bank, customer2)
+        atm2.withdraw(<span class="hljs-string">&quot;4321&quot;</span>, <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;20&quot;</span>))
 <span class="hljs-symbol">        then:</span>
-        data == <span class="hljs-string">&quot;world&quot;</span>
-        iterator.hasNext()
+        customer2.getCash() == <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;220&quot;</span>)
+        bank.getBalance() == <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;1030&quot;</span>)
 <span class="hljs-symbol">
         when:</span>
-        data = iterator.next()
+        atm2.deposit(<span class="hljs-string">&quot;4321&quot;</span>, <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;70&quot;</span>))
 <span class="hljs-symbol">        then:</span>
-        data == <span class="hljs-string">&quot;!&quot;</span>
-        !iterator.hasNext()
+        customer2.getCash() == <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;150&quot;</span>)
+        bank.getBalance() == <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;1100&quot;</span>)
     }
 }
 </code></pre>
@@ -541,14 +591,10 @@
 
             
                 
-                <a href="interpreter.html" class="navigation navigation-prev " aria-label="Previous page: 4.3、解释器模式">
+                <a href="iterator.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 4.4、迭代器模式">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="mediator.html" class="navigation navigation-next " aria-label="Next page: 4.5、中介者模式">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -557,7 +603,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.4、迭代器模式","level":"1.5.4","depth":2,"next":{"title":"4.5、中介者模式","level":"1.5.5","depth":2,"path":"content/behavioural/mediator.md","ref":"content/behavioural/mediator.md","articles":[]},"previous":{"title":"4.3、解释器模式","level":"1.5.3","depth":2,"path":"content/behavioural/interpreter.md","ref":"content/behavioural/interpreter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/iterator.md","mtime":"2017-09-22T04:10:12.261Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T04:23:54.258Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.5、中介者模式","level":"1.5.5","depth":2,"previous":{"title":"4.4、迭代器模式","level":"1.5.4","depth":2,"path":"content/behavioural/iterator.md","ref":"content/behavioural/iterator.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/mediator.md","mtime":"2017-09-22T04:23:28.332Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T04:23:54.258Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
