@@ -20,3 +20,4 @@
   * [4.3、解释器模式](content/behavioural/interpreter.md)
   * [4.4、迭代器模式](content/behavioural/iterator.md)
   * [4.5、中介者模式](content/behavioural/mediator.md)
+  * [4.6、备忘录模式](content/behavioural/memento.md)
