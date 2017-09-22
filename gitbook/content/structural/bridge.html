@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>3.3、适配器模式 · 设计模式</title>
+        <title>3.4、桥接模式 · 设计模式</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="bridge.html" />
+    <link rel="next" href="../behavioural/" />
     
     
-    <link rel="prev" href="facade.html" />
+    <link rel="prev" href="adapter.html" />
     
 
     </head>
@@ -243,7 +243,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.3" data-path="adapter.html">
+        <li class="chapter " data-level="1.4.3" data-path="adapter.html">
             
                 <a href="adapter.html">
             
@@ -256,7 +256,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="bridge.html">
+        <li class="chapter active" data-level="1.4.4" data-path="bridge.html">
             
                 <a href="bridge.html">
             
@@ -317,7 +317,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >3.3、适配器模式</a>
+        <a href="../.." >3.4、桥接模式</a>
     </h1>
 </div>
 
@@ -332,91 +332,82 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;">&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;</h2>
-<p>&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;&#x5C06;&#x67D0;&#x4E2A;&#x7C7B;&#x7684;&#x63A5;&#x53E3;&#x8F6C;&#x6362;&#x6210;&#x5BA2;&#x6237;&#x7AEF;&#x671F;&#x671B;&#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x8868;&#x793A;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x6D88;&#x9664;&#x7531;&#x4E8E;&#x63A5;&#x53E3;&#x4E0D;&#x5339;&#x914D;&#x6240;&#x9020;&#x6210;&#x7684;&#x7C7B;&#x7684;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#x3002;</p>
+                                <h2 id="&#x6865;&#x63A5;&#x6A21;&#x5F0F;">&#x6865;&#x63A5;&#x6A21;&#x5F0F;</h2>
+<p>&#x5C06;&#x62BD;&#x8C61;&#x90E8;&#x5206;&#x4E0E;&#x5B83;&#x7684;&#x5B9E;&#x73B0;&#x90E8;&#x5206;&#x5206;&#x79BB;&#xFF0C;&#x4F7F;&#x5B83;&#x4EEC;&#x90FD;&#x53EF;&#x4EE5;&#x72EC;&#x7ACB;&#x5730;&#x53D8;&#x5316;&#x3002;</p>
 <h3 id="jdk&#x4E2D;&#x7684;&#x4F7F;&#x7528;">JDK&#x4E2D;&#x7684;&#x4F7F;&#x7528;</h3>
 <ul>
-<li>java.util.Arrays#asList()</li>
-<li>java.util.Collections#list()</li>
-<li>java.util.Collections#enumeration()</li>
-<li>java.io.InputStreamReader#InputStreamReader(java.io.InputStream)</li>
-<li>java.io.OutputStreamWriter#OutputStreamWriter(java.io.OutputStream)</li>
+<li>java.util.logging.Handler</li>
+<li>java.util.logging.Formatter</li>
+<li>java.util.Collections#newSetFromMap()</li>
+<li>jdbc</li>
 </ul>
 <h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
-<p>&#x7F8E;&#x56FD;&#x4F7F;&#x7528;&#x7684;&#x4E09;&#x5B54;&#x63D2;&#x5EA7;&#x4E14;&#x9700;&#x8981;&#x7684;&#x7535;&#x538B;&#x662F;110V &#x4E2D;&#x56FD;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x4E24;&#x5B54;&#x63D2;&#x5EA7;&#x4E14;&#x4E14;&#x9700;&#x8981;&#x7535;&#x538B;&#x662F;220V &#x4E09;&#x5B54;&#x63D2;&#x5EA7;&#x62FF;&#x5230;&#x4E2D;&#x56FD;&#x9700;&#x8981;&#x8F6C;&#x6362;&#x4E3A;&#x4E24;&#x5B54;&#x63D2;&#x5EA7;&#x624D;&#x80FD;&#x4F7F;&#x7528;  </p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">TwoPinSoket</span> </span>{
-    <span class="hljs-function">String <span class="hljs-title">chargeWithTwoPin</span><span class="hljs-params">()</span></span>;
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">voltage</span><span class="hljs-params">()</span></span>;
+<p>&#x90AE;&#x4EF6;&#x3001;&#x5FAE;&#x4FE1;&#x3001;QQ&#x90FD;&#x53EF;&#x4EE5;&#x53D1;&#x9001;&#x6587;&#x5B57;&#x3001;&#x56FE;&#x7247;&#x3001;&#x58F0;&#x97F3;&#x6D88;&#x606F; &#x5F53;&#x90AE;&#x4EF6;&#x3001;&#x5FAE;&#x4FE1;&#x3001;QQ&#x53D1;&#x9001;&#x6D88;&#x606F;&#x65F6; &#x53EA;&#x6709;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x5185;&#x5BB9;&#x6539;&#x53D8; &#x5176;&#x4ED6;&#x4E0D;&#x4F1A;&#x53D8;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Message</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> String <span class="hljs-title">getMsg</span><span class="hljs-params">()</span></span>;
 }
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TwoPinSoketChina</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">TwoPinSoket</span> </span>{
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Text</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Message</span> </span>{
     <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">chargeWithTwoPin</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&#x4E24;&#x5B54;&#x63D2;&#x5EA7;&quot;</span>;
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">voltage</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-number">220</span>;
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">getMsg</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;text&quot;</span>;
     }
 }
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ThreePinSoket</span> </span>{
-    <span class="hljs-function">String <span class="hljs-title">chargeWithThreePin</span><span class="hljs-params">()</span></span>;
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">voltage</span><span class="hljs-params">()</span></span>;
-}
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreePinSoketAmerica</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ThreePinSoket</span> </span>{
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Picture</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Message</span> </span>{
     <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">chargeWithThreePin</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&#x4E09;&#x5B54;&#x63D2;&#x5EA7;&quot;</span>;
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">getMsg</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;picture&quot;</span>;
     }
-
+}
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Voice</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Message</span> </span>{
     <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">voltage</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-number">110</span>;
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">getMsg</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;voice&quot;</span>;
     }
 }
 </code></pre>
-<p>&#x7F8E;&#x56FD;&#x63D2;&#x5EA7;&#x7684;&#x9002;&#x914D;&#x5668;  </p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AmericaAdapter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">TwoPinSoket</span> </span>{
-    <span class="hljs-keyword">private</span> ThreePinSoket threePinSoket;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AmericaAdapter</span><span class="hljs-params">(ThreePinSoket threePinSoket)</span></span>{
-        <span class="hljs-keyword">this</span>.threePinSoket = threePinSoket;
-    }
+<p>&#x6D88;&#x606F;&#x53D1;&#x9001;  </p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Communicator</span> </span>{
+    Message message;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> String <span class="hljs-title">send</span><span class="hljs-params">()</span></span>;
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">chargeWithTwoPin</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.threePinSoket.chargeWithThreePin();
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setMessage</span><span class="hljs-params">(Message message)</span></span>{
+        <span class="hljs-keyword">this</span>.message = message;
     }
-
+}
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Email</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Communicator</span> </span>{
     <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">voltage</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.threePinSoket.voltage() * <span class="hljs-number">2</span>;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">send</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;email send &quot;</span> + <span class="hljs-keyword">super</span>.message.getMsg();
+    }
+}
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Qicq</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Communicator</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">send</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;qicq send &quot;</span> + <span class="hljs-keyword">super</span>.message.getMsg();
+    }
+}
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Wechat</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Communicator</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">send</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;wechat send &quot;</span> + <span class="hljs-keyword">super</span>.message.getMsg();
     }
 }
 </code></pre>
 <h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
-<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AmericaAdapterSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
-    <span class="hljs-keyword">def</span> twoPinSoket(){
+<p>&#x4EE5;&#x5FAE;&#x4FE1;&#x4E3A;&#x4F8B; &#x5176;&#x4ED6;&#x4E24;&#x4E2A;&#x7C7B;&#x4F3C;  </p>
+<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WechatSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
+    <span class="hljs-meta">@Unroll</span>
+    <span class="hljs-keyword">def</span> <span class="hljs-string">&quot;#result&quot;</span>() {
 <span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> twoPinSoket = <span class="hljs-keyword">new</span> TwoPinSoketChina()
+        <span class="hljs-keyword">def</span> wechat = <span class="hljs-keyword">new</span> Wechat()
+        wechat.setMessage(message)
 <span class="hljs-symbol">        expect:</span>
-        twoPinSoket.chargeWithTwoPin() == <span class="hljs-string">&quot;&#x4E24;&#x5B54;&#x63D2;&#x5EA7;&quot;</span>
-        twoPinSoket.voltage() == <span class="hljs-number">220</span>
-    }
-
-    <span class="hljs-keyword">def</span> threePinSoket(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> threePinSoket = <span class="hljs-keyword">new</span> ThreePinSoketAmerica()
-<span class="hljs-symbol">        expect:</span>
-        threePinSoket.chargeWithThreePin() == <span class="hljs-string">&quot;&#x4E09;&#x5B54;&#x63D2;&#x5EA7;&quot;</span>
-        threePinSoket.voltage() == <span class="hljs-number">110</span>
-    }
-
-    <span class="hljs-keyword">def</span> adapter(){
-<span class="hljs-symbol">        given:</span>
-        <span class="hljs-keyword">def</span> threePinSoket = <span class="hljs-keyword">new</span> ThreePinSoketAmerica()
-        <span class="hljs-keyword">def</span> twoPinSoket = <span class="hljs-keyword">new</span> AmericaAdapter(threePinSoket)
-<span class="hljs-symbol">        expect:</span>
-        twoPinSoket.chargeWithTwoPin() == <span class="hljs-string">&quot;&#x4E09;&#x5B54;&#x63D2;&#x5EA7;&quot;</span>
-        twoPinSoket.voltage() == <span class="hljs-number">220</span>
+        wechat.send() == result
+<span class="hljs-symbol">        where:</span>
+        message       || result
+        <span class="hljs-keyword">new</span> Picture() || <span class="hljs-string">&quot;wechat send picture&quot;</span>
+        <span class="hljs-keyword">new</span> Text()    || <span class="hljs-string">&quot;wechat send text&quot;</span>
+        <span class="hljs-keyword">new</span> Voice()   || <span class="hljs-string">&quot;wechat send voice&quot;</span>
     }
 }
 </code></pre>
@@ -447,12 +438,12 @@
 
             
                 
-                <a href="facade.html" class="navigation navigation-prev " aria-label="Previous page: 3.2、外观模式">
+                <a href="adapter.html" class="navigation navigation-prev " aria-label="Previous page: 3.3、适配器模式">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="bridge.html" class="navigation navigation-next " aria-label="Next page: 3.4、桥接模式">
+                <a href="../behavioural/" class="navigation navigation-next " aria-label="Next page: 4、行为型模式">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -463,7 +454,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.3、适配器模式","level":"1.4.3","depth":2,"next":{"title":"3.4、桥接模式","level":"1.4.4","depth":2,"path":"content/structural/bridge.md","ref":"content/structural/bridge.md","articles":[]},"previous":{"title":"3.2、外观模式","level":"1.4.2","depth":2,"path":"content/structural/facade.md","ref":"content/structural/facade.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/structural/adapter.md","mtime":"2017-09-22T01:56:26.073Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T02:18:36.798Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.4、桥接模式","level":"1.4.4","depth":2,"next":{"title":"4、行为型模式","level":"1.5","depth":1,"path":"content/behavioural/README.md","ref":"content/behavioural/README.md","articles":[]},"previous":{"title":"3.3、适配器模式","level":"1.4.3","depth":2,"path":"content/structural/adapter.md","ref":"content/structural/adapter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/structural/bridge.md","mtime":"2017-09-22T02:16:57.605Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T02:18:36.798Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
