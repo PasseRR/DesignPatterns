@@ -18,3 +18,4 @@
   * [4.1、责任链模式](content/behavioural/chain_of_responsibility.md)
   * [4.2、命令模式](content/behavioural/command.md)
   * [4.3、解释器模式](content/behavioural/interpreter.md)
+  * [4.4、迭代器模式](content/behavioural/iterator.md)
