@@ -16,3 +16,4 @@
   * [3.7、代理模式](content/structural/proxy.md)
 * [4、行为型模式](content/behavioural/README.md)
   * [4.1、责任链模式](content/behavioural/chain_of_responsibility.md)
+  * [4.2、命令模式](content/behavioural/command.md)

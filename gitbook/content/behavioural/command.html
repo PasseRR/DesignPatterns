@@ -1,0 +1,667 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>4.2、命令模式 · 设计模式</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="passerr">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-collapsible-chapters/collapsible-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../css/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="chain_of_responsibility.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    0、什么是设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../principle.html">
+            
+                <a href="../../principle.html">
+            
+                    
+                    1、设计模式六大原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../creational/">
+            
+                <a href="../creational/">
+            
+                    
+                    2、创建型模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../creational/singleton.html">
+            
+                <a href="../creational/singleton.html">
+            
+                    
+                    2.1、单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../creational/prototype.html">
+            
+                <a href="../creational/prototype.html">
+            
+                    
+                    2.2、原型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../creational/abstract_factory.html">
+            
+                <a href="../creational/abstract_factory.html">
+            
+                    
+                    2.3、抽象工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../creational/factory_method.html">
+            
+                <a href="../creational/factory_method.html">
+            
+                    
+                    2.4、工厂方法模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../creational/builder.html">
+            
+                <a href="../creational/builder.html">
+            
+                    
+                    2.5、构造器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../structural/">
+            
+                <a href="../structural/">
+            
+                    
+                    3、结构型模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../structural/composite.html">
+            
+                <a href="../structural/composite.html">
+            
+                    
+                    3.1、组合模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../structural/facade.html">
+            
+                <a href="../structural/facade.html">
+            
+                    
+                    3.2、外观模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../structural/adapter.html">
+            
+                <a href="../structural/adapter.html">
+            
+                    
+                    3.3、适配器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../structural/bridge.html">
+            
+                <a href="../structural/bridge.html">
+            
+                    
+                    3.4、桥接模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../structural/decorator.html">
+            
+                <a href="../structural/decorator.html">
+            
+                    
+                    3.5、装饰器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../structural/flyweight.html">
+            
+                <a href="../structural/flyweight.html">
+            
+                    
+                    3.6、享元模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../structural/proxy.html">
+            
+                <a href="../structural/proxy.html">
+            
+                    
+                    3.7、代理模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    4、行为型模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="chain_of_responsibility.html">
+            
+                <a href="chain_of_responsibility.html">
+            
+                    
+                    4.1、责任链模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.2" data-path="command.html">
+            
+                <a href="command.html">
+            
+                    
+                    4.2、命令模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >4.2、命令模式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x547D;&#x4EE4;&#x6A21;&#x5F0F;">&#x547D;&#x4EE4;&#x6A21;&#x5F0F;</h2>
+<p>&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x628A;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x6216;&#x8005;&#x64CD;&#x4F5C;&#x5C01;&#x88C5;&#x5230;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E2D;&#x3002;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x5141;&#x8BB8;&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x8BF7;&#x6C42;&#x628A;&#x5BA2;&#x6237;&#x7AEF;&#x53C2;&#x6570;&#x5316;&#xFF0C;&#x5BF9;&#x8BF7;&#x6C42;&#x6392;&#x961F;&#x6216;&#x8005;&#x8BB0;&#x5F55;&#x8BF7;&#x6C42;&#x65E5;&#x5FD7;&#xFF0C;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x547D;&#x4EE4;&#x7684;&#x64A4;&#x9500;&#x548C;&#x6062;&#x590D;&#x529F;&#x80FD;&#x3002;  </p>
+<h3 id="jdk&#x4E2D;&#x7684;&#x4F7F;&#x7528;">JDK&#x4E2D;&#x7684;&#x4F7F;&#x7528;</h3>
+<ul>
+<li>java.util.concurrent.ExecutorService#execute(java.lang.Runnable)</li>
+<li>java.util.concurrent.ExecutorService#submit(java.util.concurrent.Callable)</li>
+</ul>
+<h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
+<p>&#x9065;&#x63A7;&#x5668;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x7535;&#x89C6;&#x5F00;&#x3001;&#x5173;&#x3001;&#x58F0;&#x97F3;&#x52A0;&#x51CF;&#x3001;&#x9891;&#x9053;&#x53D8;&#x6362;  </p>
+<pre><code class="lang-java"><span class="hljs-meta">@FunctionalInterface</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Command</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+    <span class="hljs-function">T <span class="hljs-title">execute</span><span class="hljs-params">()</span></span>;
+}
+<span class="hljs-meta">@Getter</span>
+<span class="hljs-meta">@Setter</span>(AccessLevel.PROTECTED)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Television</span> </span>{
+    <span class="hljs-comment">/**
+     * &#x7535;&#x89C6;&#x540D;&#x79F0;
+     */</span>
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-comment">/**
+     * &#x5F53;&#x524D;&#x6240;&#x5728;&#x9891;&#x9053;
+     */</span>
+    <span class="hljs-keyword">private</span> Integer channel;
+    <span class="hljs-comment">/**
+     * &#x5F53;&#x524D;&#x97F3;&#x91CF;
+     */</span>
+    <span class="hljs-keyword">private</span> Integer volume;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Television</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">this</span>(<span class="hljs-string">&quot;HaierTv&quot;</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Television</span><span class="hljs-params">(String name)</span></span>{
+        <span class="hljs-keyword">this</span>(name, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Television</span><span class="hljs-params">(String name, Integer channel, Integer volume)</span></span>{
+        <span class="hljs-keyword">this</span>.name = name;
+        <span class="hljs-keyword">this</span>.channel = channel;
+        <span class="hljs-keyword">this</span>.volume = volume;
+    }
+
+    <span class="hljs-comment">/**
+     * &#x7535;&#x89C6;&#x673A;&#x6267;&#x884C;&#x9065;&#x63A7;&#x5668;&#x547D;&#x4EE4;
+     * <span class="hljs-doctag">@param</span> command &#x5177;&#x4F53;&#x547D;&#x4EE4;
+     * <span class="hljs-doctag">@param</span> &lt;T&gt; &#x547D;&#x4EE4;&#x8FD4;&#x56DE;&#x503C;
+     * <span class="hljs-doctag">@return</span> &#x547D;&#x4EE4;&#x6267;&#x884C;&#x7ED3;&#x679C;
+     */</span>
+    <span class="hljs-keyword">public</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">execute</span><span class="hljs-params">(Command&lt;T&gt; command)</span></span>{
+        <span class="hljs-keyword">return</span> command.execute();
+    }
+}
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RemoteControl</span> </span>{
+    <span class="hljs-keyword">private</span> Television television;
+    <span class="hljs-meta">@Setter</span>
+    <span class="hljs-keyword">private</span> Command&lt;String&gt; turnOn = () -&gt; <span class="hljs-keyword">this</span>.television.getName() + <span class="hljs-string">&quot; on!&quot;</span>;
+    <span class="hljs-meta">@Setter</span>
+    <span class="hljs-keyword">private</span> Command&lt;String&gt; turnOff = () -&gt; <span class="hljs-keyword">this</span>.television.getName() + <span class="hljs-string">&quot; off!&quot;</span>;
+    <span class="hljs-meta">@Setter</span>
+    <span class="hljs-keyword">private</span> Command&lt;Integer&gt; volumeUp = () -&gt; {
+        <span class="hljs-keyword">int</span> currentVolume = <span class="hljs-keyword">this</span>.television.getVolume();
+        <span class="hljs-keyword">this</span>.television.setVolume(++currentVolume);
+        <span class="hljs-keyword">return</span> currentVolume &lt;= <span class="hljs-number">100</span> ? currentVolume : <span class="hljs-number">100</span>;
+    };
+    <span class="hljs-meta">@Setter</span>
+    <span class="hljs-keyword">private</span> Command&lt;Integer&gt; volumeDown = () -&gt; {
+        <span class="hljs-keyword">int</span> currentVolume = <span class="hljs-keyword">this</span>.television.getVolume();
+        <span class="hljs-keyword">this</span>.television.setVolume(--currentVolume);
+        <span class="hljs-keyword">return</span> currentVolume &gt;= <span class="hljs-number">0</span> ? currentVolume : <span class="hljs-number">0</span>;
+    };
+    <span class="hljs-meta">@Setter</span>
+    <span class="hljs-keyword">private</span> Command&lt;Integer&gt; channelUp = () -&gt; {
+        <span class="hljs-keyword">int</span> currentChannel = <span class="hljs-keyword">this</span>.television.getChannel();
+        <span class="hljs-keyword">this</span>.television.setChannel(++currentChannel);
+        <span class="hljs-keyword">return</span> currentChannel &lt;= <span class="hljs-number">200</span> ? currentChannel : <span class="hljs-number">200</span>;
+    };
+    <span class="hljs-meta">@Setter</span>
+    <span class="hljs-keyword">private</span> Command&lt;Integer&gt; channelDown = () -&gt; {
+        <span class="hljs-keyword">int</span> currentChannel = <span class="hljs-keyword">this</span>.television.getChannel();
+        <span class="hljs-keyword">this</span>.television.setChannel(--currentChannel);
+        <span class="hljs-keyword">return</span> currentChannel &gt; <span class="hljs-number">0</span> ? currentChannel : <span class="hljs-number">1</span>;
+    };
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">RemoteControl</span><span class="hljs-params">(Television television)</span> </span>{
+        <span class="hljs-keyword">this</span>.television = television;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">turnOn</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.television.execute(turnOn);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">turnOff</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.television.execute(turnOff);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">volumeUp</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.television.execute(volumeUp);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">volumeDown</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.television.execute(volumeDown);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">channelUp</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.television.execute(channelUp);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">channelDown</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.television.execute(channelDown);
+    }
+}
+</code></pre>
+<h3 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h3>
+<pre><code class="lang-groovy"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CommandSpec</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Specification</span> {</span>
+    <span class="hljs-keyword">def</span> control() {
+<span class="hljs-symbol">        given:</span>
+        <span class="hljs-keyword">def</span> tv = <span class="hljs-keyword">new</span> Television(<span class="hljs-string">&quot;&#x4F73;&#x80FD;&#x7535;&#x89C6;&quot;</span>)
+        <span class="hljs-keyword">def</span> control = <span class="hljs-keyword">new</span> RemoteControl(tv)
+<span class="hljs-symbol">
+        when:</span>
+        <span class="hljs-keyword">def</span> on = control.turnOn()
+<span class="hljs-symbol">        then:</span>
+        on == tv.getName() + <span class="hljs-string">&quot; on!&quot;</span>
+<span class="hljs-symbol">
+        when:</span>
+        <span class="hljs-keyword">def</span> volumeUp = control.volumeUp()
+<span class="hljs-symbol">        then:</span>
+        volumeUp == tv.getVolume()
+<span class="hljs-symbol">
+        when:</span>
+        <span class="hljs-keyword">def</span> volumeDown = control.volumeDown()
+<span class="hljs-symbol">        then:</span>
+        volumeDown == tv.getVolume()
+<span class="hljs-symbol">
+        when:</span>
+        <span class="hljs-keyword">def</span> channelUp = control.channelUp()
+<span class="hljs-symbol">        then:</span>
+        channelUp == tv.getChannel()
+<span class="hljs-symbol">
+        when:</span>
+        <span class="hljs-keyword">def</span> channelDown = control.channelDown()
+<span class="hljs-symbol">        then:</span>
+        channelDown == tv.getChannel()
+<span class="hljs-symbol">
+        when:</span>
+        <span class="hljs-keyword">def</span> off = control.turnOff()
+<span class="hljs-symbol">        then:</span>
+        off == tv.getName() + <span class="hljs-string">&quot; off!&quot;</span>
+    }
+
+    <span class="hljs-keyword">def</span> command(){
+<span class="hljs-symbol">        given:</span>
+        <span class="hljs-keyword">def</span> tv = <span class="hljs-keyword">new</span> Television()
+        <span class="hljs-keyword">def</span> control = <span class="hljs-keyword">new</span> RemoteControl(tv)
+        <span class="hljs-keyword">def</span> onMsg = <span class="hljs-string">&quot;&#x91D1;&#x5149;&#x95EA;&#x95EA;&#x7684;&#x6253;&#x5F00;!&quot;</span>
+        <span class="hljs-keyword">def</span> offMsg = <span class="hljs-string">&quot;&#x725B;&#x903C;&#x54C4;&#x54C4;&#x7684;&#x5173;&#x6389;!&quot;</span>
+        control.setTurnOn({
+            <span class="hljs-keyword">return</span> tv.getName() + onMsg
+        })
+        control.setTurnOff({
+            <span class="hljs-keyword">return</span> tv.getName() + offMsg
+        })
+<span class="hljs-symbol">
+        when:</span>
+        <span class="hljs-keyword">def</span> on = control.turnOn()
+<span class="hljs-symbol">        then:</span>
+        on == tv.getName() + onMsg
+<span class="hljs-symbol">
+        when:</span>
+        <span class="hljs-keyword">def</span> off = control.turnOff()
+<span class="hljs-symbol">        then:</span>
+        off == tv.getName() + offMsg
+    }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chain_of_responsibility.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 4.1、责任链模式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"4.2、命令模式","level":"1.5.2","depth":2,"previous":{"title":"4.1、责任链模式","level":"1.5.1","depth":2,"path":"content/behavioural/chain_of_responsibility.md","ref":"content/behavioural/chain_of_responsibility.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","-search","-lunr","search-plus","back-to-top-button","collapsible-chapters","sharing","github","livereload"],"styles":{"website":"css/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/PasseRR"},"livereload":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"collapsible-chapters":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"mobi":{"fontSize":12,"footerTemplate":null,"headerTemplate":null,"margin":{"bottom":36,"left":62,"right":62,"top":36},"pageNumbers":false,"paperSize":"a4"},"theme":"default","author":"passerr","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"设计模式","language":"zh-hans","gitbook":"*","description":"设计模式示例"},"file":{"path":"content/behavioural/command.md","mtime":"2017-09-22T03:30:52.018Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-22T03:31:04.650Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-chapters/collapsible-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
