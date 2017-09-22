@@ -21,3 +21,4 @@
   * [4.4、迭代器模式](content/behavioural/iterator.md)
   * [4.5、中介者模式](content/behavioural/mediator.md)
   * [4.6、备忘录模式](content/behavioural/memento.md)
+  * [4.7、观察者模式](content/behavioural/observer.md)
