@@ -23,3 +23,4 @@
   * [3.7、观察者模式](content/behavioural/observer.md)
   * [3.8、状态模式](content/behavioural/state.md)
   * [3.9、策略模式](content/behavioural/strategy.md)
+  * [3.10、模版方法](content/behavioural/template_method.md)
