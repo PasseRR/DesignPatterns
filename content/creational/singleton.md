@@ -12,7 +12,7 @@ permalink: singleton.html
 - java.lang.System#getSecurityManager()
 
 ### 代码实现
-1. 懒汉式  
+#### 懒汉式  
 实例在第一次使用的时候初始化
 ```java
 public class LazySingleton {
@@ -30,7 +30,7 @@ public class LazySingleton {
     }
 }
 ```
-2. 双重锁实现  
+#### 双重锁实现  
 懒汉式在多线程情况下会失效 由此进化而来
 ```java
 public class DoubleLockSingleton {
@@ -52,7 +52,7 @@ public class DoubleLockSingleton {
     }
 }
 ```
-3. 饿汉式  
+#### 饿汉式  
 实例在类加载的时候初始化
 ```java
 public class HungrySingleton {
@@ -69,7 +69,7 @@ public class HungrySingleton {
     }
 }
 ```
-4. 枚举实现  
+#### 枚举实现  
 目前最为安全的实现单例的方法是通过内部静态enum的方法来实现，因为JVM会保证enum不能被反射并且构造器方法只执行一次
 ```java
 public enum EnumSingleton {
