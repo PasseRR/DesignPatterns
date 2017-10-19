@@ -24,7 +24,6 @@ permalink: index.html
 6. 合成复用原则（Composite Reuse Principle）  
 > 原则是尽量使用合成/聚合的方式，而不是使用继承。
 
-  
 ## 其他
 - 源代码见[Github](https://github.com/PasseRR/DesignPatterns)
 - gitbook源代码见[Github](https://github.com/PasseRR/DesignPatterns/tree/gh-pages)
