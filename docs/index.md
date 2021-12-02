@@ -25,7 +25,7 @@ title: 设计模式简介
 
 ## 其他
 - [示例源码](https://github.com/PasseRR/DesignPatterns)
-- [电子书源码](https://github.com/PasseRR/DesignPatterns/tree/gh-pages)
+- [电子书源码](https://github.com/PasseRR/DesignPatterns/tree/master/docs)
 - Java使用了[Lombok](http://www.projectlombok.org/)生成getter、setter等
 - 单元测试使用的[Spock](http://spockframework.org/)
 - 关于[Groovy](http://www.groovy-lang.org/)
