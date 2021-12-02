@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 简介
+title: 设计模式简介
 ---
 
 ## 什么是设计模式?
