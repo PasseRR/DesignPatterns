@@ -21,7 +21,7 @@ tipue_search:
   include:
     pages: true
   exclude:
-    files: [ /DesignPatterns/search.html, /DesignPatterns/404.html ]
+    files: [ 404.md, search.md ]
 
 # markdown render engine.
 markdown: kramdown
