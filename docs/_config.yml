@@ -56,3 +56,4 @@ remote_theme: PasseRR/jekyll-gitbook-theme
 
 plugins:
   - jekyll-remote-theme
+  - jekyll-sitemap
