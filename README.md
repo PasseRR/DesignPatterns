@@ -1,1 +1,1 @@
-# [design patterns](https://PasseRR.github.io/DesignPatterns)
+# [design patterns](https://www.xiehai.win/DesignPatterns)
