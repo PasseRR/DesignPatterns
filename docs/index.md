@@ -1,5 +1,6 @@
 ---
 layout: post
+last_modified_at: 2022-01-06
 title: 设计模式简介
 ---
 
