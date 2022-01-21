@@ -2,7 +2,6 @@
 layout: post
 title: 设计模式简介
 last_modified_at: 2022-01-06
-last_modified_at: 2022-01-06
 ---
 
 ## 什么是设计模式?
