@@ -4,6 +4,7 @@ author: PasseRR
 version: 1.0
 gitbook_version: 3.2.3
 
+nav: on
 baseurl: '/DesignPatterns'
 # 主题cdn地址
 cdn-url: 'https://cdn.jsdelivr.net/gh/PasseRR/jekyll-gitbook-theme'
