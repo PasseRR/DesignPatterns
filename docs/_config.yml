@@ -7,9 +7,9 @@ gitbook_version: 3.2.3
 nav: on
 baseurl: '/DesignPatterns'
 # 主题cdn地址
-theme-cdn: 'https://fastly.jsdelivr.net/gh/PasseRR/jekyll-gitbook-theme'
+#theme-cdn: 'https://fastly.jsdelivr.net/gh/PasseRR/jekyll-gitbook-theme'
 #theme-cdn: '/DesignPatterns'
-cdn: 'https://fastly.jsdelivr.net/gh/PasseRR/DesignPatterns/docs'
+#cdn: 'https://fastly.jsdelivr.net/gh/PasseRR/DesignPatterns/docs'
 #cdn: '/DesignPatterns'
 rss: RSS
 # 文章目录
