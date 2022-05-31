@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/DesignPatterns/:match*",
+      "destination": "/:match*"
+    }
+  ]
+}
