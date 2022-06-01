@@ -4,5 +4,8 @@
       "source": "/DesignPatterns/:match*",
       "destination": "/:match*"
     }
-  ]
+  ],
+  "github": {
+    "silent": true
+  }
 }
