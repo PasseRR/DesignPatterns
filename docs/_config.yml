@@ -60,3 +60,4 @@ url: "https://www.xiehai.zone"
 plugins:
   - jekyll-remote-theme
   - jekyll-sitemap
+  - jekyll-relative-links
