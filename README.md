@@ -1,1 +1,1 @@
-# [design patterns](https://www.xiehai.win/DesignPatterns)
+# [design patterns](https://www.xiehai.zone/DesignPatterns)
