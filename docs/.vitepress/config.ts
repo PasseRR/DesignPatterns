@@ -66,7 +66,7 @@ export default defineConfig({
             text: '最后更新'
         },
         editLink: {
-            pattern: 'https://github.com/PasseRR/DesignPatterns/edit/main/docs/:path',
+            pattern: 'https://github.com/PasseRR/DesignPatterns/edit/master/docs/:path',
             text: 'Edit this page on GitHub'
         },
         logo: '/logo.jpg',
