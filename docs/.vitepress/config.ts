@@ -78,6 +78,10 @@ export default defineConfig({
         returnToTopLabel: '回到顶部'
     },
     markdown: {
-        lineNumbers: true
+        lineNumbers: true,
+        theme: {
+            light: 'github-light',
+            dark: 'github-dark'
+        }
     }
 });
