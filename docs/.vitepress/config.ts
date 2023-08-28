@@ -71,11 +71,12 @@ export default defineConfig({
         },
         logo: '/logo.jpg',
         outline: {
-            level: [2, 6],
+            level: "deep",
             label: '目录'
         },
         langMenuLabel: '菜单',
-        returnToTopLabel: '回到顶部'
+        returnToTopLabel: '回到顶部',
+        externalLinkIcon: true
     },
     markdown: {
         lineNumbers: true,
