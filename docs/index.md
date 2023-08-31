@@ -8,7 +8,7 @@
 
 ## 设计模式之间的关系
 
-![设计模式图片描述](public/design_patterns.jpg)
+![设计模式图片描述](/design_patterns.jpg)
 
 ## 设计模式的六大原则
 
