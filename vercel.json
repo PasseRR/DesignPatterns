@@ -5,7 +5,6 @@
       "destination": "/:match*"
     }
   ],
-  "trailingSlash": true,
   "github": {
     "silent": true
   }
