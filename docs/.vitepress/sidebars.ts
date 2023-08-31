@@ -1,4 +1,4 @@
-export default function sidebars() {
+function sidebars() {
     return [{
         text: '创建型模式',
         collapsed: false,
@@ -44,4 +44,12 @@ export default function sidebars() {
             {text: '代理模式', link: '/proxy'},
         ]
     }];
-};
+}
+
+function navs(){
+    return {
+        "/creational": {
+            
+        }
+    };
+}
